@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.models.log import LogEntry
+from app.models.log import Catch
 
 router = APIRouter()
 
@@ -11,7 +11,7 @@ def get_logs():
     return log_db
 
 @router.post("/")
-def create_log(entry: LogEntry):
+def create_log(entry: Catch):
     new_id = len(log_db) + 1
     entry_with_id = entry.copy(update={"id": new_id})
     log_db.append(entry_with_id)
