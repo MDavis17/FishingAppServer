@@ -1,17 +1,23 @@
-# app/models/log.py
 from pydantic import BaseModel
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
-class CatchLocation(BaseModel):
+class Location(BaseModel):
     latitude: float
     longitude: float
-    latitudeDelta: float
-    longitudeDelta: float
 
-class LogEntry(BaseModel):
+class Catch(BaseModel):
     id: Optional[int] = None
     dateTime: datetime
     species: str
+    weight: Optional[float]
+    length: Optional[float]
     waterType: str
-    location: CatchLocation
+    location: Optional[Location] = None
+
+class Trip(BaseModel):
+    id: Optional[int] = None
+    date: datetime
+    waterType: str
+    location: Location
+    catchList: List[Catch]
