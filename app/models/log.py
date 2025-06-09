@@ -2,9 +2,13 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional, List
 
-class Location(BaseModel):
+class LatLong(BaseModel):
     latitude: float
     longitude: float
+
+class Location(BaseModel):
+    coordinates: LatLong
+    name: str
 
 class Catch(BaseModel):
     id: Optional[int] = None
@@ -21,3 +25,4 @@ class Trip(BaseModel):
     waterType: str
     location: Location
     catchList: List[Catch]
+    catchSummary: Optional[str] = None
