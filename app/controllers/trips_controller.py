@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from app.models.log import Trip
+from app.services.trips_service import get_catch_summary
 
 router = APIRouter()
 
@@ -13,9 +14,10 @@ def get_trip():
 @router.post("/")
 def create_trip(trip: Trip):
     new_id = len(log_db) + 1
-    trip_with_id = trip.copy(update={"id": new_id})
-    log_db.append(trip_with_id)
-    return {"message": "Trip added", "trip": trip_with_id}
+    catch_summary = get_catch_summary(trip)
+    new_trip = trip.copy(update={"id": new_id, "catchSummary": catch_summary})    
+    log_db.append(new_trip)
+    return {"message": "Trip added", "trip": new_trip}
 
 @router.delete("/{trip_id}")
 def delete_trip(trip_id: int):
