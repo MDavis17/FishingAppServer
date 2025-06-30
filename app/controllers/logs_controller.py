@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from fastapi import HTTPException
 from app.models.log import Catch
 
 router = APIRouter()
@@ -9,6 +10,14 @@ log_db = []
 @router.get("/")
 def get_logs():
     return log_db
+
+@router.get("/trip/{trip_id}")
+def get_logs_for_trip(trip_id: int):
+    for i, entry in enumerate(log_db):
+        if entry.tripId == trip_id:
+            return entry
+    raise HTTPException(status_code=404, detail="Trip not found")
+
 
 @router.post("/")
 def create_log(entry: Catch):
