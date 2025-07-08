@@ -4,10 +4,11 @@ from app.models.log import Trip
 def getTrips():
     return trips_db
 
-def get_catch_list(trip_id):
+def get_catch_list(trip_id: int):
     catch_list = []
     for catch in catches_db:
-        catches_list.append(catch)
+        if catch.trip_id == trip_id:
+            catch_list.append(catch)
     return catch_list
 
 def create_trip(trip):
