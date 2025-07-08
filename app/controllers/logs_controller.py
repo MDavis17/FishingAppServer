@@ -11,14 +11,6 @@ log_db = []
 def get_logs():
     return log_db
 
-@router.get("/trip/{trip_id}")
-def get_logs_for_trip(trip_id: int):
-    for i, entry in enumerate(log_db):
-        if entry.tripId == trip_id:
-            return entry
-    raise HTTPException(status_code=404, detail="Trip not found")
-
-
 @router.post("/")
 def create_log(entry: Catch):
     new_id = len(log_db) + 1

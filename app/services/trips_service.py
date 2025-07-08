@@ -15,3 +15,10 @@ def get_catch_summary(trip: Trip):
 
 def get_catch_list(trip_id):
     return data_provider.get_catch_list(trip_id)
+
+def create_trip(trip: Trip):
+    new_trip = data_provider.create_trip(trip)
+    return new_trip
+
+def delete_trip(trip_id: int):
+    return data_provider.delete_trip(trip_id)
