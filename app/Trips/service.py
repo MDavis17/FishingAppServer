@@ -1,6 +1,6 @@
 from collections import Counter
 from app.models.log import Trip
-import app.data_providers.trips_data_provider as data_provider
+import app.Trips.data_provider as data_provider
 
 def get_trips():
     return data_provider.getTrips()

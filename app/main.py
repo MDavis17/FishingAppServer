@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 # from app.controllers import root_controller
 from app.controllers import logs_controller
-from app.controllers import trips_controller
+import app.Trips.controller as trips_controller
 
 
 app = FastAPI()
