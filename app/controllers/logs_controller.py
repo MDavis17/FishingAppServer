@@ -1,5 +1,4 @@
 from fastapi import APIRouter
-from fastapi import HTTPException
 from app.models.log import Catch
 
 router = APIRouter()

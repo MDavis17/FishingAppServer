@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.models.log import Trip
-import  app.services.trips_service as service
+import app.services.trips_service as service
 
 router = APIRouter()
 

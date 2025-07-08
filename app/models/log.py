@@ -12,7 +12,6 @@ class Location(BaseModel):
 
 class Catch(BaseModel):
     id: Optional[int] = None
-    tripId: int
     dateTime: datetime
     species: str
     weight: Optional[float]
