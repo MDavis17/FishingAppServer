@@ -1,29 +1,21 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 from app.models.log import Trip
-from app.services.trips_service import get_catch_summary
+import app.services.trips_service as service
 
 router = APIRouter()
 
-# In-memory DB for now
-log_db = []
-
 @router.get("/")
-def get_trip():
-    return log_db
+def get_trips():
+    return service.get_trips()
 
 @router.post("/")
 def create_trip(trip: Trip):
-    new_id = len(log_db) + 1
-    catch_summary = get_catch_summary(trip)
-    new_trip = trip.copy(update={"id": new_id, "catchSummary": catch_summary})    
-    log_db.append(new_trip)
+    new_trip = service.create_trip(trip)
     return {"message": "Trip added", "trip": new_trip}
 
 @router.delete("/{trip_id}")
 def delete_trip(trip_id: int):
-    global log_db
-    for i, trip in enumerate(log_db):
-        if trip.id == trip_id:
-            del log_db[i]
-            return {"message": f"Trip {trip_id} deleted"}
-    raise HTTPException(status_code=404, detail="Trip not found")
+    status = service.delete_trip(trip_id)
+    if not status:
+        raise HTTPException(status_code=404, detail="Trip not found")
+    return {"message": f"Trip {trip_id} deleted"}
