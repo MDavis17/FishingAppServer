@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
-from app.models.log import Trip
+from app.models.log import Trip, Catch
 import app.Trips.service as service
+from typing import List
 
 router = APIRouter()
 
@@ -19,3 +20,10 @@ def delete_trip(trip_id: int):
     if not status:
         raise HTTPException(status_code=404, detail="Trip not found")
     return {"message": f"Trip {trip_id} deleted"}
+
+@router.put("/{trip_id}/catchList")
+def update_catch_list(trip_id: int, catch_list: List[Catch]):
+    response = service.update_catch_list(trip_id, catch_list)
+    if not response:
+        raise HTTPException(status_code=404, detail="Trip not found")
+    return {"message": "Catch list updated", "catchList": response}
