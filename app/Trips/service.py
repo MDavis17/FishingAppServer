@@ -14,7 +14,7 @@ def get_catch_summary(trip: Trip):
     ]
     return ", ".join(formatted_species)
 
-def get_catch_list(trip_id):
+def get_catch_list(trip_id: int):
     return data_provider.get_catch_list(trip_id)
 
 def create_trip(trip: Trip):
