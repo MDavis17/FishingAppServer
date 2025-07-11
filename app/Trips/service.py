@@ -9,10 +9,11 @@ def get_trips():
     for trip in trips:
         catch_list = data_provider.get_catch_list(trip.id)
         catch_summary = get_catch_summary(catch_list)
-        print(catch_list)
-        print(catch_summary)
         trip_with_catches = trip.dict()
+        trip_with_catches["catchList"] = catch_list
+        trip_with_catches["catchSummary"] = catch_summary
         trips_with_catches.append(trip_with_catches)
+        print(trip_with_catches)
     return trips_with_catches
 
 def get_catch_summary(catchList: List[Catch]) -> str:
