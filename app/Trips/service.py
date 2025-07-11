@@ -4,10 +4,19 @@ import app.Trips.data_provider as data_provider
 from typing import List
 
 def get_trips():
-    return data_provider.getTrips()
+    trips = data_provider.get_trips()
+    trips_with_catches = []
+    for trip in trips:
+        catch_list = data_provider.get_catch_list(trip.id)
+        catch_summary = get_catch_summary(catch_list)
+        print(catch_list)
+        print(catch_summary)
+        trip_with_catches = trip.dict()
+        trips_with_catches.append(trip_with_catches)
+    return trips_with_catches
 
-def get_catch_summary(trip: Trip):
-    species_counts = Counter(catch.species for catch in trip.catchList)
+def get_catch_summary(catchList: List[Catch]) -> str:
+    species_counts = Counter(catch.species for catch in catchList)
     formatted_species = [
         f"{species}" if count == 1 else f"{species} ({count})"
         for species, count in species_counts.items()
@@ -23,6 +32,9 @@ def create_trip(trip: Trip):
 
 def delete_trip(trip_id: int):
     return data_provider.delete_trip(trip_id)
+
+def add_catch(trip_id: int, catch: Catch):
+    return data_provider.add_catch(trip_id, catch)
 
 def update_catch_list(trip_id: int, catch_list):
     trip = data_provider.get_trip_by_id(trip_id)

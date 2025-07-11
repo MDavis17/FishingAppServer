@@ -1,7 +1,7 @@
 from app.mock_database.mock_db import trips_db, catches_db
 from app.models.log import Trip
 
-def getTrips():
+def get_trips():
     return trips_db
 
 def get_catch_list(trip_id: int):
@@ -37,3 +37,9 @@ def update_trip(trip_to_update: Trip):
             trip = trip_to_update
             return trip
     return None
+
+def add_catch(trip_id: int, catch):
+    new_id = len(catches_db) + 1
+    catch_with_id = catch.copy(update={"id": new_id, "trip_id": trip_id})
+    catches_db.append(catch_with_id)
+    return catch_with_id

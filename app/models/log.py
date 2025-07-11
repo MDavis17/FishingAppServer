@@ -12,10 +12,9 @@ class Location(BaseModel):
 
 class Catch(BaseModel):
     id: Optional[int] = None
+    trip_id: Optional[int] = None
     dateTime: datetime
     species: str
-    weight: Optional[float]
-    length: Optional[float]
     waterType: str
     location: Optional[Location] = None
 
@@ -24,5 +23,3 @@ class Trip(BaseModel):
     date: datetime
     waterType: str
     location: Location
-    catchList: List[Catch]
-    catchSummary: Optional[str] = None
