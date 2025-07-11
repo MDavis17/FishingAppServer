@@ -25,6 +25,11 @@ def delete_trip(trip_id: int):
             return True
     return False
 
+def delete_catches_for_trip(trip_id: int):
+    global catches_db
+    catches_db = [catch for catch in catches_db if catch.trip_id != trip_id]
+    return True
+
 def get_trip_by_id(trip_id: int):
     for trip in trips_db:
         if trip.id == trip_id:
