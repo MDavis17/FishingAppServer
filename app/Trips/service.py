@@ -31,6 +31,7 @@ def create_trip(trip: Trip):
     return new_trip
 
 def delete_trip(trip_id: int):
+    data_provider.delete_catches_for_trip(trip_id)
     return data_provider.delete_trip(trip_id)
 
 def add_catch(trip_id: int, catch: Catch):
