@@ -13,7 +13,6 @@ def get_trips():
         trip_with_catches["catchList"] = catch_list
         trip_with_catches["catchSummary"] = catch_summary
         trips_with_catches.append(trip_with_catches)
-        print(trip_with_catches)
     return trips_with_catches
 
 def get_catch_summary(catchList: List[Catch]) -> str:
