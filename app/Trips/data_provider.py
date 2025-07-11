@@ -39,10 +39,7 @@ def update_trip(trip_to_update: Trip):
     return None
 
 def add_catch(trip_id: int, catch):
-    print("Adding catch to trip ID:", trip_id)
     new_id = len(catches_db) + 1
     catch_with_id = catch.copy(update={"id": new_id, "trip_id": trip_id})
     catches_db.append(catch_with_id)
-    print("Catch added:", catch_with_id)
-    print("Current catches DB:", catches_db)
     return catch_with_id

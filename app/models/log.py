@@ -23,5 +23,3 @@ class Trip(BaseModel):
     date: datetime
     waterType: str
     location: Location
-    # catchList: List[Catch]
-    # catchSummary: Optional[str] = None

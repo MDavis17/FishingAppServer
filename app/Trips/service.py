@@ -4,7 +4,6 @@ import app.Trips.data_provider as data_provider
 from typing import List
 
 def get_trips():
-    print("Fetching trips...")
     trips = data_provider.get_trips()
     trips_with_catches = []
     for trip in trips:
@@ -13,8 +12,6 @@ def get_trips():
         print(catch_list)
         print(catch_summary)
         trip_with_catches = trip.dict()
-        trip_with_catches["catchList"] = catch_list
-        trip_with_catches["catchSummary"] = catch_summary
         trips_with_catches.append(trip_with_catches)
     return trips_with_catches
 
