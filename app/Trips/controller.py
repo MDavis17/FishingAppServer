@@ -30,10 +30,11 @@ def update_catch_list(trip_id: int, catch_list: List[Catch]):
 
 @router.post("/{trip_id}/addCatch")
 def add_catch(trip_id: int, catch: Catch):
+    print()
     response = service.add_catch(trip_id, catch)
     if not response:
         raise HTTPException(status_code=404, detail="Trip not found")
-    return {"message": "Catch added", "catch": response}
+    return response
 
 @router.get("/{trip_id}/catchList")
 def get_catch_list(trip_id: int):
