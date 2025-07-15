@@ -16,6 +16,7 @@ class Catch(BaseModel):
     dateTime: datetime
     species: str
     waterType: str
+    bait: Optional[str] = None
     location: Optional[Location] = None
 
 class Trip(BaseModel):
