@@ -21,6 +21,14 @@ def delete_trip(trip_id: int):
         raise HTTPException(status_code=404, detail="Trip not found")
     return {"message": f"Trip {trip_id} deleted"}
 
+@router.put("/{trip_id}")
+def update_trip(trip_id: int, trip: Trip):
+    try:
+        updated_trip = service.update_trip(trip_id, trip)
+        return {"message": f"Trip {trip_id} updated", "trip": updated_trip}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
 @router.put("/{trip_id}/catchList")
 def update_catch_list(trip_id: int, catch_list: List[Catch]):
     response = service.update_catch_list(trip_id, catch_list)
@@ -48,3 +56,4 @@ def get_upcoming_trip():
     if response is None or response == []:
         return None
     return response
+

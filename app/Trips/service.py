@@ -49,6 +49,20 @@ def delete_trip(trip_id: int):
 def add_catch(trip_id: int, catch: Catch):
     return data_provider.add_catch(trip_id, catch)
 
+def update_trip(trip_id: int, trip: Trip):
+    if trip.id != trip_id:
+        raise ValueError("Trip ID in path does not match trip ID in body")
+    
+    existing_trip = data_provider.get_trip_by_id(trip_id)
+    if not existing_trip:
+        raise ValueError("Trip not found")
+    
+    updated_trip = data_provider.update_trip(trip)
+    if not updated_trip:
+        raise ValueError("Failed to update trip")
+    
+    return updated_trip
+
 def update_catch_list(trip_id: int, catch_list):
     trip = data_provider.get_trip_by_id(trip_id)
     if not trip:
