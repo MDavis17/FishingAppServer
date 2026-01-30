@@ -23,3 +23,4 @@ class Trip(BaseModel):
     date: datetime
     waterType: str
     location: Location
+    status: str
