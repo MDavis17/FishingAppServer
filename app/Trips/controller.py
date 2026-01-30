@@ -41,3 +41,10 @@ def get_catch_list(trip_id: int):
     if response is None:
         raise HTTPException(status_code=404, detail="Catch list not found")
     return response
+
+@router.get("/upcomingTrip")
+def get_upcoming_trip():
+    response = service.get_upcoming_trip()
+    if response is None or response == []:
+        return None
+    return response

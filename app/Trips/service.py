@@ -15,6 +15,18 @@ def get_trips():
         trips_with_catches.append(trip_with_catches)
     return trips_with_catches
 
+def get_upcoming_trip():
+    upcoming_trip = data_provider.get_upcoming_trip()
+    if not upcoming_trip:
+        return None
+    
+    catch_list = data_provider.get_catch_list(upcoming_trip.id)
+    catch_summary = get_catch_summary(catch_list)
+    upcoming_trip_with_catches = upcoming_trip.dict()
+    upcoming_trip_with_catches["catchList"] = catch_list
+    upcoming_trip_with_catches["catchSummary"] = catch_summary
+    return upcoming_trip_with_catches
+
 def get_catch_summary(catchList: List[Catch]) -> str:
     species_counts = Counter(catch.species for catch in catchList)
     formatted_species = [

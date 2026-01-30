@@ -4,6 +4,13 @@ from app.models.log import Trip
 def get_trips():
     return trips_db
 
+def get_upcoming_trip():
+    upcoming_trip = None
+    for trip in trips_db:
+        if trip.status == "Planned" and (upcoming_trip is None or trip.date < upcoming_trip.date):
+            upcoming_trip = trip
+    return upcoming_trip
+
 def get_catch_list(trip_id: int):
     catch_list = []
     for catch in catches_db:
