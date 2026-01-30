@@ -44,10 +44,10 @@ def get_trip_by_id(trip_id: int):
     return None
 
 def update_trip(trip_to_update: Trip):
-    for trip in trips_db:
+    for i, trip in enumerate(trips_db):
         if trip.id == trip_to_update.id:
-            trip = trip_to_update
-            return trip
+            trips_db[i] = trip_to_update
+            return trips_db[i]
     return None
 
 def add_catch(trip_id: int, catch):
