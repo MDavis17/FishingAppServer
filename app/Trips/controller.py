@@ -57,3 +57,10 @@ def get_upcoming_trip():
         return None
     return response
 
+@router.get("/mostRecentTrip")
+def get_most_recent_trip():
+    response = service.get_most_recent_trip()
+    if response is None or response == []:
+        return None
+    return response
+
