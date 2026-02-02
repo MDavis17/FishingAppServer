@@ -27,6 +27,18 @@ def get_upcoming_trip():
     upcoming_trip_with_catches["catchSummary"] = catch_summary
     return upcoming_trip_with_catches
 
+def get_most_recent_trip():
+    most_recent_trip = data_provider.get_most_recent_trip()
+    if not most_recent_trip:
+        return None
+    
+    catch_list = data_provider.get_catch_list(most_recent_trip.id)
+    catch_summary = get_catch_summary(catch_list)
+    most_recent_trip_with_catches = most_recent_trip.dict()
+    most_recent_trip_with_catches["catchList"] = catch_list
+    most_recent_trip_with_catches["catchSummary"] = catch_summary
+    return most_recent_trip_with_catches
+
 def get_catch_summary(catchList: List[Catch]) -> str:
     species_counts = Counter(catch.species for catch in catchList)
     formatted_species = [
