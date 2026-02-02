@@ -49,6 +49,16 @@ def delete_trip(trip_id: int):
 def add_catch(trip_id: int, catch: Catch):
     return data_provider.add_catch(trip_id, catch)
 
+def mark_trip_as_completed(trip_id: int):
+    existing_trip = data_provider.get_trip_by_id(trip_id)
+    if not existing_trip:
+        raise ValueError("Trip not found")
+    completed_existing_trip = existing_trip.copy(update={"status": "Completed"})
+    updated_trip = data_provider.update_trip(completed_existing_trip)
+    if not updated_trip:
+        raise ValueError("Failed to mark trip as complete")
+    return updated_trip
+
 def update_trip(trip_id: int, trip: Trip):
     if trip.id != trip_id:
         raise ValueError("Trip ID in path does not match trip ID in body")

@@ -21,11 +21,11 @@ def delete_trip(trip_id: int):
         raise HTTPException(status_code=404, detail="Trip not found")
     return {"message": f"Trip {trip_id} deleted"}
 
-@router.put("/{trip_id}")
-def update_trip(trip_id: int, trip: Trip):
+@router.put("/{trip_id}/markAsCompleted")
+def mark_trip_as_completed(trip_id: int):
     try:
-        updated_trip = service.update_trip(trip_id, trip)
-        return {"message": f"Trip {trip_id} updated", "trip": updated_trip}
+        updated_trip = service.mark_trip_as_completed(trip_id)
+        return {"message": f"Trip {trip_id} marked as completed", "trip": updated_trip}
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
