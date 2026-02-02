@@ -15,6 +15,18 @@ def get_trips():
         trips_with_catches.append(trip_with_catches)
     return trips_with_catches
 
+def get_upcoming_trip():
+    upcoming_trip = data_provider.get_upcoming_trip()
+    if not upcoming_trip:
+        return None
+    
+    catch_list = data_provider.get_catch_list(upcoming_trip.id)
+    catch_summary = get_catch_summary(catch_list)
+    upcoming_trip_with_catches = upcoming_trip.dict()
+    upcoming_trip_with_catches["catchList"] = catch_list
+    upcoming_trip_with_catches["catchSummary"] = catch_summary
+    return upcoming_trip_with_catches
+
 def get_catch_summary(catchList: List[Catch]) -> str:
     species_counts = Counter(catch.species for catch in catchList)
     formatted_species = [
@@ -36,6 +48,30 @@ def delete_trip(trip_id: int):
 
 def add_catch(trip_id: int, catch: Catch):
     return data_provider.add_catch(trip_id, catch)
+
+def mark_trip_as_completed(trip_id: int):
+    existing_trip = data_provider.get_trip_by_id(trip_id)
+    if not existing_trip:
+        raise ValueError("Trip not found")
+    completed_existing_trip = existing_trip.copy(update={"status": "Completed"})
+    updated_trip = data_provider.update_trip(completed_existing_trip)
+    if not updated_trip:
+        raise ValueError("Failed to mark trip as complete")
+    return updated_trip
+
+def update_trip(trip_id: int, trip: Trip):
+    if trip.id != trip_id:
+        raise ValueError("Trip ID in path does not match trip ID in body")
+    
+    existing_trip = data_provider.get_trip_by_id(trip_id)
+    if not existing_trip:
+        raise ValueError("Trip not found")
+    
+    updated_trip = data_provider.update_trip(trip)
+    if not updated_trip:
+        raise ValueError("Failed to update trip")
+    
+    return updated_trip
 
 def update_catch_list(trip_id: int, catch_list):
     trip = data_provider.get_trip_by_id(trip_id)

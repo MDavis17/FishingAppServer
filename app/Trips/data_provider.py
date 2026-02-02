@@ -4,6 +4,13 @@ from app.models.log import Trip
 def get_trips():
     return trips_db
 
+def get_upcoming_trip():
+    upcoming_trip = None
+    for trip in trips_db:
+        if trip.status == "Planned" and (upcoming_trip is None or trip.date < upcoming_trip.date):
+            upcoming_trip = trip
+    return upcoming_trip
+
 def get_catch_list(trip_id: int):
     catch_list = []
     for catch in catches_db:
@@ -37,10 +44,10 @@ def get_trip_by_id(trip_id: int):
     return None
 
 def update_trip(trip_to_update: Trip):
-    for trip in trips_db:
+    for i, trip in enumerate(trips_db):
         if trip.id == trip_to_update.id:
-            trip = trip_to_update
-            return trip
+            trips_db[i] = trip_to_update
+            return trips_db[i]
     return None
 
 def add_catch(trip_id: int, catch):
