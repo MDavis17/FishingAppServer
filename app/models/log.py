@@ -10,6 +10,13 @@ class Location(BaseModel):
     coordinates: LatLong
     name: str
 
+class Species(BaseModel):
+    id: int
+    name: str
+    waterType: str
+    region: str
+    image: str
+
 class Catch(BaseModel):
     id: Optional[int] = None
     trip_id: Optional[int] = None

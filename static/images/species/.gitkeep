@@ -1,0 +1,3 @@
+# Place species images here
+# Image files should be named to match the species (e.g., "largemouth-bass.jpg", "bluegill.png")
+# Then reference them in mock_db.py as: "/static/images/species/largemouth-bass.jpg"
