@@ -1,10 +1,14 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 # from app.controllers import root_controller
 import app.Catch.controller as catch_controller
 import app.Trips.controller as trips_controller
 
 
 app = FastAPI()
+
+# Mount static files directory for serving images
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Include your controller routes
 # app.include_router(root_controller.router)
