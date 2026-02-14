@@ -77,5 +77,4 @@ species_db = [
     {"id": 74, "name": "Winter Flounder", "waterType": "Saltwater", "region": "North America", "image": "http://localhost.com:8000/static/images/species/winter-flounder.png"},
     {"id": 75, "name": "Dover Sole", "waterType": "Saltwater", "region": "North America", "image": "http://localhost.com:8000/static/images/species/dover-sole.png"},
     {"id": 76, "name": "Petrale Sole", "waterType": "Saltwater", "region": "North America", "image": "http://localhost.com:8000/static/images/species/petrale-sole.png"},
-
 ]
