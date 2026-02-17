@@ -5,7 +5,9 @@ router = APIRouter()
 
 @router.get("/")
 def get_species():
-    return service.get_species()
+    all_species = service.get_species()
+    favorite_species = service.get_favorite_species()
+    return {"species": all_species, "favoriteSpecies": favorite_species}
 
 @router.put("/{species_id}/favorite")
 def toggle_species_favorite(species_id: int):

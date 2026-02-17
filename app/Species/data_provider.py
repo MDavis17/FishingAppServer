@@ -1,7 +1,12 @@
 from app.mock_database.mock_db import species_db
 
 def get_species():
-    return sorted(species_db, key=lambda s: s["name"].lower())
+    non_favorites = [s for s in species_db if not s.get("isFavorite")]
+    return sorted(non_favorites, key=lambda s: s["name"].lower())
+
+def get_favorite_species():
+    favorites = [s for s in species_db if s.get("isFavorite")]
+    return sorted(favorites, key=lambda s: s["name"].lower())
 
 def toggle_species_favorite(species_id: int):
     for species in species_db:
