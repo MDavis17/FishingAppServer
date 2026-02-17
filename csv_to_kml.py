@@ -32,13 +32,21 @@ def csv_to_kml(input_csv, output_kml, min_probability=None):
 
         reader = csv.DictReader(csvfile)
 
+        skipped = 0
+
         for row in reader:
             try:
                 lat = float(row["Center Lat"])
                 lon = float(row["Center Long"])
-                probability = float(row["Overall Probability"])
             except (ValueError, KeyError, TypeError):
+                skipped += 1
                 continue
+
+            # Probability is optional -- default to 0 if missing or unparseable
+            try:
+                probability = float(row.get("Overall Probability", 0))
+            except (ValueError, TypeError):
+                probability = 0.0
 
             # Optional probability filter
             if min_probability is not None:
@@ -47,8 +55,11 @@ def csv_to_kml(input_csv, output_kml, min_probability=None):
 
             placemark = SubElement(document, "Placemark")
 
+            genus = row.get("Genus", "Unknown")
+            species = row.get("Species", "Unknown")
+
             name = SubElement(placemark, "name")
-            name.text = f"{row['Genus']} {row['Species']} ({probability:.2f})"
+            name.text = f"{genus} {species} ({probability:.2f})"
 
             description = SubElement(placemark, "description")
             description.text = f"Probability: {probability}"
@@ -62,6 +73,8 @@ def csv_to_kml(input_csv, output_kml, min_probability=None):
     ElementTree(kml).write(output_kml, encoding="utf-8", xml_declaration=True)
 
     print(f"Created {count} placemarks")
+    if skipped:
+        print(f"Skipped {skipped} rows with missing/invalid coordinates")
     print(f"KML saved to: {output_kml}")
 
 
