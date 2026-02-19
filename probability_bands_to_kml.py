@@ -5,13 +5,22 @@ and write a KML with 3 colored polygon bands:
   Band 1: 0.00–0.33 (low)   – blue
   Band 2: 0.34–0.65 (mid)   – yellow
   Band 3: 0.66–1.00 (high)  – red
-Lower probability bands are drawn first so higher probability shows on top.
-Requires scipy for alpha shape: pip install scipy
+Points in each band are clustered by spatial proximity; each cluster becomes one polygon,
+so spread-out data produces multiple polygons per band (density-based).
+Requires scipy for alpha shape and clustering: pip install scipy
 """
 
 import argparse
 import csv
 import sys
+
+try:
+    import numpy as np
+    from scipy.cluster.hierarchy import fcluster, linkage
+    from scipy.spatial.distance import pdist
+    HAS_CLUSTERING = True
+except ImportError:
+    HAS_CLUSTERING = False
 
 # Reuse hull logic from points_to_polygon
 from points_to_polygon import (
@@ -80,18 +89,45 @@ def _hull_for_points(points, method, alpha):
     return hull if len(hull) >= 3 else None
 
 
-def write_bands_kml(band_vertices, kml_path, name="Range"):
-    """Write a KML with one Placemark per band, each with its color. Draw low first."""
+def _cluster_points_by_distance(points, distance_degrees):
+    """
+    Group points into clusters by spatial proximity.
+    points: list of (lat, lon). distance_degrees: max distance (in degree units) within a cluster.
+    Returns list of lists of (lat, lon), one per cluster.
+    """
+    if not points or distance_degrees <= 0 or not HAS_CLUSTERING:
+        return [points] if len(points) >= 3 else []
+    if len(points) < 3:
+        return []
+    arr = np.array(points)
+    if len(arr) == 3:
+        return [points]
+    try:
+        dists = pdist(arr, metric="euclidean")
+        Z = linkage(dists, method="average")
+        labels = fcluster(Z, t=distance_degrees, criterion="distance")
+    except Exception:
+        return [points]
+    clusters = {}
+    for pt, lab in zip(points, labels):
+        clusters.setdefault(lab, []).append(pt)
+    return [pts for pts in clusters.values() if len(pts) >= 3]
+
+
+def write_bands_kml(band_polygons, kml_path, name="Range"):
+    """Write KML with one Placemark per polygon. band_polygons[i] = list of polygons (each polygon = list of vertices)."""
     placemarks = []
     for i, (low, high, label) in enumerate(BANDS):
-        vertices = band_vertices[i]
-        if not vertices or len(vertices) < 3:
-            continue
+        polygons = band_polygons[i] or []
         color = BAND_COLORS[i]
-        ring = _closed_ring(vertices)
-        coords = " ".join(f"{lon},{lat},0" for lat, lon in ring)
-        placemarks.append(f'''    <Placemark>
-      <name>{name} – {label}</name>
+        for k, vertices in enumerate(polygons):
+            if not vertices or len(vertices) < 3:
+                continue
+            ring = _closed_ring(vertices)
+            coords = " ".join(f"{lon},{lat},0" for lat, lon in ring)
+            pm_name = f"{name} – {label}" if len(polygons) <= 1 else f"{name} – {label} ({k + 1})"
+            placemarks.append(f'''    <Placemark>
+      <name>{pm_name}</name>
       <Style>
         <PolygonStyle>
           <color>{color}</color>
@@ -142,7 +178,46 @@ def main():
         default=0.15,
         help="Alpha for alpha shape (default: 0.15). Larger = tighter.",
     )
+    parser.add_argument(
+        "--cluster-distance",
+        type=float,
+        default=5.0,
+        metavar="DEGREES",
+        help="Cluster distance for all bands (degrees). Overridden by per-band args if set (default: 5.0). Use 0 for one polygon per band.",
+    )
+    parser.add_argument(
+        "--cluster-distance-low",
+        type=float,
+        default=None,
+        metavar="DEGREES",
+        help="Cluster distance for low band only (0.00–0.33). Overrides --cluster-distance for this band.",
+    )
+    parser.add_argument(
+        "--cluster-distance-mid",
+        type=float,
+        default=None,
+        metavar="DEGREES",
+        help="Cluster distance for mid band only (0.34–0.65). Overrides --cluster-distance for this band.",
+    )
+    parser.add_argument(
+        "--cluster-distance-high",
+        type=float,
+        default=None,
+        metavar="DEGREES",
+        help="Cluster distance for high band only (0.66–1.00). Overrides --cluster-distance for this band.",
+    )
     args = parser.parse_args()
+
+    # Per-band cluster distance: use band-specific if set, else the single --cluster-distance
+    cluster_distances = [
+        args.cluster_distance_low if args.cluster_distance_low is not None else args.cluster_distance,
+        args.cluster_distance_mid if args.cluster_distance_mid is not None else args.cluster_distance,
+        args.cluster_distance_high if args.cluster_distance_high is not None else args.cluster_distance,
+    ]
+
+    if any(d > 0 for d in cluster_distances) and not HAS_CLUSTERING:
+        print("Warning: numpy/scipy not available; using one polygon per band (install scipy for clustering).", file=sys.stderr)
+        cluster_distances = [0.0, 0.0, 0.0]
 
     rows = read_points_with_probability(args.input)
     if not rows:
@@ -156,15 +231,27 @@ def main():
                 band_points[i].append((lat, lon))
                 break
 
-    band_vertices = []
+    band_polygons = []
     for i, (low, high, label) in enumerate(BANDS):
         pts = band_points[i]
-        hull = _hull_for_points(pts, args.method, args.alpha) if pts else None
-        band_vertices.append(hull or [])
-        n = len(hull) if hull else 0
-        print(f"Band {label}: {len(pts)} points -> {n} polygon vertices")
+        if not pts:
+            band_polygons.append([])
+            print(f"Band {label}: 0 points")
+            continue
+        dist = cluster_distances[i]
+        if dist > 0:
+            clusters = _cluster_points_by_distance(pts, dist)
+        else:
+            clusters = [pts] if len(pts) >= 3 else []
+        polygons = []
+        for cluster in clusters:
+            hull = _hull_for_points(cluster, args.method, args.alpha)
+            if hull:
+                polygons.append(hull)
+        band_polygons.append(polygons)
+        print(f"Band {label}: {len(pts)} points -> {len(polygons)} polygon(s) (cluster dist={dist})")
 
-    write_bands_kml(band_vertices, args.output, name=args.name)
+    write_bands_kml(band_polygons, args.output, name=args.name)
     print(f"Wrote 3-band KML to {args.output} (import in Google My Maps).")
     return 0
 
