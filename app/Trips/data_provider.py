@@ -11,6 +11,13 @@ def get_upcoming_trip():
             upcoming_trip = trip
     return upcoming_trip
 
+def get_most_recent_trip():
+    most_recent_trip = None
+    for trip in trips_db:
+        if trip.status == "Completed" and (most_recent_trip is None or trip.date > most_recent_trip.date):
+            most_recent_trip = trip
+    return most_recent_trip
+
 def get_catch_list(trip_id: int):
     catch_list = []
     for catch in catches_db:
