@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>Atlantic Menhaden Range</name>
+    <name>Range</name>
     <Placemark>
-      <name>Atlantic Menhaden Range – Low (0.00–0.33)</name>
+      <name>Range – Low (0.00–0.33)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -19,7 +19,7 @@
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Atlantic Menhaden Range – Mid (0.34–0.65)</name>
+      <name>Range – Mid (0.34–0.65)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -35,7 +35,7 @@
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Atlantic Menhaden Range – High (0.66–1.00)</name>
+      <name>Range – High (0.66–1.00)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>

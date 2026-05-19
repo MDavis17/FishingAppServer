@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
   <Document>
-    <name>Amberjack Range</name>
+    <name>Range</name>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (1)</name>
+      <name>Range – Low (0.00–0.33) (1)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -13,13 +13,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-118.25,32.25,0 -117.75,32.75,0 -121.25,36.25,0 -122.25,38.25,0 -124.25,43.25,0 -124.25,43.75,0 -124.25,44.25,0 -124.25,44.75,0 -124.75,44.75,0 -124.75,44.25,0 -124.75,43.75,0 -124.75,43.25,0 -124.75,42.75,0 -124.75,42.25,0 -124.75,41.75,0 -124.75,41.25,0 -124.75,40.75,0 -124.75,40.25,0 -123.75,38.25,0 -121.75,34.75,0 -119.75,32.75,0 -118.25,32.25,0</coordinates>
+            <coordinates>-123.25,38.75,0 -123.75,39.75,0 -124.25,40.75,0 -124.25,41.25,0 -124.25,41.75,0 -124.25,42.25,0 -124.25,42.75,0 -124.25,43.25,0 -124.25,43.75,0 -124.25,44.25,0 -124.25,44.75,0 -124.75,44.75,0 -124.75,44.25,0 -124.75,43.75,0 -124.75,43.25,0 -124.75,42.75,0 -124.75,42.25,0 -124.75,41.75,0 -124.75,41.25,0 -124.75,40.75,0 -124.75,40.25,0 -124.25,39.75,0 -123.75,38.75,0 -123.75,38.25,0 -123.25,37.75,0 -122.75,37.25,0 -122.25,36.25,0 -121.75,35.25,0 -121.75,34.75,0 -121.25,34.75,0 -120.75,34.75,0 -120.75,35.25,0 -121.25,36.25,0 -121.75,36.75,0 -122.25,37.75,0 -122.25,38.25,0 -123.25,38.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (2)</name>
+      <name>Range – Low (0.00–0.33) (2)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -29,13 +29,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-77.25,38.25,0 -76.75,39.25,0 -76.25,39.75,0 -72.75,41.25,0 -70.25,43.75,0 -68.75,44.25,0 -68.25,44.25,0 -67.75,44.25,0 -63.25,42.75,0 -62.75,42.75,0 -62.25,42.75,0 -64.75,42.25,0 -65.75,41.75,0 -66.75,41.25,0 -70.25,39.75,0 -70.75,39.75,0 -76.25,37.75,0 -77.25,38.25,0</coordinates>
+            <coordinates>-65.75,42.25,0 -65.25,42.25,0 -64.75,42.25,0 -65.75,41.75,0 -66.75,41.25,0 -67.25,41.25,0 -67.75,41.25,0 -68.25,41.25,0 -69.25,40.75,0 -70.25,39.75,0 -70.75,39.75,0 -72.25,41.25,0 -71.25,41.75,0 -70.75,42.75,0 -70.25,43.75,0 -69.75,43.75,0 -68.75,44.25,0 -68.25,44.25,0 -67.75,44.25,0 -67.25,43.25,0 -66.75,42.75,0 -65.75,42.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (3)</name>
+      <name>Range – Low (0.00–0.33) (3)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -45,13 +45,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-50.75,42.75,0 -51.75,43.25,0 -52.75,43.75,0 -52.25,43.75,0 -51.75,43.75,0 -51.25,43.75,0 -50.75,43.75,0 -50.25,43.75,0 -48.75,43.75,0 -49.25,43.25,0 -49.75,42.75,0 -50.25,42.75,0 -50.75,42.75,0</coordinates>
+            <coordinates>-9.75,43.25,0 -8.75,44.25,0 -8.75,42.75,0 -9.75,42.75,0 -9.75,43.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (4)</name>
+      <name>Range – Low (0.00–0.33) (4)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -61,13 +61,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-3.75,43.25,0 -2.25,44.25,0 -8.75,44.25,0 -9.75,43.25,0 -9.75,42.75,0 -8.75,42.75,0 -3.75,43.25,0</coordinates>
+            <coordinates>-89.25,30.25,0 -88.75,30.25,0 -89.25,29.75,0 -89.75,29.75,0 -90.25,30.25,0 -89.75,30.25,0 -89.25,30.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (5)</name>
+      <name>Range – Low (0.00–0.33) (5)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -77,13 +77,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-85.25,27.75,0 -86.25,28.25,0 -89.75,29.75,0 -90.25,30.25,0 -89.75,30.25,0 -87.25,30.75,0 -86.75,30.75,0 -86.25,30.75,0 -79.75,33.25,0 -79.25,33.75,0 -77.75,32.25,0 -78.75,27.75,0 -79.25,27.75,0 -80.75,27.75,0 -82.25,27.75,0 -85.25,27.75,0</coordinates>
+            <coordinates>-16.75,18.25,0 -16.25,18.25,0 -16.25,19.25,0 -16.75,21.25,0 -16.75,21.75,0 -17.25,22.25,0 -17.25,21.75,0 -17.25,20.75,0 -17.25,19.75,0 -16.75,18.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (6)</name>
+      <name>Range – Low (0.00–0.33) (6)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -93,13 +93,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-25.75,37.25,0 -29.75,38.75,0 -31.25,34.25,0 -28.75,29.75,0 -28.25,29.75,0 -27.75,31.75,0 -27.75,32.25,0 -25.75,37.25,0</coordinates>
+            <coordinates>-160.25,8.25,0 -178.75,28.75,0 -166.75,24.75,0 -160.25,8.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (7)</name>
+      <name>Range – Low (0.00–0.33) (7)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -109,13 +109,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-10.25,30.25,0 -13.25,30.75,0 -13.25,29.75,0 -10.25,30.25,0</coordinates>
+            <coordinates>-48.25,-1.25,0 -47.75,-0.75,0 -47.75,1.25,0 -47.75,3.25,0 -48.25,3.75,0 -50.25,2.75,0 -50.75,3.75,0 -51.25,4.25,0 -51.75,4.25,0 -51.25,3.25,0 -50.75,2.75,0 -49.75,2.25,0 -49.25,1.25,0 -49.25,0.75,0 -49.25,0.25,0 -49.25,-0.25,0 -49.25,-1.75,0 -49.25,-2.25,0 -48.75,-1.75,0 -48.25,-1.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (8)</name>
+      <name>Range – Low (0.00–0.33) (8)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -125,13 +125,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-177.75,27.75,0 -178.75,28.75,0 -176.25,27.25,0 -177.75,27.75,0</coordinates>
+            <coordinates>12.25,-18.25,0 11.75,-17.25,0 11.25,-18.75,0 11.75,-19.75,0 11.75,-20.25,0 12.25,-20.75,0 12.75,-21.75,0 12.75,-22.25,0 12.75,-22.75,0 13.25,-23.75,0 13.25,-24.25,0 13.75,-25.25,0 13.75,-25.75,0 13.75,-26.25,0 13.75,-26.75,0 14.25,-27.25,0 14.75,-27.75,0 15.25,-27.75,0 15.75,-27.75,0 15.25,-26.75,0 14.75,-25.75,0 14.25,-25.25,0 13.75,-24.25,0 13.75,-23.75,0 13.75,-23.25,0 13.75,-22.75,0 13.75,-22.25,0 13.75,-20.75,0 13.25,-19.75,0 12.75,-18.75,0 12.25,-18.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (9)</name>
+      <name>Range – Low (0.00–0.33) (9)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -141,13 +141,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-109.25,22.75,0 -108.75,25.75,0 -111.75,27.75,0 -113.75,28.75,0 -115.75,28.75,0 -113.75,27.75,0 -109.25,22.75,0</coordinates>
+            <coordinates>-178.75,-22.25,0 -175.75,-21.25,0 -175.75,-23.25,0 -177.25,-25.75,0 -179.25,-24.25,0 -178.75,-22.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (10)</name>
+      <name>Range – Low (0.00–0.33) (10)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -157,13 +157,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-96.75,21.75,0 -96.75,24.25,0 -89.75,23.75,0 -87.75,24.25,0 -87.25,24.25,0 -86.75,23.25,0 -86.25,20.75,0 -86.25,20.25,0 -86.75,19.25,0 -91.25,14.25,0 -93.25,18.25,0 -96.75,21.75,0</coordinates>
+            <coordinates>-139.25,-18.75,0 -138.75,-18.75,0 -139.25,-21.75,0 -139.25,-18.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (11)</name>
+      <name>Range – Low (0.00–0.33) (11)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -173,13 +173,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-83.75,15.25,0 -79.25,15.75,0 -75.75,17.75,0 -71.25,20.25,0 -70.25,21.25,0 -74.75,24.25,0 -79.25,23.25,0 -80.25,22.75,0 -83.75,18.75,0 -83.75,15.25,0</coordinates>
+            <coordinates>-106.25,-26.25,0 -97.75,-25.25,0 -98.75,-25.75,0 -102.25,-26.25,0 -106.25,-26.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (12)</name>
+      <name>Range – Low (0.00–0.33) (12)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -189,13 +189,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-16.25,18.25,0 -16.25,19.25,0 -16.75,21.75,0 -17.25,22.25,0 -19.25,25.25,0 -17.25,20.75,0 -17.25,19.75,0 -16.75,18.25,0 -16.25,18.25,0</coordinates>
+            <coordinates>-79.75,-9.75,0 -80.75,-7.75,0 -81.25,-6.25,0 -80.75,-5.25,0 -80.25,-6.25,0 -79.75,-6.75,0 -79.25,-7.75,0 -78.75,-8.25,0 -78.25,-9.25,0 -77.75,-10.25,0 -77.25,-11.25,0 -76.75,-12.25,0 -77.25,-11.75,0 -78.25,-11.25,0 -78.75,-10.75,0 -79.75,-9.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (13)</name>
+      <name>Range – Low (0.00–0.33) (13)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -205,13 +205,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-85.25,9.25,0 -77.25,9.25,0 -75.25,11.25,0 -72.25,12.75,0 -74.75,10.75,0 -77.75,5.75,0 -81.75,5.75,0 -85.25,9.25,0</coordinates>
+            <coordinates>-34.75,-4.75,0 -33.25,-3.75,0 -35.25,-3.75,0 -36.25,-4.25,0 -34.75,-4.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (14)</name>
+      <name>Range – Low (0.00–0.33) (14)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -221,13 +221,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-67.75,11.25,0 -66.75,18.25,0 -61.25,17.25,0 -59.75,12.75,0 -56.25,7.75,0 -55.25,5.75,0 -59.25,7.75,0 -62.25,9.75,0 -63.75,10.25,0 -67.75,11.25,0</coordinates>
+            <coordinates>152.25,-20.25,0 150.75,-19.25,0 151.75,-19.25,0 152.75,-19.25,0 152.75,-19.75,0 153.25,-20.75,0 152.25,-20.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (15)</name>
+      <name>Range – Low (0.00–0.33) (15)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -237,13 +237,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-44.75,-3.25,0 -43.75,-2.75,0 -47.75,3.25,0 -48.25,3.75,0 -51.25,4.25,0 -51.75,4.25,0 -51.25,3.25,0 -49.25,-1.75,0 -49.25,-2.25,0 -44.75,-3.25,0</coordinates>
+            <coordinates>123.25,-13.25,0 123.25,-12.75,0 123.75,-11.25,0 122.75,-12.75,0 122.75,-13.75,0 123.25,-13.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (16)</name>
+      <name>Range – Low (0.00–0.33) (16)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -253,13 +253,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-3.75,4.75,0 -5.75,5.25,0 -7.25,4.75,0 -3.75,4.75,0</coordinates>
+            <coordinates>42.25,-0.25,0 43.75,0.25,0 43.75,1.25,0 42.25,-0.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (17)</name>
+      <name>Range – Low (0.00–0.33) (17)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -269,13 +269,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-177.25,-25.75,0 -175.75,-23.25,0 -175.75,-21.25,0 -178.75,-22.25,0 -179.25,-24.25,0 -177.25,-25.75,0</coordinates>
+            <coordinates>113.25,21.75,0 113.75,21.75,0 114.25,22.25,0 114.75,22.75,0 114.25,22.75,0 113.75,22.75,0 113.25,22.25,0 113.25,21.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (18)</name>
+      <name>Range – Low (0.00–0.33) (18)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -285,13 +285,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-135.25,-23.25,0 -138.75,-18.75,0 -144.75,-14.75,0 -139.25,-21.75,0 -135.25,-23.25,0</coordinates>
+            <coordinates>121.25,29.25,0 120.25,30.25,0 120.75,32.25,0 120.75,32.75,0 120.25,33.75,0 121.25,32.75,0 122.25,32.25,0 122.25,31.75,0 122.25,30.75,0 121.75,30.25,0 121.25,29.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (19)</name>
+      <name>Range – Low (0.00–0.33) (19)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -301,13 +301,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-100.75,-25.75,0 -97.75,-25.25,0 -98.75,-25.75,0 -102.25,-26.25,0 -100.75,-25.75,0</coordinates>
+            <coordinates>32.75,44.75,0 33.25,44.75,0 33.75,44.75,0 34.25,44.75,0 34.75,44.75,0 35.25,44.75,0 34.25,44.25,0 35.25,42.25,0 36.25,41.75,0 36.75,41.75,0 37.25,41.75,0 38.25,41.25,0 38.75,41.25,0 39.75,43.25,0 39.25,43.75,0 38.25,44.25,0 36.75,44.75,0 37.75,44.75,0 38.25,44.75,0 39.25,44.25,0 39.75,43.75,0 40.75,43.25,0 41.75,42.75,0 41.75,42.25,0 41.75,41.75,0 41.25,41.25,0 40.25,40.75,0 38.75,40.75,0 38.25,40.75,0 37.25,41.25,0 36.75,41.25,0 36.25,41.25,0 35.25,41.75,0 34.75,41.75,0 34.25,41.75,0 33.25,41.75,0 32.75,41.75,0 31.75,41.25,0 31.25,41.25,0 30.75,41.25,0 29.75,40.75,0 29.25,40.75,0 28.75,40.75,0 28.25,40.75,0 27.75,41.25,0 27.75,42.25,0 28.25,42.75,0 29.25,43.25,0 30.25,43.75,0 31.25,44.25,0 32.25,44.75,0 33.25,44.25,0 33.25,42.25,0 32.25,41.75,0 31.75,41.75,0 31.25,41.75,0 30.25,41.25,0 29.25,41.75,0 29.25,43.25,0 29.75,43.75,0 30.75,44.75,0 31.25,44.75,0 31.75,44.75,0 32.25,44.75,0 32.75,44.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (20)</name>
+      <name>Range – Low (0.00–0.33) (20)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -317,13 +317,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-86.25,-25.75,0 -84.75,-25.75,0 -83.75,-25.75,0 -82.25,-23.25,0 -85.25,-24.75,0 -86.25,-25.75,0</coordinates>
+            <coordinates>171.25,35.25,0 171.25,35.75,0 171.75,35.75,0 171.75,34.75,0 171.25,35.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (21)</name>
+      <name>Range – Low (0.00–0.33) (21)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -333,13 +333,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-46.25,-27.25,0 -45.75,-26.25,0 -41.25,-21.75,0 -44.25,-22.75,0 -46.25,-26.75,0 -46.25,-27.25,0</coordinates>
+            <coordinates>51.25,25.75,0 50.25,27.75,0 49.75,28.25,0 49.75,28.75,0 48.25,30.25,0 50.25,29.25,0 50.75,28.75,0 51.25,28.25,0 51.75,27.75,0 51.25,25.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (22)</name>
+      <name>Range – Low (0.00–0.33) (22)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -349,13 +349,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-35.75,-20.75,0 -37.25,-20.25,0 -39.25,-15.25,0 -39.25,-14.25,0 -37.25,-10.75,0 -35.75,-9.25,0 -32.25,-20.75,0 -35.75,-20.75,0</coordinates>
+            <coordinates>69.25,19.75,0 67.75,21.75,0 69.75,22.25,0 69.25,19.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (23)</name>
+      <name>Range – Low (0.00–0.33) (23)</name>
       <Style>
         <PolygonStyle>
           <color>80ff0000</color>
@@ -365,669 +365,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-170.25,-14.75,0 -171.75,-14.25,0 -175.75,-12.25,0 -177.25,-12.25,0 -173.75,-17.25,0 -170.25,-14.75,0</coordinates>
+            <coordinates>145.75,7.25,0 139.25,11.25,0 145.25,9.25,0 145.75,7.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (24)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-70.75,-22.75,0 -70.25,-18.25,0 -70.75,-17.75,0 -71.25,-17.25,0 -73.75,-15.75,0 -74.75,-15.25,0 -74.25,-15.75,0 -73.75,-16.25,0 -73.25,-16.75,0 -70.75,-22.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (25)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-81.25,-6.25,0 -81.25,-2.75,0 -80.25,-2.25,0 -80.25,-2.75,0 -80.25,-3.25,0 -78.75,-8.25,0 -78.25,-9.25,0 -77.75,-10.25,0 -77.25,-11.25,0 -76.25,-12.75,0 -76.25,-13.25,0 -76.75,-14.25,0 -78.75,-10.75,0 -79.75,-9.75,0 -80.75,-7.75,0 -81.25,-6.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (26)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-0.25,-11.25,0 0.25,-6.25,0 -6.25,-13.25,0 -0.25,-11.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (27)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-88.75,-1.25,0 -90.75,0.25,0 -89.25,-0.25,0 -88.75,-1.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (28)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-35.25,-3.75,0 -33.25,-3.75,0 -34.75,-4.75,0 -36.25,-4.25,0 -35.25,-3.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (29)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>158.25,-20.25,0 159.25,-20.25,0 162.25,-21.25,0 165.75,-22.25,0 168.25,-23.25,0 167.75,-23.25,0 167.25,-23.25,0 159.75,-26.75,0 159.25,-26.75,0 158.25,-20.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (30)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>152.75,-25.75,0 154.25,-23.25,0 154.25,-22.75,0 154.25,-21.75,0 152.75,-19.25,0 149.25,-17.25,0 149.75,-22.75,0 152.75,-25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (31)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>112.75,-23.25,0 114.75,-22.25,0 112.75,-27.75,0 112.75,-23.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (32)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>43.75,-22.75,0 48.25,-20.75,0 48.75,-19.25,0 48.25,-14.25,0 45.25,-12.25,0 43.75,-11.25,0 40.25,-12.25,0 39.75,-16.25,0 39.25,-21.75,0 43.75,-22.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (33)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>35.25,-25.75,0 35.75,-18.75,0 34.75,-20.25,0 34.75,-20.75,0 35.25,-25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (34)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>15.75,-27.75,0 15.25,-26.75,0 14.75,-25.75,0 13.75,-22.25,0 13.75,-20.75,0 13.25,-19.75,0 12.75,-18.75,0 11.75,-16.25,0 11.25,-16.25,0 11.25,-18.75,0 11.75,-20.25,0 12.75,-22.75,0 13.25,-24.25,0 13.75,-26.75,0 14.25,-27.25,0 14.75,-27.75,0 15.25,-27.75,0 15.75,-27.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (35)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>167.75,-13.25,0 166.75,-12.75,0 170.25,-11.75,0 174.25,-12.75,0 176.75,-12.25,0 179.75,-15.75,0 177.75,-19.25,0 167.75,-13.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (36)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>154.75,-11.25,0 155.25,-10.75,0 159.75,-4.25,0 159.75,-5.75,0 159.75,-10.75,0 160.75,-13.25,0 154.75,-11.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (37)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>152.25,-5.75,0 150.75,-1.75,0 147.75,-2.75,0 144.75,-7.25,0 142.75,-8.25,0 142.25,-12.25,0 148.25,-6.75,0 152.25,-5.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (38)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>121.25,-9.75,0 127.75,-7.25,0 134.75,-12.25,0 136.25,-12.75,0 129.25,-15.25,0 128.25,-15.25,0 120.25,-16.75,0 118.25,-17.75,0 120.75,-15.25,0 121.25,-9.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (39)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>127.75,3.75,0 131.75,4.75,0 133.75,-2.75,0 137.25,-4.75,0 131.75,-8.25,0 129.25,-2.25,0 129.25,-0.75,0 127.75,3.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (40)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>111.25,-8.75,0 112.75,-8.75,0 116.75,-7.25,0 117.75,-6.75,0 121.75,-5.75,0 124.75,-1.25,0 122.75,0.75,0 122.25,0.75,0 121.75,0.75,0 121.25,0.75,0 118.25,1.25,0 117.25,0.25,0 113.25,-2.75,0 111.25,-8.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (41)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>101.75,-4.75,0 100.75,-4.25,0 105.25,-5.25,0 101.75,-4.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (42)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>40.25,-7.75,0 40.25,-7.25,0 40.75,-3.25,0 43.75,0.25,0 43.75,1.25,0 42.25,-0.25,0 41.75,-0.75,0 40.75,-1.75,0 39.25,-4.25,0 38.75,-5.25,0 40.25,-7.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (43)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>12.75,-10.25,0 12.25,-6.75,0 12.25,-4.75,0 8.75,-2.75,0 11.25,-6.25,0 11.75,-7.25,0 12.75,-10.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (44)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>133.75,39.75,0 140.25,44.75,0 140.75,44.75,0 142.25,42.25,0 142.25,38.75,0 142.25,38.25,0 141.75,36.75,0 136.75,34.75,0 133.75,32.75,0 133.25,32.25,0 132.75,33.25,0 133.75,37.25,0 133.75,39.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (45)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>41.25,41.25,0 41.75,41.75,0 41.75,42.25,0 41.75,42.75,0 40.75,43.25,0 39.25,44.25,0 38.25,44.75,0 37.75,44.75,0 36.75,44.75,0 36.25,44.75,0 35.75,44.75,0 35.25,44.75,0 34.75,44.75,0 34.25,44.75,0 33.75,44.75,0 33.25,44.75,0 32.75,44.75,0 32.25,44.75,0 31.75,44.75,0 31.25,44.75,0 30.75,44.75,0 29.75,43.75,0 28.25,42.75,0 27.75,42.25,0 27.75,41.25,0 28.25,40.75,0 28.75,40.75,0 29.25,40.75,0 29.75,40.75,0 31.75,41.25,0 36.25,41.25,0 38.25,40.75,0 38.75,40.75,0 40.25,40.75,0 41.25,41.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (46)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>7.75,39.25,0 9.25,43.75,0 12.25,44.75,0 17.25,42.25,0 18.25,41.75,0 19.75,40.75,0 19.25,32.25,0 19.25,31.75,0 18.75,31.25,0 16.75,31.75,0 14.25,33.25,0 13.25,33.75,0 10.75,35.25,0 10.25,36.25,0 7.75,39.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (47)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>0.75,36.75,0 1.25,38.25,0 3.75,41.75,0 1.75,40.75,0 0.75,38.25,0 0.75,36.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (48)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>171.25,35.25,0 171.25,35.75,0 171.75,35.75,0 173.25,32.25,0 171.75,34.75,0 171.25,35.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (49)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>145.25,27.25,0 140.25,31.25,0 138.75,30.75,0 141.25,25.75,0 141.75,23.75,0 145.25,27.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (50)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>129.75,37.75,0 128.25,38.25,0 124.25,39.75,0 119.75,38.75,0 118.75,37.25,0 120.25,33.75,0 120.25,30.25,0 121.25,29.25,0 122.25,30.75,0 128.25,35.25,0 129.75,37.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (51)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>122.25,24.25,0 126.25,24.75,0 126.75,25.25,0 129.25,27.25,0 130.25,29.25,0 128.75,31.25,0 128.25,30.25,0 126.75,27.75,0 122.25,24.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (52)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>53.25,24.75,0 51.25,25.75,0 49.75,28.25,0 48.25,30.25,0 50.25,29.25,0 50.75,28.75,0 51.25,28.25,0 51.75,27.75,0 55.75,25.75,0 55.75,25.25,0 54.25,24.75,0 53.75,24.75,0 53.25,24.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (53)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>35.25,23.75,0 36.75,24.75,0 35.25,28.25,0 35.75,33.75,0 35.75,34.25,0 35.75,34.75,0 35.75,35.25,0 35.75,35.75,0 35.75,36.25,0 35.75,36.75,0 35.25,36.75,0 34.75,36.75,0 31.25,36.75,0 30.75,36.75,0 26.75,38.25,0 24.75,40.25,0 23.75,35.25,0 23.25,33.25,0 23.25,32.75,0 23.25,32.25,0 25.25,31.75,0 28.75,30.75,0 33.75,26.75,0 34.75,24.75,0 35.25,23.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (54)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>105.75,18.25,0 107.25,21.25,0 113.75,22.75,0 114.25,22.75,0 114.75,22.75,0 113.75,19.25,0 111.75,15.75,0 110.25,14.75,0 105.75,18.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (55)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>84.75,18.25,0 92.75,20.75,0 92.25,21.25,0 89.75,21.75,0 89.25,21.75,0 88.25,21.75,0 87.75,21.75,0 87.25,21.75,0 84.75,18.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (56)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>71.25,17.25,0 69.25,19.75,0 61.75,21.75,0 67.75,21.75,0 69.75,22.25,0 71.25,17.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (57)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>39.25,18.75,0 38.75,21.25,0 42.75,17.25,0 43.25,14.75,0 43.25,11.25,0 39.75,17.75,0 39.25,18.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (58)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>145.25,9.25,0 139.25,11.25,0 145.75,7.25,0 145.25,9.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (59)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>122.75,6.75,0 124.25,14.75,0 123.75,14.75,0 118.75,17.25,0 115.75,9.25,0 114.75,6.25,0 112.25,2.75,0 114.25,4.25,0 118.25,5.25,0 122.75,6.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (60)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>110.25,7.75,0 112.75,8.25,0 107.25,10.75,0 106.75,10.25,0 106.25,9.75,0 109.75,7.75,0 110.25,7.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (61)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>101.25,1.75,0 96.75,3.25,0 94.75,4.25,0 93.75,6.25,0 92.75,8.25,0 94.75,16.25,0 96.25,16.75,0 96.75,16.75,0 97.25,16.75,0 97.75,16.25,0 100.75,13.75,0 100.75,13.25,0 102.25,5.75,0 101.25,1.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (62)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>49.75,8.25,0 46.75,11.25,0 51.75,14.75,0 52.25,11.75,0 51.75,9.75,0 49.75,8.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (63)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>6.25,0.25,0 1.75,5.75,0 3.25,6.75,0 9.75,4.25,0 9.75,3.25,0 9.25,1.75,0 6.25,0.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Low (0.00–0.33) (64)</name>
-      <Style>
-        <PolygonStyle>
-          <color>80ff0000</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>60.75,-16.25,0 62.25,-9.75,0 59.75,-8.75,0 58.25,-17.25,0 57.75,-19.25,0 60.75,-16.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (1)</name>
+      <name>Range – Mid (0.34–0.65) (1)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1037,13 +381,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-73.75,37.75,0 -69.75,39.75,0 -67.25,40.25,0 -66.25,40.75,0 -65.75,41.25,0 -66.25,41.25,0 -70.75,41.25,0 -71.25,41.25,0 -71.75,41.25,0 -73.25,40.75,0 -73.75,40.25,0 -74.25,39.75,0 -74.75,39.25,0 -75.25,38.75,0 -76.75,37.25,0 -78.25,32.25,0 -77.25,32.75,0 -73.75,37.75,0</coordinates>
+            <coordinates>-66.25,41.25,0 -65.75,41.25,0 -66.25,40.75,0 -67.25,40.25,0 -67.75,40.25,0 -68.25,40.25,0 -68.75,40.25,0 -69.75,39.75,0 -71.25,39.75,0 -72.75,39.75,0 -73.25,39.25,0 -73.75,37.75,0 -75.75,37.25,0 -76.25,36.75,0 -76.75,35.25,0 -76.75,37.25,0 -75.75,37.75,0 -75.25,38.75,0 -74.75,39.25,0 -74.25,39.75,0 -73.75,40.25,0 -73.25,40.75,0 -72.75,40.75,0 -71.75,41.25,0 -71.25,41.25,0 -70.75,41.25,0 -70.25,40.75,0 -68.75,40.75,0 -68.25,40.75,0 -67.75,40.75,0 -67.25,40.75,0 -66.25,41.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (2)</name>
+      <name>Range – Mid (0.34–0.65) (2)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1053,13 +397,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-6.75,35.25,0 -11.25,36.75,0 -10.25,39.25,0 -9.75,40.25,0 -9.25,42.75,0 -9.25,43.25,0 -9.25,43.75,0 -8.25,44.25,0 -7.75,44.25,0 -6.75,44.25,0 -2.25,43.75,0 -1.75,35.75,0 -6.75,35.25,0</coordinates>
+            <coordinates>-9.25,42.75,0 -9.25,43.25,0 -9.25,43.75,0 -8.25,44.25,0 -7.75,44.25,0 -6.75,44.25,0 -8.25,43.25,0 -8.75,42.25,0 -8.75,41.75,0 -9.25,42.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (3)</name>
+      <name>Range – Mid (0.34–0.65) (3)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1069,13 +413,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-115.75,27.75,0 -118.75,32.25,0 -119.75,33.25,0 -120.25,33.75,0 -120.75,34.25,0 -120.25,34.75,0 -118.25,34.25,0 -117.25,32.75,0 -116.75,31.75,0 -116.25,30.75,0 -115.25,29.25,0 -115.75,27.75,0</coordinates>
+            <coordinates>-118.75,32.25,0 -119.75,33.25,0 -120.25,33.75,0 -120.75,34.25,0 -120.25,34.75,0 -119.25,34.25,0 -118.75,34.25,0 -118.25,34.25,0 -117.75,33.25,0 -117.25,32.75,0 -116.75,31.75,0 -116.25,30.75,0 -116.75,31.25,0 -117.25,32.25,0 -118.75,32.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (4)</name>
+      <name>Range – Mid (0.34–0.65) (4)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1085,13 +429,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-14.25,33.75,0 -14.25,36.75,0 -10.75,29.75,0 -12.25,29.25,0 -13.75,31.25,0 -14.25,33.75,0</coordinates>
+            <coordinates>-16.25,13.25,0 -16.75,14.25,0 -16.25,15.75,0 -16.25,16.25,0 -16.25,16.75,0 -16.25,17.25,0 -16.25,17.75,0 -16.75,18.75,0 -16.75,17.75,0 -16.75,17.25,0 -16.75,16.75,0 -17.25,15.75,0 -17.75,14.25,0 -16.25,13.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (5)</name>
+      <name>Range – Mid (0.34–0.65) (5)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1101,13 +445,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-112.25,23.75,0 -109.75,27.25,0 -107.25,23.25,0 -106.75,22.75,0 -106.25,20.75,0 -112.25,23.75,0</coordinates>
+            <coordinates>-70.75,-25.75,0 -70.75,-25.25,0 -70.75,-24.75,0 -70.75,-24.25,0 -70.75,-23.75,0 -70.75,-23.25,0 -70.25,-22.25,0 -70.25,-22.75,0 -70.25,-23.25,0 -70.25,-23.75,0 -70.25,-24.25,0 -70.25,-24.75,0 -70.25,-25.25,0 -70.75,-26.25,0 -70.75,-25.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (6)</name>
+      <name>Range – Mid (0.34–0.65) (6)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1117,13 +461,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-84.75,25.75,0 -84.75,26.25,0 -85.75,28.25,0 -86.25,28.75,0 -87.75,30.75,0 -88.25,30.75,0 -91.25,29.75,0 -94.75,29.75,0 -95.75,27.25,0 -96.25,25.25,0 -97.75,21.75,0 -95.75,19.75,0 -95.25,19.25,0 -92.25,20.25,0 -89.75,23.25,0 -88.25,24.25,0 -84.75,25.75,0</coordinates>
+            <coordinates>-47.75,1.75,0 -48.25,2.25,0 -48.75,2.75,0 -49.25,2.75,0 -50.25,3.25,0 -49.75,2.75,0 -49.25,2.25,0 -48.25,1.25,0 -48.25,0.75,0 -48.25,0.25,0 -47.75,0.75,0 -47.25,1.25,0 -47.75,1.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (7)</name>
+      <name>Range – Mid (0.34–0.65) (7)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1133,13 +477,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-84.75,21.75,0 -82.75,29.25,0 -79.75,29.25,0 -75.25,24.75,0 -74.25,24.25,0 -71.75,22.25,0 -69.25,20.75,0 -68.75,20.25,0 -68.75,19.75,0 -73.75,18.75,0 -75.75,18.25,0 -79.75,16.25,0 -80.25,15.75,0 -84.75,21.75,0</coordinates>
+            <coordinates>-176.25,-23.25,0 -175.75,-22.25,0 -175.25,-21.75,0 -176.25,-22.25,0 -176.25,-23.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (8)</name>
+      <name>Range – Mid (0.34–0.65) (8)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1149,13 +493,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-16.25,9.25,0 -16.25,13.25,0 -16.25,15.75,0 -16.25,16.25,0 -16.25,16.75,0 -16.25,17.25,0 -16.25,17.75,0 -16.25,19.75,0 -16.75,22.25,0 -16.75,22.75,0 -17.75,21.25,0 -17.75,20.75,0 -17.75,20.25,0 -17.25,15.75,0 -17.75,14.25,0 -16.25,9.25,0</coordinates>
+            <coordinates>-144.25,-27.75,0 -145.75,-26.75,0 -146.25,-26.75,0 -146.25,-27.25,0 -145.75,-27.25,0 -144.25,-27.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (9)</name>
+      <name>Range – Mid (0.34–0.65) (9)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1165,13 +509,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-87.75,13.25,0 -86.75,16.25,0 -87.25,17.75,0 -93.75,15.75,0 -94.25,15.25,0 -92.25,13.75,0 -89.75,12.75,0 -88.75,12.25,0 -87.75,11.75,0 -87.75,13.25,0</coordinates>
+            <coordinates>-46.75,-27.25,0 -39.25,-16.25,0 -37.25,-16.75,0 -28.75,-20.25,0 -46.75,-27.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (10)</name>
+      <name>Range – Mid (0.34–0.65) (10)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1181,13 +525,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-61.25,14.25,0 -64.25,17.75,0 -71.75,11.25,0 -72.25,9.75,0 -71.75,9.25,0 -71.25,9.25,0 -62.75,10.75,0 -62.25,10.75,0 -59.25,12.75,0 -61.25,14.25,0</coordinates>
+            <coordinates>148.25,-1.75,0 149.75,-1.25,0 150.25,-1.75,0 150.75,-2.25,0 151.75,-2.75,0 152.25,-2.75,0 153.25,-1.75,0 153.75,-1.75,0 153.75,-2.25,0 154.75,-3.25,0 155.75,-4.75,0 156.75,-4.75,0 155.75,-5.75,0 156.25,-7.75,0 154.75,-6.25,0 154.75,-5.75,0 154.25,-4.75,0 153.75,-3.75,0 151.75,-4.25,0 151.25,-4.75,0 150.75,-5.25,0 150.25,-5.25,0 149.75,-5.25,0 149.25,-4.75,0 148.25,-3.25,0 147.75,-3.25,0 145.75,-2.25,0 144.75,-3.75,0 144.25,-3.75,0 144.25,-1.75,0 143.75,-1.25,0 145.25,-0.75,0 145.75,-0.75,0 146.75,-1.75,0 147.25,-1.75,0 147.75,-1.75,0 148.25,-1.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (11)</name>
+      <name>Range – Mid (0.34–0.65) (11)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1197,13 +541,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-91.75,-0.25,0 -86.75,5.25,0 -79.25,2.25,0 -78.75,2.25,0 -79.25,1.25,0 -79.75,-2.75,0 -79.75,-3.25,0 -80.75,-3.75,0 -89.25,-1.25,0 -91.75,-0.25,0</coordinates>
+            <coordinates>36.75,-19.75,0 35.25,-19.25,0 34.75,-19.75,0 35.25,-20.25,0 36.75,-19.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (12)</name>
+      <name>Range – Mid (0.34–0.65) (12)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1213,13 +557,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-82.25,12.25,0 -81.25,12.75,0 -75.75,10.75,0 -77.75,6.25,0 -82.25,8.75,0 -85.75,10.75,0 -86.25,11.25,0 -82.25,12.25,0</coordinates>
+            <coordinates>120.75,0.25,0 121.25,0.25,0 122.25,-0.25,0 122.25,-0.75,0 121.75,-0.75,0 120.75,-1.25,0 118.75,-2.25,0 118.25,-2.25,0 118.25,-3.25,0 118.75,-2.25,0 120.25,-0.75,0 120.25,-0.25,0 120.25,0.25,0 120.75,0.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (13)</name>
+      <name>Range – Mid (0.34–0.65) (13)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1229,13 +573,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-56.75,5.75,0 -58.75,7.25,0 -57.75,8.75,0 -53.75,7.75,0 -52.75,7.25,0 -50.75,5.75,0 -48.75,2.75,0 -48.25,2.25,0 -47.75,1.75,0 -47.25,1.25,0 -46.25,-1.25,0 -48.25,0.25,0 -49.75,2.75,0 -50.25,3.25,0 -52.25,4.75,0 -53.25,5.25,0 -56.75,5.75,0</coordinates>
+            <coordinates>12.25,-14.25,0 12.75,-13.25,0 13.25,-12.75,0 12.75,-13.75,0 12.25,-14.75,0 12.25,-15.25,0 12.25,-15.75,0 11.75,-17.75,0 11.75,-18.25,0 12.25,-19.25,0 12.25,-19.75,0 11.75,-18.75,0 11.25,-17.75,0 11.25,-17.25,0 11.75,-15.75,0 11.75,-15.25,0 12.25,-14.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (14)</name>
+      <name>Range – Mid (0.34–0.65) (14)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1245,13 +589,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-5.25,5.25,0 -4.75,5.25,0 -4.25,5.25,0 -5.75,4.75,0 -6.25,4.75,0 -6.75,4.75,0 -5.25,5.25,0</coordinates>
+            <coordinates>94.25,13.75,0 95.25,15.25,0 96.25,15.75,0 97.25,15.25,0 98.25,14.25,0 99.75,13.25,0 101.25,13.25,0 102.25,12.75,0 102.75,12.25,0 103.25,11.25,0 102.75,11.75,0 101.75,12.25,0 101.25,12.25,0 100.75,12.25,0 100.25,12.25,0 99.75,12.25,0 98.75,13.25,0 98.25,14.25,0 97.75,15.25,0 97.75,15.75,0 97.25,17.25,0 96.75,17.25,0 95.75,16.25,0 94.75,15.75,0 94.25,15.75,0 94.25,13.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (15)</name>
+      <name>Range – Mid (0.34–0.65) (15)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1261,13 +605,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-167.75,-19.75,0 -170.75,-14.75,0 -176.75,-12.25,0 -177.75,-12.25,0 -176.25,-22.25,0 -176.25,-23.25,0 -175.25,-21.75,0 -167.75,-19.75,0</coordinates>
+            <coordinates>126.25,34.75,0 126.75,35.75,0 126.75,36.25,0 126.75,36.75,0 126.75,37.25,0 125.25,38.75,0 124.25,39.25,0 123.75,39.75,0 123.25,39.75,0 122.25,39.25,0 121.75,38.75,0 121.75,38.25,0 121.25,36.75,0 120.25,36.25,0 119.75,35.75,0 119.25,35.25,0 119.25,34.75,0 119.75,34.25,0 120.75,33.25,0 121.75,32.75,0 122.25,32.75,0 122.25,33.25,0 122.25,33.75,0 122.25,34.25,0 122.25,35.75,0 123.25,36.25,0 123.75,36.25,0 124.75,35.75,0 125.25,34.75,0 125.75,34.75,0 126.25,34.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (16)</name>
+      <name>Range – Mid (0.34–0.65) (16)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1277,13 +621,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-144.25,-27.75,0 -146.25,-27.25,0 -146.25,-26.75,0 -145.75,-26.75,0 -143.25,-27.75,0 -144.25,-27.75,0</coordinates>
+            <coordinates>18.75,42.25,0 17.75,42.75,0 16.75,43.25,0 16.25,43.75,0 15.75,43.75,0 15.25,43.25,0 15.75,42.75,0 16.25,41.75,0 16.25,41.25,0 15.75,40.25,0 15.25,39.75,0 15.25,37.75,0 13.75,36.75,0 12.25,36.25,0 13.25,34.25,0 13.75,33.25,0 14.25,32.75,0 14.75,32.25,0 15.75,31.75,0 16.75,31.25,0 17.25,31.25,0 16.25,32.25,0 15.25,32.75,0 15.25,34.75,0 15.75,35.25,0 15.25,36.25,0 15.25,36.75,0 16.25,37.75,0 16.75,38.25,0 17.25,38.75,0 18.25,39.75,0 18.75,39.75,0 19.75,39.25,0 20.25,38.25,0 20.75,37.75,0 21.25,37.25,0 21.75,36.75,0 21.75,37.25,0 21.25,38.25,0 20.75,38.75,0 20.25,39.75,0 19.75,41.25,0 18.75,42.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (17)</name>
+      <name>Range – Mid (0.34–0.65) (17)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1293,13 +637,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-70.25,-19.25,0 -70.25,-18.75,0 -70.75,-18.25,0 -70.75,-23.25,0 -70.75,-23.75,0 -70.75,-24.25,0 -70.75,-24.75,0 -70.75,-25.25,0 -71.25,-27.75,0 -70.75,-27.75,0 -70.25,-25.25,0 -70.25,-24.75,0 -70.25,-24.25,0 -70.25,-23.75,0 -70.25,-23.25,0 -70.25,-22.75,0 -70.25,-22.25,0 -70.25,-21.75,0 -70.25,-21.25,0 -70.25,-20.75,0 -70.25,-20.25,0 -70.25,-19.75,0 -70.25,-19.25,0</coordinates>
+            <coordinates>175.75,-1.25,0 160.75,20.25,0 171.75,35.25,0 173.25,31.75,0 175.75,-1.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (18)</name>
+      <name>Range – Mid (0.34–0.65) (18)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1309,13 +653,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-80.75,-6.75,0 -81.25,-5.75,0 -81.25,-5.25,0 -81.25,-4.75,0 -79.75,-7.75,0 -78.75,-9.25,0 -78.25,-10.25,0 -76.75,-12.75,0 -75.25,-14.75,0 -74.25,-16.25,0 -75.75,-15.25,0 -76.25,-14.75,0 -76.75,-13.75,0 -77.75,-12.25,0 -79.25,-10.25,0 -80.75,-6.75,0</coordinates>
+            <coordinates>49.25,28.75,0 49.75,29.25,0 50.25,29.75,0 50.75,29.25,0 51.25,28.75,0 52.25,27.75,0 52.75,27.75,0 53.25,27.25,0 54.25,26.25,0 54.75,25.75,0 55.25,25.25,0 54.75,24.75,0 54.25,24.25,0 53.75,24.25,0 53.25,24.25,0 52.75,24.25,0 51.75,23.75,0 51.75,24.75,0 51.75,25.25,0 51.25,26.25,0 50.75,26.75,0 50.25,27.25,0 49.75,27.75,0 49.25,28.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (19)</name>
+      <name>Range – Mid (0.34–0.65) (19)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1325,13 +669,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-39.75,-21.75,0 -37.25,-16.75,0 -39.25,-16.25,0 -44.25,-24.75,0 -39.75,-22.25,0 -39.75,-21.75,0</coordinates>
+            <coordinates>-171.75,25.25,0 -169.75,25.25,0 -170.25,25.75,0 -171.75,25.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (20)</name>
+      <name>Range – Mid (0.34–0.65) (20)</name>
       <Style>
         <PolygonStyle>
           <color>8000ffff</color>
@@ -1341,1567 +685,15 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-35.25,-6.25,0 -36.25,-3.75,0 -37.25,-1.75,0 -40.75,-1.75,0 -43.25,-0.75,0 -42.25,-1.75,0 -37.75,-4.75,0 -36.75,-5.25,0 -35.25,-6.25,0</coordinates>
+            <coordinates>-109.25,-27.25,0 -105.25,-26.25,0 -99.75,-25.25,0 -91.25,-25.25,0 -94.75,-25.75,0 -109.25,-27.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (21)</name>
+      <name>Range – High (0.66–1.00) (1)</name>
       <Style>
         <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>169.25,-22.75,0 170.25,-19.75,0 168.75,-18.25,0 168.25,-18.25,0 167.75,-20.75,0 168.25,-24.75,0 169.25,-22.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (22)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>159.75,-25.75,0 160.25,-20.25,0 159.25,-18.75,0 149.75,-17.75,0 149.25,-18.75,0 150.75,-23.75,0 155.75,-27.75,0 159.75,-25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (23)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>47.25,-24.25,0 47.75,-22.25,0 50.75,-14.75,0 47.25,-8.75,0 44.25,-17.25,0 43.25,-17.75,0 47.25,-24.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (24)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>39.75,-21.75,0 36.75,-19.75,0 35.25,-19.25,0 34.75,-19.75,0 33.75,-25.75,0 34.25,-25.75,0 35.75,-24.75,0 39.75,-21.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (25)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>119.25,-20.25,0 119.75,-20.25,0 121.25,-19.75,0 121.75,-19.25,0 123.75,-15.75,0 124.25,-11.25,0 123.75,-7.75,0 122.25,-5.75,0 122.75,-11.25,0 121.75,-13.25,0 120.75,-15.75,0 117.75,-18.25,0 116.25,-18.75,0 119.25,-20.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (26)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>13.75,-10.25,0 13.25,-8.75,0 12.75,-8.75,0 12.25,-14.25,0 11.75,-15.25,0 11.25,-17.25,0 8.75,-20.75,0 12.25,-19.75,0 12.25,-19.25,0 12.25,-15.75,0 13.75,-12.25,0 13.75,-11.75,0 13.75,-11.25,0 13.75,-10.75,0 13.75,-10.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (27)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>143.75,-1.25,0 145.25,-0.75,0 145.75,-0.75,0 149.75,-1.25,0 153.25,-1.75,0 153.75,-1.75,0 159.25,-4.25,0 159.75,-4.75,0 159.75,-5.25,0 161.25,-10.75,0 159.75,-11.75,0 156.25,-7.75,0 150.75,-5.25,0 150.25,-5.25,0 149.75,-5.25,0 144.75,-3.75,0 144.25,-3.75,0 143.75,-1.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (28)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>134.25,-12.25,0 130.75,-9.25,0 128.25,-7.25,0 126.75,-2.75,0 128.25,1.25,0 132.25,-1.75,0 137.25,-1.25,0 137.75,-1.25,0 134.25,-12.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (29)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>113.25,-7.75,0 112.75,-7.25,0 113.75,-3.25,0 114.25,-3.25,0 120.25,0.25,0 120.75,0.25,0 121.25,0.25,0 122.25,-0.25,0 122.25,-0.75,0 118.25,-6.25,0 117.75,-6.25,0 117.25,-6.25,0 113.25,-7.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (30)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>99.75,-0.75,0 98.25,4.25,0 97.25,5.75,0 97.75,6.25,0 99.75,6.75,0 100.25,6.75,0 102.25,6.25,0 103.75,1.25,0 105.25,-1.75,0 106.25,-3.25,0 106.75,-5.75,0 107.25,-7.75,0 102.25,-4.75,0 99.75,-0.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (31)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>9.25,-0.75,0 4.25,5.75,0 7.75,4.75,0 8.25,4.75,0 8.75,4.75,0 9.25,4.25,0 9.75,3.75,0 9.75,2.75,0 9.75,2.25,0 9.75,1.75,0 9.75,1.25,0 9.75,0.75,0 11.75,-4.25,0 12.25,-5.25,0 12.75,-6.25,0 12.75,-6.75,0 11.75,-6.75,0 9.25,-3.25,0 9.25,-0.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (32)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>139.25,31.25,0 132.75,32.25,0 132.25,37.25,0 132.75,37.25,0 139.25,42.25,0 139.75,42.75,0 140.25,43.25,0 140.75,43.75,0 141.25,44.25,0 141.75,41.75,0 142.25,39.75,0 142.25,39.25,0 141.75,37.25,0 140.25,33.25,0 139.25,31.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (33)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>126.75,25.75,0 121.75,29.25,0 119.75,34.25,0 119.25,34.75,0 119.25,35.25,0 119.75,35.75,0 120.25,36.25,0 121.75,38.75,0 122.25,39.25,0 123.25,39.75,0 123.75,39.75,0 129.25,40.75,0 129.75,40.75,0 128.75,38.75,0 130.75,29.75,0 130.25,28.75,0 127.75,25.75,0 126.75,25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (34)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>23.25,35.75,0 25.25,41.25,0 27.75,40.75,0 29.25,40.25,0 28.25,37.25,0 25.25,36.25,0 24.25,35.75,0 23.75,35.75,0 23.25,35.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (35)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>22.75,32.75,0 21.75,36.75,0 21.75,37.25,0 21.25,38.25,0 19.75,41.25,0 18.75,42.25,0 17.75,42.75,0 16.25,43.75,0 15.75,43.75,0 15.25,43.25,0 12.25,36.25,0 10.25,34.25,0 10.25,33.75,0 14.75,32.25,0 15.75,31.75,0 16.75,31.25,0 17.25,31.25,0 17.75,31.25,0 18.25,31.25,0 20.25,31.75,0 22.75,32.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (36)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>12.75,43.75,0 12.75,44.75,0 9.25,44.25,0 8.75,44.25,0 8.25,44.25,0 7.25,43.75,0 4.75,43.25,0 3.25,42.25,0 3.25,41.75,0 2.75,38.75,0 9.75,38.25,0 11.25,38.25,0 12.75,40.75,0 12.75,43.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (37)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>34.25,25.75,0 27.75,31.25,0 27.25,31.25,0 26.75,31.25,0 31.75,36.75,0 32.25,36.75,0 34.25,36.75,0 36.25,36.25,0 36.25,34.75,0 35.75,27.75,0 36.75,26.25,0 37.25,25.25,0 37.75,24.25,0 37.75,23.75,0 36.25,22.25,0 35.75,23.25,0 35.25,24.25,0 34.25,25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (38)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>92.25,20.75,0 88.75,21.75,0 86.75,21.25,0 86.75,20.25,0 89.25,20.25,0 91.75,19.75,0 93.25,20.25,0 92.25,20.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (39)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>67.25,22.25,0 66.75,22.75,0 66.25,23.25,0 65.75,23.75,0 62.25,21.75,0 67.25,22.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (40)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>55.25,16.75,0 51.75,23.75,0 49.75,27.75,0 49.25,28.75,0 49.75,29.25,0 50.25,29.75,0 50.75,29.25,0 52.75,27.75,0 53.25,27.25,0 57.75,25.25,0 59.25,20.75,0 58.75,20.25,0 57.75,19.25,0 56.25,17.25,0 55.25,16.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (41)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>166.75,11.75,0 160.75,20.25,0 167.25,19.25,0 170.75,10.25,0 166.75,11.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (42)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>124.75,14.25,0 119.75,16.75,0 114.75,15.75,0 109.75,14.25,0 107.25,19.25,0 111.25,21.75,0 117.25,23.75,0 119.25,25.75,0 121.25,22.25,0 124.75,14.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (43)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>125.75,2.25,0 117.75,2.75,0 117.25,3.25,0 115.25,4.75,0 115.25,5.25,0 115.75,7.25,0 115.25,10.75,0 115.25,11.25,0 117.75,11.25,0 120.75,10.25,0 124.25,7.75,0 125.75,7.25,0 125.75,2.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (44)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>100.25,8.75,0 103.25,11.25,0 102.75,12.25,0 102.25,12.75,0 101.25,13.25,0 97.25,17.25,0 96.75,17.25,0 94.25,15.75,0 94.25,13.75,0 92.75,9.75,0 94.25,6.75,0 95.75,3.75,0 100.25,8.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (45)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>81.75,8.75,0 83.25,16.75,0 81.75,16.25,0 73.25,13.75,0 73.75,12.75,0 74.25,11.75,0 75.75,8.75,0 76.25,8.25,0 79.75,5.75,0 81.75,8.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (46)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>51.25,12.75,0 51.25,14.75,0 51.75,12.25,0 51.25,9.25,0 51.25,12.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (47)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>42.75,12.75,0 40.25,14.75,0 39.75,15.25,0 39.25,15.75,0 39.25,16.25,0 38.25,19.75,0 40.25,20.25,0 40.75,19.75,0 41.25,19.25,0 42.25,17.75,0 42.75,16.75,0 47.25,13.25,0 42.75,12.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (48)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>153.25,5.25,0 149.75,7.75,0 145.75,17.25,0 144.25,13.25,0 144.25,12.75,0 145.25,6.25,0 145.75,5.75,0 153.25,5.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (49)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>113.25,7.75,0 110.25,8.25,0 107.25,9.75,0 105.25,9.25,0 109.75,1.75,0 110.25,1.75,0 110.75,1.75,0 111.25,1.75,0 112.75,5.75,0 113.25,7.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (50)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-30.25,34.25,0 -24.75,36.75,0 -28.75,38.25,0 -29.25,37.75,0 -30.25,34.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (51)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-171.75,25.25,0 -177.75,28.25,0 -170.25,25.75,0 -167.25,24.75,0 -167.75,24.25,0 -171.75,25.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (52)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-130.25,-25.25,0 -137.25,-23.25,0 -136.25,-22.25,0 -130.75,-23.75,0 -128.25,-24.25,0 -124.75,-24.75,0 -130.25,-25.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (53)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-102.75,-26.25,0 -98.75,-25.25,0 -99.75,-25.25,0 -102.75,-26.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (54)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-82.25,-25.75,0 -81.25,-22.25,0 -82.75,-25.75,0 -82.25,-25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (55)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>141.75,-13.75,0 138.25,-7.75,0 143.75,-7.75,0 143.75,-8.25,0 144.75,-14.75,0 141.75,-13.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (56)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>59.75,-17.25,0 61.25,-16.25,0 61.75,-12.25,0 60.75,-11.75,0 57.25,-6.25,0 60.25,-14.25,0 59.75,-17.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – Mid (0.34–0.65) (57)</name>
-      <Style>
-        <PolygonStyle>
-          <color>8000ffff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>112.25,-24.25,0 113.25,-22.75,0 112.25,-26.25,0 112.25,-24.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (1)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-7.75,43.75,0 -7.25,44.25,0 -2.25,44.75,0 -1.75,44.75,0 -1.25,44.75,0 3.75,43.75,0 4.25,43.75,0 6.75,43.75,0 4.75,36.75,0 4.25,36.75,0 3.75,36.75,0 0.25,35.75,0 -1.25,35.25,0 -1.75,35.25,0 -2.25,35.25,0 -2.75,35.25,0 -6.75,33.75,0 -9.75,29.75,0 -10.25,29.25,0 -10.75,30.75,0 -11.75,36.75,0 -9.75,39.75,0 -9.25,42.25,0 -7.75,43.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (2)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-118.25,28.75,0 -119.25,32.25,0 -119.25,32.75,0 -119.25,33.25,0 -119.25,33.75,0 -117.75,33.75,0 -113.75,31.75,0 -113.25,31.25,0 -112.75,30.75,0 -112.25,29.75,0 -109.25,26.75,0 -107.75,24.75,0 -107.25,24.25,0 -106.75,23.75,0 -106.75,23.25,0 -109.75,22.75,0 -110.25,22.75,0 -111.75,23.75,0 -115.75,24.75,0 -118.25,28.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (3)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-74.75,35.25,0 -69.25,39.75,0 -71.75,39.75,0 -72.25,39.75,0 -73.75,38.75,0 -75.25,37.75,0 -76.75,36.25,0 -78.75,33.75,0 -80.25,32.75,0 -80.75,32.25,0 -81.25,31.75,0 -81.25,31.25,0 -81.25,30.75,0 -81.25,30.25,0 -80.75,30.25,0 -80.25,30.25,0 -79.75,30.75,0 -76.75,33.25,0 -76.25,33.75,0 -75.75,34.25,0 -75.25,34.75,0 -74.75,35.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (4)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-65.25,31.75,0 -64.75,32.25,0 -64.75,32.75,0 -65.25,32.25,0 -65.25,31.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (5)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-17.25,32.75,0 -16.25,33.25,0 -10.75,29.25,0 -10.75,28.75,0 -11.25,28.25,0 -13.25,26.75,0 -14.75,24.75,0 -16.25,20.75,0 -16.25,20.25,0 -17.25,22.75,0 -17.25,23.25,0 -18.25,27.75,0 -17.75,28.75,0 -17.25,32.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (6)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-178.25,28.25,0 -178.25,28.75,0 -176.75,28.75,0 -175.75,28.25,0 -170.75,25.75,0 -169.25,25.75,0 -167.75,25.25,0 -164.25,23.75,0 -164.25,23.25,0 -169.25,16.75,0 -169.75,16.75,0 -173.75,25.75,0 -174.75,26.25,0 -176.25,26.75,0 -178.25,28.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (7)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-90.25,25.75,0 -85.25,28.25,0 -84.75,28.25,0 -84.25,28.25,0 -83.75,28.25,0 -83.25,28.25,0 -82.75,28.25,0 -82.75,28.75,0 -83.25,29.75,0 -83.75,30.25,0 -84.25,30.25,0 -85.75,30.25,0 -86.25,30.25,0 -86.75,30.25,0 -87.25,30.25,0 -87.75,30.25,0 -91.75,29.75,0 -92.25,29.75,0 -92.75,29.75,0 -93.25,29.75,0 -93.75,29.75,0 -94.25,29.75,0 -95.25,29.25,0 -96.75,28.75,0 -97.25,28.25,0 -97.25,27.75,0 -97.75,25.25,0 -97.75,24.75,0 -97.25,24.25,0 -90.25,25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (8)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-98.75,16.25,0 -99.25,16.75,0 -97.75,22.25,0 -97.75,22.75,0 -97.75,23.25,0 -97.75,23.75,0 -97.75,24.25,0 -90.75,22.75,0 -88.75,23.75,0 -88.25,23.75,0 -87.75,23.75,0 -87.25,23.75,0 -86.25,22.25,0 -86.25,21.75,0 -86.25,21.25,0 -84.25,15.75,0 -84.25,15.25,0 -86.75,15.75,0 -87.25,15.75,0 -87.75,15.75,0 -88.25,15.75,0 -88.75,15.75,0 -92.75,14.25,0 -94.25,14.75,0 -97.75,15.75,0 -98.75,16.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (9)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-77.25,27.25,0 -80.25,29.75,0 -80.75,29.75,0 -81.25,29.75,0 -84.75,27.75,0 -84.75,27.25,0 -84.75,26.75,0 -84.75,22.25,0 -81.25,19.25,0 -78.75,16.75,0 -78.25,16.75,0 -77.75,16.75,0 -75.75,17.25,0 -74.75,20.25,0 -74.75,20.75,0 -75.25,23.25,0 -76.25,25.25,0 -76.75,26.75,0 -77.25,27.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (10)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-72.25,21.75,0 -71.75,21.75,0 -69.75,20.75,0 -68.25,18.75,0 -68.25,18.25,0 -69.75,12.75,0 -69.75,12.25,0 -70.25,11.25,0 -70.75,11.25,0 -71.25,11.25,0 -74.25,10.75,0 -75.25,10.75,0 -74.75,18.25,0 -74.75,18.75,0 -72.25,21.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (11)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-99.75,16.75,0 -100.25,17.25,0 -101.25,17.75,0 -102.25,18.25,0 -105.25,21.75,0 -105.75,22.75,0 -106.25,23.25,0 -110.75,19.25,0 -114.75,18.25,0 -111.25,18.75,0 -110.75,18.75,0 -103.75,18.25,0 -102.75,17.75,0 -101.25,17.25,0 -100.25,16.75,0 -99.75,16.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (12)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-89.75,13.25,0 -83.75,17.25,0 -80.75,17.25,0 -79.25,16.25,0 -78.75,15.75,0 -75.75,10.25,0 -75.75,9.75,0 -75.75,9.25,0 -77.25,5.75,0 -81.25,7.25,0 -81.75,7.25,0 -82.25,7.25,0 -87.25,5.25,0 -87.25,5.75,0 -91.25,13.25,0 -90.75,13.25,0 -90.25,13.25,0 -89.75,13.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (13)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-69.75,11.75,0 -67.75,18.25,0 -67.75,18.75,0 -67.25,18.75,0 -66.75,18.75,0 -66.25,18.75,0 -65.75,18.75,0 -65.25,18.75,0 -64.75,18.75,0 -64.25,18.75,0 -63.25,18.75,0 -62.75,18.75,0 -62.25,18.25,0 -61.75,17.75,0 -60.75,16.25,0 -59.25,13.25,0 -57.75,8.25,0 -58.25,7.75,0 -58.75,7.75,0 -59.75,8.25,0 -60.75,8.75,0 -64.75,10.25,0 -65.25,10.25,0 -65.75,10.25,0 -66.25,10.25,0 -68.25,10.75,0 -69.75,11.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (14)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-17.75,14.75,0 -17.25,15.25,0 -15.25,11.75,0 -13.25,9.75,0 -10.75,6.75,0 -10.25,6.25,0 -7.75,4.75,0 -6.75,4.25,0 -7.25,4.25,0 -7.75,4.25,0 -8.25,4.25,0 -9.25,4.75,0 -10.25,5.25,0 -13.75,7.25,0 -14.25,7.75,0 -16.75,9.75,0 -17.25,10.75,0 -17.75,12.75,0 -17.75,13.25,0 -17.75,14.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (15)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-89.75,0.25,0 -91.75,1.75,0 -91.75,1.25,0 -91.75,0.25,0 -91.25,-1.25,0 -90.75,-1.25,0 -90.25,-1.25,0 -89.75,-1.25,0 -89.25,-0.75,0 -89.75,0.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (16)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-81.75,4.25,0 -77.25,5.25,0 -77.25,4.75,0 -77.25,4.25,0 -77.25,3.75,0 -77.25,3.25,0 -78.75,1.25,0 -81.25,-3.75,0 -81.25,-3.25,0 -81.25,-1.75,0 -81.25,-1.25,0 -81.75,4.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (17)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-48.75,3.75,0 -49.25,4.25,0 -49.75,4.75,0 -50.25,5.25,0 -52.25,6.75,0 -53.25,7.25,0 -54.25,7.75,0 -56.75,7.75,0 -57.25,7.75,0 -57.75,7.75,0 -58.25,7.25,0 -58.25,6.75,0 -57.75,6.25,0 -56.25,5.75,0 -55.75,5.75,0 -54.75,5.75,0 -50.25,3.75,0 -49.75,3.25,0 -49.25,3.25,0 -48.75,3.25,0 -48.75,3.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (18)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-33.75,-3.75,0 -38.75,-1.25,0 -44.25,0.25,0 -45.25,0.75,0 -47.25,2.25,0 -47.75,2.75,0 -48.25,3.25,0 -48.25,2.75,0 -48.25,-0.25,0 -47.25,-0.75,0 -44.75,-2.75,0 -44.25,-2.75,0 -42.75,-2.75,0 -42.25,-2.75,0 -38.25,-4.25,0 -35.25,-9.75,0 -34.75,-9.25,0 -34.25,-8.25,0 -32.25,-3.75,0 -33.75,-3.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (19)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>5.75,3.75,0 -0.75,4.25,0 -1.25,4.25,0 -1.75,4.25,0 -2.25,4.25,0 -5.25,4.75,0 -3.75,5.25,0 -3.25,5.25,0 -2.75,5.25,0 -0.25,5.75,0 1.25,6.25,0 1.75,6.25,0 2.25,6.25,0 2.75,6.25,0 3.25,6.25,0 3.75,6.25,0 4.25,6.25,0 4.75,6.25,0 5.25,5.75,0 7.25,4.25,0 7.75,3.75,0 8.25,3.25,0 8.25,2.75,0 5.75,3.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (20)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-168.25,-14.75,0 -171.25,-9.25,0 -172.25,-8.75,0 -179.25,-10.75,0 -179.75,-11.25,0 -179.75,-11.75,0 -179.75,-12.25,0 -179.75,-15.75,0 -179.75,-16.25,0 -179.75,-16.75,0 -179.75,-17.25,0 -179.75,-18.75,0 -179.25,-23.75,0 -178.75,-23.75,0 -175.75,-22.75,0 -175.25,-22.25,0 -169.75,-19.25,0 -169.75,-18.75,0 -168.25,-14.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (21)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-163.25,-18.25,0 -163.25,-17.75,0 -159.75,-18.75,0 -158.75,-19.25,0 -157.75,-19.75,0 -157.25,-20.25,0 -157.75,-21.75,0 -159.75,-21.25,0 -163.25,-18.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (22)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-154.75,-16.25,0 -154.25,-15.75,0 -152.25,-10.25,0 -150.25,-9.75,0 -144.75,-14.25,0 -141.25,-14.25,0 -138.25,-17.25,0 -136.25,-18.25,0 -135.25,-21.25,0 -134.75,-22.75,0 -134.75,-23.25,0 -138.75,-22.25,0 -145.75,-24.75,0 -147.75,-23.75,0 -149.25,-23.25,0 -152.75,-22.75,0 -154.75,-21.75,0 -154.75,-16.75,0 -154.75,-16.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (23)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-80.25,-26.25,0 -84.25,-25.75,0 -85.25,-25.75,0 -86.75,-25.75,0 -89.25,-25.75,0 -89.25,-25.25,0 -87.25,-25.25,0 -81.75,-21.25,0 -79.75,-26.25,0 -80.25,-26.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (24)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-45.25,-25.75,0 -41.25,-23.75,0 -40.75,-23.25,0 -40.25,-22.75,0 -40.25,-22.25,0 -40.25,-21.75,0 -40.25,-21.25,0 -40.75,-20.75,0 -41.25,-21.25,0 -43.75,-22.75,0 -45.25,-23.25,0 -46.25,-23.75,0 -47.25,-24.25,0 -47.75,-24.75,0 -48.25,-25.25,0 -48.75,-25.75,0 -48.75,-26.25,0 -48.75,-26.75,0 -48.75,-27.25,0 -48.75,-27.75,0 -48.25,-27.75,0 -47.75,-27.75,0 -47.25,-27.75,0 -45.25,-25.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (25)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-5.75,-16.25,0 -2.75,-12.75,0 -5.75,-12.75,0 -6.25,-12.75,0 -6.75,-15.75,0 -5.75,-16.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (26)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-171.25,-4.25,0 -170.75,-3.75,0 -171.25,-3.25,0 -171.75,-2.75,0 -176.25,0.25,0 -174.25,-4.75,0 -172.25,-4.75,0 -171.25,-4.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (27)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-161.75,-8.25,0 -154.75,-3.75,0 -154.75,-4.25,0 -155.75,-5.75,0 -157.75,-9.25,0 -163.25,-13.25,0 -165.75,-11.25,0 -165.75,-10.75,0 -161.75,-8.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (28)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-138.75,-14.75,0 -140.75,-8.75,0 -140.75,-8.25,0 -140.75,-7.75,0 -140.25,-7.75,0 -139.75,-8.25,0 -139.25,-8.75,0 -138.75,-9.25,0 -138.75,-9.75,0 -138.75,-10.25,0 -138.75,-10.75,0 -138.75,-14.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (29)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>-80.25,-8.25,0 -80.75,-7.25,0 -80.25,-7.75,0 -79.25,-9.25,0 -79.25,-9.75,0 -79.75,-9.25,0 -80.25,-8.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (30)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>161.25,-26.25,0 159.75,-25.25,0 159.25,-24.25,0 158.25,-20.75,0 158.25,-19.75,0 158.25,-19.25,0 158.25,-18.75,0 158.75,-18.75,0 162.75,-17.75,0 165.75,-10.75,0 165.75,-10.25,0 167.25,-9.75,0 169.75,-11.75,0 170.25,-19.25,0 171.25,-22.25,0 167.25,-26.25,0 162.25,-26.25,0 161.75,-26.25,0 161.25,-26.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (31)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>153.75,-27.75,0 155.75,-23.25,0 155.75,-22.25,0 155.75,-21.25,0 155.75,-17.25,0 149.75,-15.75,0 146.75,-13.75,0 145.25,-14.25,0 145.25,-14.75,0 145.25,-15.25,0 145.25,-15.75,0 145.25,-16.25,0 145.75,-17.25,0 146.25,-18.75,0 146.75,-19.25,0 149.25,-21.75,0 149.75,-22.25,0 150.75,-23.25,0 151.25,-23.75,0 153.25,-27.75,0 153.75,-27.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (32)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>115.75,-19.25,0 118.75,-16.75,0 121.75,-15.25,0 122.25,-16.75,0 122.25,-17.25,0 122.25,-17.75,0 122.25,-18.25,0 121.75,-18.75,0 121.25,-19.25,0 120.75,-19.75,0 118.75,-20.25,0 117.75,-20.75,0 114.25,-26.25,0 114.25,-27.25,0 114.25,-27.75,0 113.75,-27.75,0 113.25,-27.75,0 112.75,-27.25,0 112.25,-25.75,0 112.25,-25.25,0 112.25,-24.75,0 112.75,-23.75,0 113.75,-21.75,0 114.75,-20.25,0 115.25,-19.75,0 115.75,-19.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (33)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>40.25,-22.25,0 39.75,-21.25,0 44.25,-20.25,0 48.25,-21.75,0 48.25,-22.25,0 48.25,-22.75,0 47.75,-24.75,0 46.25,-27.25,0 44.75,-26.25,0 44.25,-25.75,0 40.25,-22.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (34)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>32.75,-27.75,0 34.75,-25.75,0 35.25,-25.25,0 35.75,-24.25,0 35.75,-23.75,0 35.75,-23.25,0 37.25,-19.25,0 38.75,-17.25,0 38.25,-17.25,0 37.75,-17.25,0 37.25,-17.75,0 36.75,-18.25,0 36.25,-18.75,0 35.75,-19.25,0 35.25,-20.75,0 32.75,-25.25,0 32.75,-25.75,0 32.75,-26.25,0 32.75,-26.75,0 32.75,-27.25,0 32.75,-27.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (35)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>172.25,-12.75,0 172.25,-11.75,0 176.25,-5.75,0 177.25,-6.25,0 178.75,-7.25,0 179.25,-8.25,0 179.75,-9.25,0 179.75,-10.25,0 179.75,-10.75,0 179.75,-16.25,0 179.75,-16.75,0 179.75,-18.25,0 179.75,-18.75,0 179.75,-19.25,0 174.75,-21.75,0 172.25,-12.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (36)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>160.75,-12.75,0 162.75,-10.75,0 162.75,-8.25,0 160.75,-7.75,0 158.75,-7.25,0 157.25,-6.75,0 156.25,-6.25,0 155.75,-6.25,0 155.25,-6.25,0 155.25,-6.75,0 155.75,-10.75,0 160.25,-12.75,0 160.75,-12.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (37)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>121.75,-14.75,0 118.75,-9.75,0 118.75,-9.25,0 118.75,-8.75,0 118.75,-8.25,0 119.25,-8.25,0 119.75,-8.25,0 120.25,-8.25,0 120.75,-8.25,0 121.25,-8.25,0 121.75,-8.25,0 122.25,-8.25,0 122.75,-8.25,0 123.25,-8.25,0 125.75,-7.75,0 127.25,-7.25,0 127.75,-7.75,0 128.25,-8.25,0 130.75,-9.75,0 130.75,-10.25,0 130.75,-10.75,0 130.75,-11.25,0 130.75,-11.75,0 130.75,-12.25,0 130.25,-13.25,0 129.75,-14.75,0 129.25,-14.75,0 128.75,-14.75,0 124.75,-16.25,0 123.75,-17.25,0 123.25,-17.25,0 122.75,-16.75,0 122.25,-16.25,0 121.75,-14.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (38)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>54.75,-15.75,0 56.75,-10.25,0 60.25,-8.25,0 61.75,-9.75,0 62.25,-10.25,0 62.25,-10.75,0 62.25,-11.25,0 62.25,-11.75,0 64.25,-19.75,0 63.75,-19.75,0 63.25,-19.75,0 62.25,-19.75,0 61.75,-19.75,0 57.75,-20.25,0 55.75,-21.25,0 55.25,-21.25,0 55.25,-20.75,0 54.75,-15.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (39)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>44.25,-19.75,0 39.25,-17.25,0 39.25,-16.75,0 40.75,-14.25,0 43.25,-11.25,0 46.25,-9.25,0 46.75,-9.25,0 50.75,-9.25,0 51.25,-9.25,0 51.25,-9.75,0 51.25,-10.25,0 50.75,-15.25,0 50.75,-15.75,0 50.25,-17.25,0 49.75,-18.25,0 49.25,-19.75,0 48.75,-21.25,0 48.25,-21.25,0 44.25,-19.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (40)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>12.75,-9.75,0 1.75,-5.25,0 5.75,-1.25,0 7.25,1.75,0 7.75,1.75,0 9.25,0.75,0 9.75,0.25,0 10.75,-3.25,0 11.25,-4.25,0 13.25,-7.75,0 13.25,-8.25,0 13.25,-9.25,0 13.25,-9.75,0 13.25,-10.25,0 13.25,-10.75,0 13.25,-11.25,0 13.25,-11.75,0 13.25,-12.25,0 12.25,-13.75,0 12.75,-9.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (41)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>166.75,-0.25,0 172.75,3.25,0 173.25,3.25,0 176.75,-1.25,0 176.75,-2.75,0 174.75,-1.75,0 169.75,-0.75,0 166.75,-0.75,0 166.75,-0.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (42)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>152.75,-3.25,0 147.25,-2.25,0 145.25,-1.25,0 144.75,-1.25,0 144.25,-1.25,0 143.25,-1.25,0 142.75,-1.75,0 142.25,-2.75,0 142.25,-3.25,0 147.25,-9.75,0 147.75,-10.25,0 149.75,-10.75,0 150.75,-11.25,0 152.75,-11.75,0 153.25,-11.75,0 153.75,-11.75,0 154.25,-11.75,0 154.25,-11.25,0 153.75,-9.25,0 153.75,-4.25,0 153.25,-3.75,0 152.75,-3.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (43)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>128.75,-8.25,0 128.75,-7.25,0 129.25,-6.75,0 130.25,-6.25,0 132.25,-5.25,0 134.75,-4.25,0 135.25,-4.25,0 135.75,-4.25,0 136.75,-4.75,0 138.25,-5.25,0 144.25,-7.75,0 144.75,-7.75,0 145.25,-7.75,0 145.75,-7.75,0 146.25,-8.25,0 146.75,-8.75,0 147.25,-9.25,0 144.75,-14.25,0 140.75,-17.75,0 140.25,-17.75,0 139.75,-17.75,0 138.25,-16.75,0 137.25,-16.25,0 136.25,-15.75,0 135.75,-15.25,0 135.25,-14.75,0 131.25,-12.25,0 128.75,-8.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (44)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>126.25,-3.25,0 126.25,0.75,0 126.25,1.25,0 128.25,2.75,0 128.75,2.75,0 131.25,1.25,0 134.25,0.75,0 138.25,-1.25,0 139.25,-1.75,0 140.75,-2.25,0 141.75,-2.75,0 141.25,-2.75,0 140.75,-2.75,0 135.75,-3.25,0 134.25,-4.25,0 131.75,-4.75,0 127.75,-5.75,0 126.25,-3.75,0 126.25,-3.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (45)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>117.75,2.25,0 118.25,2.75,0 124.75,1.75,0 125.25,1.75,0 126.75,-1.75,0 124.75,-6.25,0 122.25,-7.25,0 121.75,-7.25,0 121.25,-7.25,0 120.75,-7.25,0 120.25,-7.25,0 119.25,-6.75,0 117.75,-5.75,0 117.75,-5.25,0 117.25,-0.75,0 117.25,-0.25,0 117.75,2.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (46)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>116.75,-1.25,0 109.75,-0.75,0 108.25,-0.25,0 107.75,-0.25,0 106.25,-1.25,0 105.75,-1.75,0 104.25,-5.25,0 104.25,-5.75,0 104.75,-11.25,0 105.25,-11.25,0 105.75,-10.75,0 113.25,-8.75,0 113.75,-8.75,0 114.25,-8.75,0 116.75,-9.25,0 117.25,-9.25,0 117.75,-9.25,0 118.25,-8.75,0 118.75,-7.25,0 118.75,-6.75,0 117.75,-3.25,0 117.75,-2.75,0 117.75,-2.25,0 117.25,-1.25,0 116.75,-1.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (47)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>104.75,-1.25,0 103.25,-0.75,0 103.25,2.75,0 103.25,3.25,0 103.25,3.75,0 103.25,4.25,0 103.25,4.75,0 104.75,8.25,0 105.25,8.75,0 107.75,10.75,0 109.25,13.75,0 109.75,13.75,0 109.75,13.25,0 109.75,12.75,0 109.75,12.25,0 114.75,5.75,0 114.75,5.25,0 114.75,4.75,0 113.75,3.75,0 113.25,3.25,0 109.25,-0.25,0 106.75,-0.75,0 105.75,-1.25,0 105.25,-1.25,0 104.75,-1.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (48)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>103.75,-4.75,0 101.25,-2.25,0 100.75,-1.25,0 100.25,-0.25,0 99.25,3.75,0 97.75,5.75,0 95.75,5.75,0 95.25,5.75,0 94.75,5.75,0 95.25,3.25,0 95.25,2.75,0 97.75,-0.25,0 98.75,-1.75,0 99.25,-2.25,0 99.75,-2.75,0 101.25,-4.75,0 102.25,-5.75,0 102.75,-5.75,0 103.75,-5.25,0 103.75,-4.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (49)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>72.75,7.25,0 72.25,10.25,0 71.75,11.75,0 71.75,12.25,0 72.75,15.75,0 72.75,16.25,0 73.25,16.25,0 73.75,16.25,0 80.25,15.75,0 81.25,16.25,0 81.25,15.75,0 80.75,13.25,0 80.75,12.75,0 80.75,12.25,0 81.25,9.25,0 81.75,8.25,0 82.25,7.25,0 82.25,6.75,0 81.75,6.25,0 81.25,5.75,0 80.75,5.75,0 80.25,5.75,0 73.75,0.25,0 73.25,-0.75,0 73.25,-0.25,0 72.75,2.25,0 72.75,2.75,0 72.75,3.25,0 72.75,3.75,0 72.75,4.25,0 72.75,4.75,0 72.75,5.25,0 72.75,5.75,0 72.75,6.25,0 72.75,6.75,0 72.75,7.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (50)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>140.25,30.75,0 135.75,33.25,0 135.25,33.75,0 135.25,35.75,0 135.25,36.25,0 135.25,39.25,0 139.75,40.75,0 140.25,40.25,0 141.75,37.75,0 141.25,35.25,0 140.25,30.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (51)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>15.75,31.25,0 15.25,31.75,0 20.75,39.25,0 22.75,40.75,0 23.75,40.75,0 24.25,40.75,0 24.75,40.75,0 25.25,40.75,0 25.75,40.75,0 26.75,40.25,0 27.25,38.75,0 27.25,38.25,0 24.75,36.75,0 20.25,30.75,0 19.75,30.25,0 19.25,30.25,0 18.75,30.25,0 17.75,30.75,0 15.75,31.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (52)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>17.75,43.25,0 14.75,44.75,0 14.25,44.75,0 13.75,44.75,0 13.25,44.75,0 10.25,44.25,0 9.75,44.25,0 8.75,42.25,0 8.25,41.25,0 5.25,36.75,0 10.75,33.75,0 11.25,33.25,0 12.25,32.75,0 12.75,32.75,0 13.25,32.75,0 13.75,32.75,0 15.25,35.75,0 19.75,41.75,0 19.25,42.25,0 17.75,43.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (53)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>131.25,24.75,0 131.25,25.75,0 134.25,33.25,0 134.75,33.75,0 135.25,34.25,0 134.75,35.75,0 133.75,36.25,0 131.75,37.25,0 130.75,37.75,0 128.75,38.25,0 123.75,35.75,0 123.25,35.75,0 122.75,35.75,0 122.25,35.25,0 122.25,34.75,0 120.75,27.75,0 120.25,27.25,0 119.75,26.75,0 119.75,26.25,0 120.25,25.75,0 121.75,24.25,0 122.75,24.25,0 123.25,24.25,0 123.75,24.25,0 124.25,24.25,0 124.75,24.25,0 125.75,24.75,0 131.25,24.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (54)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>32.75,31.25,0 36.25,36.75,0 31.25,31.75,0 32.75,31.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (55)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>120.75,25.25,0 119.75,25.75,0 118.75,25.25,0 116.75,23.75,0 115.25,22.75,0 111.75,21.75,0 109.75,21.75,0 109.25,21.75,0 108.75,21.75,0 108.25,21.75,0 107.75,21.75,0 106.75,20.75,0 106.25,20.25,0 105.75,19.75,0 105.75,19.25,0 105.75,18.75,0 106.25,17.75,0 106.75,17.25,0 107.25,16.75,0 108.75,14.75,0 109.25,14.25,0 113.75,15.75,0 114.25,15.75,0 120.75,18.25,0 121.75,18.25,0 122.25,18.25,0 122.25,18.75,0 122.25,19.25,0 122.25,19.75,0 122.25,20.25,0 122.25,20.75,0 121.75,23.25,0 121.75,23.75,0 120.75,25.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (56)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>94.25,16.25,0 83.75,17.25,0 82.75,16.75,0 82.25,16.75,0 82.25,17.25,0 84.25,18.75,0 84.75,19.25,0 85.25,19.75,0 86.75,20.75,0 87.75,20.75,0 88.25,20.75,0 88.75,20.75,0 89.25,20.75,0 89.75,20.75,0 90.25,20.75,0 90.75,20.75,0 92.75,20.25,0 93.75,19.75,0 94.25,19.25,0 94.75,18.25,0 94.75,17.75,0 94.75,17.25,0 94.25,16.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (57)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>68.25,21.25,0 62.25,24.75,0 61.75,24.75,0 61.25,24.75,0 61.25,25.25,0 61.75,25.25,0 62.25,25.25,0 62.75,25.25,0 63.25,25.25,0 63.75,25.25,0 66.25,25.75,0 66.75,25.25,0 67.25,24.75,0 70.25,22.75,0 72.75,22.25,0 72.75,21.75,0 72.75,21.25,0 72.75,20.75,0 73.25,18.25,0 73.25,17.75,0 73.25,17.25,0 73.25,16.75,0 72.75,16.75,0 72.25,16.75,0 70.75,17.75,0 69.75,19.25,0 68.25,21.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (58)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>56.75,17.75,0 57.25,17.75,0 57.75,18.25,0 58.25,18.75,0 59.25,20.25,0 59.75,21.25,0 59.75,21.75,0 60.75,25.25,0 56.75,27.25,0 56.25,27.25,0 55.75,27.25,0 50.75,29.75,0 50.25,30.25,0 49.75,30.25,0 49.25,30.25,0 48.75,30.25,0 47.75,29.75,0 47.75,29.25,0 48.75,27.75,0 50.25,25.25,0 51.25,23.75,0 56.75,17.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (59)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>37.25,18.75,0 35.75,22.75,0 38.25,24.25,0 38.75,23.75,0 39.25,22.75,0 39.75,20.75,0 39.75,20.25,0 39.75,19.75,0 39.75,17.25,0 39.25,17.25,0 38.75,17.25,0 37.25,18.75,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (60)</name>
-      <Style>
-        <PolygonStyle>
-          <color>800000ff</color>
-          <outline>0</outline>
-        </PolygonStyle>
-      </Style>
-      <Polygon>
-        <outerBoundaryIs>
-          <LinearRing>
-            <coordinates>134.75,8.25,0 138.25,9.75,0 139.75,10.25,0 140.75,9.75,0 140.25,8.25,0 137.75,8.25,0 134.25,6.75,0 131.75,2.75,0 131.75,3.25,0 132.25,5.25,0 134.25,7.75,0 134.75,8.25,0</coordinates>
-          </LinearRing>
-        </outerBoundaryIs>
-      </Polygon>
-    </Placemark>
-    <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (61)</name>
-      <Style>
-        <PolygonStyle>
           <color>800000ff</color>
           <outline>0</outline>
         </PolygonStyle>
@@ -2909,13 +701,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>125.75,2.75,0 126.75,3.75,0 127.25,4.75,0 126.75,7.25,0 126.75,7.75,0 126.75,8.25,0 126.25,10.75,0 125.75,12.25,0 124.25,15.75,0 122.75,17.25,0 122.25,17.75,0 120.25,18.25,0 117.75,15.25,0 114.75,11.75,0 114.25,11.25,0 112.75,9.75,0 110.75,8.25,0 110.75,7.75,0 115.25,5.75,0 118.25,3.75,0 125.25,2.25,0 125.75,2.75,0</coordinates>
+            <coordinates>-15.75,23.25,0 -15.25,24.25,0 -14.75,24.75,0 -14.75,25.25,0 -14.25,26.25,0 -13.25,26.75,0 -12.75,27.75,0 -11.75,28.25,0 -11.25,28.25,0 -10.75,28.75,0 -10.25,29.25,0 -9.75,29.75,0 -9.75,30.25,0 -9.75,30.75,0 -9.25,31.75,0 -8.75,32.75,0 -8.25,33.25,0 -7.25,33.75,0 -6.75,33.75,0 -6.25,34.75,0 -5.25,35.25,0 -4.75,35.25,0 -4.25,35.25,0 -3.75,35.25,0 -3.25,35.25,0 -2.75,35.25,0 -2.25,35.25,0 -1.75,35.25,0 -1.25,35.25,0 -0.25,35.75,0 0.25,35.75,0 0.75,36.25,0 1.75,36.75,0 2.25,36.75,0 2.75,36.75,0 1.75,38.75,0 2.75,39.25,0 3.25,39.25,0 3.75,39.25,0 4.25,39.75,0 4.25,40.25,0 3.75,40.25,0 2.75,41.25,0 2.75,41.75,0 3.75,42.75,0 4.25,42.75,0 5.25,43.25,0 4.25,43.75,0 3.75,43.75,0 3.25,43.25,0 3.25,42.75,0 2.25,41.75,0 1.25,41.25,0 0.75,41.25,0 0.25,40.25,0 -0.25,39.75,0 -0.25,39.25,0 -0.75,38.25,0 -1.25,37.75,0 -1.75,37.25,0 -2.75,36.75,0 -3.25,36.75,0 -3.75,36.75,0 -4.25,36.75,0 -4.75,36.75,0 -6.25,36.75,0 -6.75,37.25,0 -7.25,37.25,0 -7.75,37.25,0 -8.75,38.25,0 -8.75,38.75,0 -8.75,39.75,0 -8.75,40.25,0 -9.25,41.25,0 -9.25,40.75,0 -9.75,39.75,0 -9.75,39.25,0 -9.75,38.75,0 -9.25,37.25,0 -9.25,36.75,0 -8.75,36.75,0 -8.25,36.75,0 -7.75,36.75,0 -6.75,36.25,0 -6.75,34.75,0 -7.75,34.25,0 -8.75,33.75,0 -9.25,33.25,0 -9.75,32.75,0 -10.25,31.75,0 -10.75,30.75,0 -12.75,29.75,0 -13.75,29.25,0 -15.75,30.25,0 -16.25,28.75,0 -17.75,28.75,0 -18.25,27.75,0 -17.75,27.75,0 -16.75,28.25,0 -15.75,27.75,0 -15.75,25.75,0 -16.25,25.25,0 -16.75,24.25,0 -17.25,23.25,0 -17.25,22.75,0 -16.25,22.25,0 -15.75,23.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (62)</name>
+      <name>Range – High (0.66–1.00) (2)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -2925,13 +717,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>93.75,6.75,0 98.25,6.75,0 98.75,6.75,0 99.25,6.75,0 103.25,5.25,0 103.75,5.25,0 104.25,5.25,0 104.75,5.25,0 104.75,5.75,0 104.75,6.25,0 104.75,6.75,0 104.75,7.25,0 105.25,9.75,0 105.25,10.25,0 103.25,11.75,0 97.75,14.75,0 96.75,15.25,0 96.25,15.25,0 93.75,15.75,0 93.25,14.75,0 92.25,13.25,0 92.25,12.75,0 92.25,12.25,0 92.25,11.75,0 92.25,11.25,0 92.25,10.75,0 92.25,10.25,0 92.75,8.75,0 93.25,7.75,0 93.75,6.75,0</coordinates>
+            <coordinates>-99.75,16.75,0 -100.25,17.25,0 -101.25,17.75,0 -102.25,18.25,0 -102.75,18.25,0 -103.75,18.75,0 -104.25,19.25,0 -105.25,20.25,0 -105.25,20.75,0 -105.25,21.25,0 -105.25,21.75,0 -105.75,22.75,0 -106.25,23.25,0 -106.75,23.75,0 -107.25,24.25,0 -107.75,24.75,0 -108.25,25.25,0 -109.25,26.25,0 -109.25,26.75,0 -110.25,27.25,0 -110.75,27.75,0 -111.25,28.25,0 -111.75,28.75,0 -112.25,29.75,0 -112.75,30.75,0 -113.25,31.25,0 -113.75,31.75,0 -114.25,31.75,0 -114.75,31.75,0 -116.75,32.25,0 -118.25,32.75,0 -119.25,32.25,0 -119.25,32.75,0 -119.25,33.25,0 -119.25,33.75,0 -117.75,33.75,0 -117.25,33.25,0 -116.75,32.25,0 -116.25,31.25,0 -116.25,30.25,0 -115.75,29.25,0 -115.75,28.25,0 -115.25,27.75,0 -114.75,27.25,0 -114.25,26.75,0 -113.75,26.25,0 -113.25,25.25,0 -112.75,24.75,0 -112.25,24.25,0 -111.75,23.75,0 -110.75,23.25,0 -110.25,22.75,0 -109.75,22.75,0 -109.25,23.25,0 -107.75,23.75,0 -106.75,23.25,0 -106.75,21.75,0 -106.25,21.25,0 -105.75,20.25,0 -105.75,19.75,0 -105.25,19.25,0 -104.25,18.75,0 -103.75,18.25,0 -102.75,17.75,0 -102.25,17.75,0 -101.25,17.25,0 -100.25,16.75,0 -99.75,16.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (63)</name>
+      <name>Range – High (0.66–1.00) (3)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -2941,13 +733,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>55.75,17.75,0 56.25,17.75,0 54.75,12.75,0 54.75,12.25,0 53.75,11.75,0 51.75,10.25,0 51.25,9.75,0 50.75,9.75,0 45.25,10.25,0 44.75,10.25,0 44.25,10.25,0 42.25,11.75,0 40.75,14.75,0 40.25,16.75,0 40.75,16.75,0 41.25,16.75,0 41.75,16.25,0 49.25,14.75,0 50.25,15.25,0 52.75,16.75,0 54.25,17.25,0 55.25,17.75,0 55.75,17.75,0</coordinates>
+            <coordinates>-72.25,39.25,0 -71.75,39.75,0 -72.25,39.75,0 -72.75,39.25,0 -73.75,38.75,0 -74.25,38.25,0 -75.25,37.75,0 -75.75,36.75,0 -76.75,36.25,0 -76.75,35.75,0 -77.25,34.75,0 -77.75,34.25,0 -78.75,33.75,0 -79.25,33.25,0 -80.25,32.75,0 -80.75,32.25,0 -81.25,31.75,0 -81.25,31.25,0 -81.25,30.75,0 -83.25,29.75,0 -83.75,30.25,0 -84.25,30.25,0 -85.75,30.25,0 -86.25,30.25,0 -86.75,30.25,0 -87.25,30.25,0 -87.75,30.25,0 -88.25,29.75,0 -89.25,28.75,0 -89.75,28.75,0 -90.75,29.25,0 -91.75,29.75,0 -92.25,29.75,0 -92.75,29.75,0 -93.25,29.75,0 -93.75,29.75,0 -94.25,29.75,0 -95.25,29.25,0 -96.25,28.75,0 -96.75,28.75,0 -97.25,28.25,0 -97.25,27.75,0 -97.25,27.25,0 -97.25,26.75,0 -97.25,26.25,0 -97.75,25.25,0 -97.75,24.75,0 -97.75,24.25,0 -97.75,23.75,0 -97.75,23.25,0 -97.75,22.75,0 -97.75,22.25,0 -97.25,21.25,0 -97.25,20.75,0 -96.75,20.25,0 -96.25,19.25,0 -95.75,18.75,0 -94.75,18.25,0 -95.25,16.25,0 -96.25,15.75,0 -95.75,15.75,0 -94.75,15.25,0 -94.25,14.75,0 -93.75,14.75,0 -92.75,14.25,0 -93.25,15.75,0 -94.25,16.25,0 -93.75,18.25,0 -92.75,18.75,0 -92.25,18.75,0 -91.75,18.75,0 -91.25,18.75,0 -90.75,19.25,0 -90.25,19.75,0 -90.25,20.25,0 -89.25,21.25,0 -87.75,19.75,0 -88.25,18.75,0 -88.25,18.25,0 -88.25,17.75,0 -88.25,17.25,0 -88.75,16.25,0 -88.75,15.75,0 -88.25,15.75,0 -87.75,15.75,0 -87.25,15.75,0 -86.75,15.75,0 -86.25,15.75,0 -85.75,15.75,0 -85.25,15.75,0 -84.25,15.25,0 -83.75,13.75,0 -83.75,13.25,0 -83.75,12.75,0 -83.75,12.25,0 -85.75,11.25,0 -86.25,11.75,0 -86.75,12.25,0 -87.25,13.25,0 -88.25,12.75,0 -88.75,12.75,0 -89.75,13.25,0 -90.25,13.25,0 -89.25,12.75,0 -88.25,12.25,0 -87.25,11.25,0 -86.75,10.75,0 -86.25,10.25,0 -85.75,9.75,0 -84.75,9.25,0 -84.25,8.75,0 -83.75,8.25,0 -83.25,8.25,0 -82.25,7.25,0 -81.75,7.25,0 -81.25,7.25,0 -80.75,7.25,0 -80.25,7.25,0 -79.75,7.25,0 -78.25,7.25,0 -77.75,6.75,0 -77.25,5.75,0 -77.25,6.25,0 -77.25,6.75,0 -76.75,7.75,0 -76.25,8.75,0 -75.75,9.25,0 -75.75,9.75,0 -74.25,10.75,0 -73.25,11.25,0 -72.25,11.75,0 -71.25,11.25,0 -70.75,11.25,0 -70.25,11.25,0 -68.75,11.25,0 -68.25,10.75,0 -67.75,10.75,0 -67.25,10.75,0 -66.25,10.25,0 -65.75,10.25,0 -65.25,10.25,0 -64.75,10.25,0 -64.25,10.25,0 -62.75,10.25,0 -61.75,9.75,0 -60.75,8.75,0 -59.75,8.25,0 -58.75,7.75,0 -58.25,6.75,0 -57.75,6.25,0 -57.25,6.25,0 -56.25,5.75,0 -55.75,5.75,0 -54.75,5.75,0 -54.25,5.75,0 -53.75,5.75,0 -53.25,5.75,0 -52.25,5.75,0 -51.25,5.25,0 -50.75,4.75,0 -50.25,3.75,0 -49.75,3.25,0 -49.25,3.25,0 -48.75,3.25,0 -48.75,3.75,0 -49.25,4.25,0 -49.75,4.75,0 -50.25,5.25,0 -51.25,5.75,0 -51.75,6.25,0 -52.25,6.75,0 -53.25,7.25,0 -54.25,7.75,0 -55.25,7.25,0 -55.75,7.25,0 -56.75,7.75,0 -57.75,8.25,0 -58.75,8.75,0 -59.25,9.25,0 -59.75,10.25,0 -60.25,11.25,0 -59.25,13.25,0 -59.75,13.25,0 -60.75,14.25,0 -60.75,14.75,0 -60.75,15.25,0 -60.75,16.25,0 -61.25,16.75,0 -61.75,17.75,0 -62.25,18.25,0 -62.75,18.75,0 -63.25,18.75,0 -64.25,18.75,0 -64.75,18.75,0 -65.25,18.75,0 -65.75,18.75,0 -66.25,18.75,0 -66.75,18.75,0 -67.25,18.75,0 -67.75,18.75,0 -68.75,19.25,0 -69.75,20.75,0 -71.75,21.75,0 -72.25,21.75,0 -72.75,20.25,0 -74.75,20.75,0 -75.75,22.25,0 -75.25,23.25,0 -76.25,23.75,0 -76.25,25.25,0 -76.75,26.25,0 -76.75,26.75,0 -77.25,27.25,0 -77.75,27.25,0 -78.25,27.25,0 -78.75,27.25,0 -79.75,28.25,0 -79.75,28.75,0 -80.25,29.75,0 -79.75,30.75,0 -79.25,31.75,0 -78.75,32.25,0 -77.75,32.75,0 -76.75,33.25,0 -76.25,33.75,0 -75.75,34.25,0 -75.25,34.75,0 -74.75,35.25,0 -74.75,35.75,0 -74.75,36.25,0 -74.25,37.25,0 -73.25,38.25,0 -72.75,38.75,0 -72.25,39.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (64)</name>
+      <name>Range – High (0.66–1.00) (4)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -2957,13 +749,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>157.25,5.75,0 157.75,7.25,0 160.75,9.75,0 162.25,11.75,0 166.75,19.25,0 169.25,14.75,0 170.25,12.25,0 171.25,8.75,0 171.75,7.25,0 172.25,6.25,0 172.25,5.75,0 168.75,4.75,0 163.25,5.25,0 162.75,5.25,0 157.25,5.75,0</coordinates>
+            <coordinates>-168.25,25.25,0 -169.25,25.75,0 -170.75,25.75,0 -171.25,25.75,0 -171.75,25.75,0 -172.25,25.75,0 -173.25,26.25,0 -173.75,26.25,0 -174.25,26.25,0 -174.75,26.25,0 -175.75,27.75,0 -175.75,28.25,0 -176.75,28.75,0 -178.25,28.75,0 -178.25,28.25,0 -177.25,28.25,0 -176.25,26.75,0 -174.75,26.25,0 -173.75,25.75,0 -173.25,25.75,0 -172.25,25.25,0 -171.25,25.25,0 -170.75,25.25,0 -170.25,25.25,0 -168.25,24.75,0 -167.25,24.25,0 -166.25,23.75,0 -165.75,23.75,0 -164.75,23.75,0 -164.25,23.75,0 -163.25,23.25,0 -164.25,23.25,0 -164.75,23.25,0 -165.75,23.75,0 -166.75,24.25,0 -167.75,25.25,0 -168.25,25.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (65)</name>
+      <name>Range – High (0.66–1.00) (5)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -2973,13 +765,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>154.75,1.25,0 145.25,5.75,0 143.25,6.75,0 144.75,8.75,0 148.25,9.25,0 150.25,9.25,0 152.25,8.75,0 154.25,8.25,0 155.25,7.75,0 155.25,3.75,0 154.75,1.25,0</coordinates>
+            <coordinates>-13.75,7.25,0 -14.25,7.75,0 -14.75,8.75,0 -15.75,9.25,0 -16.75,9.75,0 -17.25,10.75,0 -17.25,11.25,0 -17.25,11.75,0 -17.75,12.75,0 -17.75,13.25,0 -17.75,14.75,0 -17.25,15.25,0 -17.25,14.75,0 -16.75,13.75,0 -16.75,13.25,0 -16.25,12.25,0 -15.25,11.75,0 -14.75,10.75,0 -14.25,10.25,0 -13.25,9.75,0 -13.25,9.25,0 -12.75,8.25,0 -11.75,7.25,0 -10.75,6.75,0 -10.25,6.25,0 -9.75,5.75,0 -9.25,5.25,0 -8.25,4.75,0 -7.75,4.75,0 -6.75,4.25,0 -7.25,4.25,0 -7.75,4.25,0 -8.25,4.25,0 -9.25,4.75,0 -10.25,5.25,0 -10.75,5.75,0 -11.25,6.25,0 -12.25,6.75,0 -13.25,7.25,0 -13.75,7.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (66)</name>
+      <name>Range – High (0.66–1.00) (6)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -2989,13 +781,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-25.25,36.75,0 -28.25,38.25,0 -31.25,39.25,0 -31.25,39.75,0 -28.25,39.25,0 -27.75,39.25,0 -26.75,38.75,0 -25.25,37.75,0 -24.75,37.25,0 -25.25,36.75,0</coordinates>
+            <coordinates>-46.75,1.75,0 -47.25,2.25,0 -47.75,2.75,0 -48.25,3.25,0 -48.25,2.75,0 -47.75,2.25,0 -47.75,0.25,0 -48.25,-0.25,0 -47.25,-0.75,0 -46.75,-0.75,0 -45.75,-1.25,0 -45.25,-1.75,0 -44.75,-2.75,0 -44.25,-2.75,0 -42.75,-2.75,0 -42.25,-2.75,0 -41.75,-2.75,0 -41.25,-2.75,0 -40.75,-2.75,0 -39.75,-3.25,0 -38.75,-3.75,0 -38.25,-4.25,0 -37.25,-4.75,0 -36.25,-5.25,0 -35.25,-5.75,0 -34.75,-6.75,0 -34.75,-7.25,0 -34.75,-7.75,0 -35.25,-8.75,0 -35.75,-9.75,0 -36.25,-10.25,0 -36.75,-10.75,0 -37.25,-11.25,0 -37.75,-11.75,0 -38.75,-12.75,0 -38.75,-13.25,0 -38.75,-13.75,0 -39.25,-14.75,0 -38.75,-15.75,0 -39.25,-16.75,0 -39.25,-17.25,0 -39.75,-18.25,0 -39.75,-18.75,0 -40.25,-19.75,0 -40.75,-20.75,0 -41.25,-21.25,0 -41.75,-22.25,0 -42.75,-22.75,0 -43.25,-22.75,0 -43.75,-22.75,0 -44.75,-23.25,0 -45.25,-23.25,0 -46.25,-23.75,0 -47.25,-24.25,0 -47.75,-24.75,0 -48.25,-25.25,0 -48.75,-25.75,0 -48.75,-26.25,0 -48.75,-26.75,0 -48.75,-27.25,0 -48.75,-27.75,0 -48.25,-27.75,0 -47.75,-27.75,0 -47.25,-27.75,0 -46.75,-26.75,0 -46.25,-26.25,0 -45.25,-25.75,0 -44.75,-25.25,0 -43.75,-24.25,0 -43.25,-24.25,0 -42.25,-23.75,0 -41.75,-23.75,0 -41.25,-23.75,0 -40.75,-23.25,0 -40.25,-22.75,0 -40.25,-22.25,0 -40.25,-21.75,0 -39.75,-20.75,0 -38.25,-20.75,0 -37.75,-22.25,0 -37.25,-20.75,0 -36.25,-20.25,0 -35.25,-20.75,0 -34.75,-20.75,0 -33.75,-20.75,0 -34.75,-20.25,0 -35.75,-20.25,0 -36.25,-20.25,0 -37.25,-18.25,0 -36.25,-17.75,0 -35.75,-17.75,0 -36.75,-17.25,0 -37.75,-16.25,0 -37.75,-15.75,0 -38.75,-14.75,0 -38.75,-14.25,0 -38.25,-13.25,0 -37.75,-12.75,0 -37.25,-12.25,0 -36.75,-11.25,0 -36.25,-10.75,0 -35.75,-10.25,0 -35.25,-9.75,0 -34.75,-9.25,0 -34.25,-8.25,0 -34.25,-7.75,0 -34.25,-7.25,0 -34.25,-6.75,0 -34.75,-5.75,0 -34.75,-5.25,0 -33.75,-3.75,0 -35.75,-3.75,0 -37.25,-3.25,0 -38.25,-2.25,0 -38.75,-1.25,0 -39.75,-2.25,0 -40.25,-2.25,0 -40.75,-2.25,0 -41.25,-2.25,0 -41.75,-2.25,0 -42.75,-1.75,0 -43.25,-1.25,0 -43.75,-0.25,0 -44.25,0.25,0 -45.25,0.75,0 -46.25,1.25,0 -46.75,1.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (67)</name>
+      <name>Range – High (0.66–1.00) (7)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3005,13 +797,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-155.75,18.75,0 -154.75,19.25,0 -154.75,19.75,0 -155.25,20.25,0 -155.75,20.75,0 -156.25,21.25,0 -157.75,21.75,0 -159.25,22.25,0 -160.75,22.75,0 -161.75,23.25,0 -162.25,23.25,0 -162.75,23.25,0 -163.25,23.25,0 -162.25,22.75,0 -160.75,21.75,0 -155.75,18.75,0</coordinates>
+            <coordinates>-178.25,-19.75,0 -178.25,-19.25,0 -178.25,-18.75,0 -178.25,-18.25,0 -178.25,-17.75,0 -178.75,-16.75,0 -179.25,-15.75,0 -179.75,-15.75,0 -179.75,-16.25,0 -179.75,-16.75,0 -179.75,-17.25,0 -179.75,-18.75,0 -178.75,-19.25,0 -178.75,-20.75,0 -178.25,-19.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (68)</name>
+      <name>Range – High (0.66–1.00) (8)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3021,13 +813,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-22.75,16.25,0 -22.75,16.75,0 -24.75,17.25,0 -25.25,17.25,0 -25.25,16.75,0 -24.75,14.75,0 -24.25,14.75,0 -23.75,14.75,0 -23.25,14.75,0 -22.75,15.75,0 -22.75,16.25,0</coordinates>
+            <coordinates>-152.25,-16.25,0 -154.25,-15.75,0 -154.75,-16.25,0 -154.75,-16.75,0 -153.75,-16.75,0 -151.75,-16.75,0 -150.75,-17.75,0 -149.75,-17.75,0 -149.25,-17.75,0 -148.25,-17.75,0 -148.25,-15.75,0 -146.75,-15.75,0 -146.25,-16.25,0 -145.75,-17.25,0 -145.25,-17.25,0 -144.25,-17.25,0 -143.25,-17.75,0 -142.25,-18.25,0 -141.75,-18.75,0 -141.25,-19.25,0 -140.25,-19.75,0 -140.75,-21.75,0 -138.75,-22.25,0 -136.75,-21.25,0 -136.25,-21.75,0 -135.75,-21.75,0 -134.75,-22.75,0 -135.25,-21.75,0 -135.25,-21.25,0 -135.75,-21.25,0 -136.25,-21.25,0 -136.75,-21.25,0 -138.25,-20.75,0 -138.75,-19.25,0 -137.25,-18.25,0 -138.25,-17.25,0 -139.25,-19.25,0 -140.75,-18.25,0 -140.75,-17.75,0 -140.25,-16.25,0 -140.25,-15.75,0 -141.25,-14.25,0 -142.25,-15.75,0 -144.25,-14.75,0 -144.75,-14.25,0 -145.25,-14.25,0 -145.75,-14.25,0 -146.25,-14.25,0 -147.25,-14.75,0 -147.75,-14.75,0 -148.25,-14.75,0 -148.75,-14.75,0 -149.75,-16.75,0 -150.75,-16.75,0 -151.75,-16.25,0 -152.25,-16.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (69)</name>
+      <name>Range – High (0.66–1.00) (9)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3037,13 +829,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-159.75,-0.25,0 -162.25,5.75,0 -162.75,6.25,0 -162.75,6.75,0 -162.25,6.25,0 -160.25,4.75,0 -159.25,3.75,0 -157.25,2.25,0 -157.25,1.75,0 -159.75,-0.25,0</coordinates>
+            <coordinates>-89.25,-25.25,0 -87.25,-25.25,0 -89.25,-25.75,0 -89.25,-25.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (70)</name>
+      <name>Range – High (0.66–1.00) (10)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3053,13 +845,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>-30.75,-20.25,0 -35.75,-10.25,0 -35.75,-9.75,0 -36.25,-10.25,0 -36.75,-10.75,0 -37.25,-11.25,0 -37.75,-11.75,0 -38.75,-12.75,0 -39.25,-14.75,0 -39.75,-18.25,0 -40.25,-19.75,0 -40.25,-20.25,0 -40.25,-20.75,0 -37.75,-22.25,0 -33.75,-20.75,0 -29.75,-20.75,0 -29.25,-20.25,0 -30.75,-20.25,0</coordinates>
+            <coordinates>168.25,-15.75,0 168.25,-15.25,0 168.25,-14.75,0 168.25,-14.25,0 168.75,-12.25,0 167.25,-11.75,0 167.25,-9.75,0 166.25,-10.25,0 165.75,-10.25,0 165.75,-10.75,0 166.25,-11.25,0 166.75,-11.75,0 166.75,-13.25,0 166.75,-14.75,0 166.25,-15.75,0 167.25,-16.75,0 168.25,-17.75,0 169.25,-18.75,0 170.25,-19.25,0 169.75,-20.25,0 169.25,-22.25,0 171.25,-22.25,0 169.75,-22.75,0 168.25,-22.75,0 167.75,-22.75,0 167.25,-22.75,0 166.75,-22.75,0 166.25,-22.25,0 165.25,-21.75,0 164.75,-21.25,0 164.25,-20.75,0 163.75,-20.25,0 161.75,-21.25,0 159.75,-21.75,0 159.75,-23.25,0 159.75,-23.75,0 159.75,-24.25,0 161.75,-25.25,0 162.75,-24.75,0 163.75,-25.75,0 163.25,-25.75,0 162.25,-26.25,0 161.75,-26.25,0 161.25,-26.25,0 159.75,-25.25,0 159.25,-24.25,0 159.25,-23.75,0 159.25,-22.25,0 158.75,-21.25,0 158.25,-20.75,0 158.25,-19.75,0 158.25,-19.25,0 158.25,-18.75,0 158.75,-18.75,0 159.75,-19.25,0 160.25,-19.25,0 161.25,-20.25,0 162.75,-18.75,0 162.75,-18.25,0 162.75,-17.75,0 163.25,-17.75,0 164.25,-18.25,0 164.25,-18.75,0 165.75,-19.75,0 166.75,-20.25,0 167.25,-20.75,0 169.25,-19.75,0 169.25,-19.25,0 169.25,-18.75,0 168.75,-17.75,0 168.75,-17.25,0 168.75,-16.75,0 168.25,-15.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (71)</name>
+      <name>Range – High (0.66–1.00) (11)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3069,13 +861,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>96.75,-12.25,0 96.75,-11.75,0 96.25,-13.25,0 96.75,-12.25,0</coordinates>
+            <coordinates>145.75,-14.25,0 146.75,-13.75,0 145.75,-14.75,0 145.75,-15.25,0 146.25,-16.25,0 147.75,-16.25,0 148.25,-16.25,0 149.25,-15.75,0 149.75,-15.75,0 150.25,-16.25,0 150.75,-16.75,0 151.75,-17.25,0 152.25,-17.25,0 152.25,-18.75,0 152.25,-19.25,0 152.75,-20.75,0 154.25,-20.75,0 155.75,-21.25,0 155.75,-22.25,0 155.75,-23.25,0 155.25,-22.25,0 153.75,-22.25,0 153.25,-22.75,0 153.25,-24.25,0 153.75,-24.75,0 153.75,-25.25,0 153.75,-25.75,0 153.75,-26.25,0 153.75,-26.75,0 153.75,-27.25,0 153.75,-27.75,0 153.25,-27.75,0 153.25,-27.25,0 153.25,-26.75,0 153.25,-26.25,0 152.75,-25.25,0 152.25,-24.75,0 151.75,-24.25,0 151.25,-23.75,0 150.75,-23.25,0 149.75,-22.25,0 149.25,-21.75,0 148.75,-20.75,0 148.25,-20.25,0 147.75,-19.75,0 146.75,-19.25,0 146.25,-18.75,0 146.25,-18.25,0 145.75,-17.25,0 145.25,-16.25,0 145.25,-15.75,0 145.25,-15.25,0 144.25,-14.25,0 143.75,-14.25,0 141.75,-15.25,0 141.25,-16.25,0 141.25,-16.75,0 140.75,-17.75,0 140.25,-17.75,0 139.75,-17.75,0 139.25,-17.25,0 138.25,-16.75,0 137.25,-16.25,0 136.25,-15.75,0 135.75,-15.25,0 135.25,-14.75,0 135.75,-13.75,0 135.75,-13.25,0 135.25,-12.25,0 134.25,-11.75,0 133.75,-11.75,0 132.75,-12.25,0 132.25,-12.25,0 131.75,-12.25,0 131.25,-12.25,0 131.25,-11.75,0 131.25,-11.25,0 131.25,-10.75,0 131.25,-10.25,0 131.25,-9.75,0 131.25,-9.25,0 129.75,-8.25,0 129.25,-8.25,0 128.75,-8.25,0 128.75,-7.25,0 127.75,-5.75,0 127.75,-5.25,0 126.75,-3.75,0 126.25,-3.75,0 126.25,-3.25,0 127.25,-1.75,0 127.25,-1.25,0 127.25,-0.75,0 127.25,-0.25,0 126.25,0.75,0 126.25,1.25,0 127.75,2.25,0 128.25,2.75,0 128.75,2.75,0 128.75,2.25,0 128.75,1.75,0 129.25,0.75,0 130.75,0.75,0 131.25,1.25,0 131.25,0.75,0 132.25,-0.25,0 132.75,-0.25,0 133.25,-0.25,0 134.25,0.75,0 135.25,-0.25,0 136.25,-0.75,0 136.75,-1.25,0 138.25,-1.25,0 139.25,-1.75,0 140.25,-2.25,0 140.75,-2.25,0 142.75,-1.75,0 143.25,-1.25,0 144.25,-1.25,0 144.75,-1.25,0 145.25,-1.25,0 146.25,-2.25,0 146.75,-2.25,0 147.25,-2.25,0 147.25,-2.75,0 146.75,-4.75,0 147.75,-5.25,0 148.25,-5.25,0 148.75,-5.25,0 149.25,-5.25,0 151.25,-5.25,0 151.75,-4.75,0 152.25,-3.75,0 152.75,-3.25,0 153.25,-3.75,0 153.75,-4.25,0 153.25,-4.75,0 152.25,-5.25,0 151.75,-5.75,0 151.25,-6.25,0 151.25,-8.25,0 152.25,-8.75,0 152.75,-8.75,0 153.75,-9.25,0 154.25,-11.25,0 155.75,-10.75,0 154.25,-11.75,0 153.75,-11.75,0 153.25,-11.75,0 152.75,-11.75,0 151.75,-11.25,0 151.25,-11.25,0 150.75,-11.25,0 149.75,-10.75,0 148.75,-10.25,0 148.25,-10.25,0 147.75,-10.25,0 145.75,-10.25,0 145.25,-10.25,0 144.25,-11.25,0 144.25,-11.75,0 144.25,-12.25,0 144.75,-13.75,0 145.75,-14.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (72)</name>
+      <name>Range – High (0.66–1.00) (12)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3085,13 +877,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>40.25,-6.75,0 41.25,-2.75,0 42.75,-0.75,0 43.25,-0.25,0 43.25,0.25,0 43.25,0.75,0 42.75,0.25,0 41.25,-1.75,0 40.75,-2.25,0 40.25,-2.75,0 39.75,-3.25,0 39.25,-4.75,0 38.75,-5.75,0 38.75,-6.25,0 39.25,-8.75,0 39.75,-10.25,0 40.25,-12.75,0 40.75,-13.75,0 40.75,-13.25,0 40.75,-12.75,0 40.75,-12.25,0 40.75,-11.75,0 40.75,-11.25,0 40.75,-10.75,0 40.75,-10.25,0 40.25,-6.75,0</coordinates>
+            <coordinates>93.25,14.75,0 93.75,15.75,0 94.75,15.25,0 95.75,15.25,0 96.25,15.25,0 96.75,15.25,0 97.75,14.75,0 98.25,13.75,0 98.75,12.75,0 99.75,11.75,0 100.25,11.75,0 100.75,11.75,0 101.25,11.75,0 101.75,11.75,0 102.25,11.75,0 103.25,11.75,0 103.75,11.25,0 104.25,10.75,0 105.25,10.25,0 107.25,9.25,0 107.75,10.25,0 107.75,10.75,0 108.25,11.25,0 109.25,12.25,0 109.25,12.75,0 109.25,13.25,0 109.25,13.75,0 108.75,14.75,0 108.25,15.75,0 107.75,16.25,0 107.25,16.75,0 106.75,17.25,0 106.25,17.75,0 105.75,18.75,0 105.75,19.25,0 105.75,19.75,0 106.25,20.25,0 106.75,20.75,0 107.75,21.75,0 108.25,21.75,0 108.75,21.75,0 109.25,21.75,0 109.75,21.75,0 110.75,21.25,0 111.75,21.75,0 112.25,21.75,0 112.75,21.75,0 114.25,21.75,0 114.75,22.25,0 115.25,22.75,0 115.75,22.75,0 116.75,23.75,0 117.75,24.25,0 118.25,24.75,0 118.75,25.25,0 119.75,25.75,0 120.75,25.25,0 120.75,24.75,0 121.75,23.75,0 121.75,23.25,0 121.75,22.75,0 121.75,22.25,0 121.75,21.75,0 122.25,20.75,0 122.25,20.25,0 122.25,19.75,0 122.25,19.25,0 122.25,18.75,0 122.25,18.25,0 122.75,17.25,0 122.75,16.75,0 124.25,15.75,0 124.25,14.25,0 124.75,13.75,0 125.25,12.75,0 125.75,12.25,0 125.75,11.75,0 126.25,10.75,0 126.25,10.25,0 126.25,9.75,0 126.25,9.25,0 126.75,8.25,0 126.75,7.75,0 126.75,7.25,0 126.75,5.75,0 127.25,4.75,0 126.75,3.75,0 125.75,2.75,0 125.25,1.75,0 125.25,1.25,0 125.25,0.75,0 124.75,0.25,0 125.75,-1.75,0 126.25,-1.75,0 126.75,-1.75,0 126.25,-2.25,0 125.75,-2.25,0 125.25,-2.25,0 124.75,-2.25,0 124.25,-2.25,0 123.25,-3.25,0 123.25,-3.75,0 123.25,-4.25,0 124.25,-5.25,0 124.75,-5.25,0 124.75,-5.75,0 124.75,-6.25,0 125.75,-7.75,0 126.25,-7.75,0 127.25,-7.25,0 127.75,-7.75,0 128.25,-8.25,0 128.75,-9.25,0 129.75,-9.75,0 130.25,-9.75,0 130.75,-9.75,0 130.75,-10.25,0 130.75,-10.75,0 130.75,-11.25,0 130.75,-11.75,0 130.75,-12.25,0 130.25,-13.25,0 129.75,-14.25,0 129.75,-14.75,0 129.25,-14.75,0 128.75,-14.75,0 128.25,-14.75,0 127.75,-14.75,0 126.75,-14.25,0 125.75,-14.75,0 125.25,-15.25,0 124.75,-16.25,0 123.75,-17.25,0 123.25,-17.25,0 122.25,-18.25,0 121.75,-18.75,0 121.25,-19.25,0 120.75,-19.75,0 120.25,-19.75,0 119.75,-19.75,0 118.75,-20.25,0 117.75,-20.75,0 117.25,-20.75,0 116.75,-20.75,0 115.75,-21.25,0 115.25,-21.75,0 114.25,-22.25,0 113.75,-23.25,0 113.75,-23.75,0 113.75,-24.75,0 114.25,-25.75,0 114.25,-26.25,0 114.25,-27.25,0 114.25,-27.75,0 113.75,-27.75,0 113.25,-27.75,0 112.75,-27.25,0 112.75,-26.75,0 112.25,-25.75,0 112.25,-25.25,0 112.25,-24.75,0 112.75,-23.75,0 113.25,-23.25,0 113.75,-22.25,0 113.75,-21.75,0 114.25,-21.25,0 114.75,-20.25,0 115.25,-19.75,0 115.75,-19.25,0 116.25,-19.25,0 117.25,-18.75,0 118.25,-18.25,0 118.75,-17.25,0 118.75,-16.75,0 119.25,-16.75,0 119.75,-16.75,0 120.75,-16.25,0 121.25,-15.75,0 121.75,-14.75,0 121.75,-14.25,0 121.75,-13.75,0 122.25,-13.25,0 122.75,-12.25,0 121.75,-10.75,0 121.25,-10.75,0 120.25,-10.25,0 119.75,-10.25,0 118.75,-9.75,0 117.75,-9.25,0 117.25,-9.25,0 116.75,-9.25,0 115.75,-8.75,0 115.25,-8.75,0 114.75,-8.75,0 114.25,-8.75,0 113.75,-8.75,0 113.25,-8.75,0 112.25,-8.25,0 111.75,-8.25,0 111.25,-8.25,0 110.75,-8.25,0 110.25,-8.25,0 109.75,-8.25,0 109.25,-8.25,0 108.75,-8.25,0 108.25,-8.25,0 106.75,-7.75,0 105.75,-7.25,0 105.25,-7.25,0 104.75,-6.25,0 104.25,-5.75,0 102.75,-5.75,0 102.25,-5.75,0 101.25,-4.75,0 100.75,-3.75,0 100.25,-3.25,0 99.75,-2.75,0 99.25,-2.25,0 98.75,-1.75,0 98.25,-0.75,0 97.75,-0.25,0 97.25,0.75,0 97.25,1.25,0 96.25,2.25,0 95.25,2.75,0 95.25,3.25,0 95.25,4.25,0 95.25,4.75,0 94.75,5.75,0 95.25,5.75,0 95.75,5.75,0 96.75,5.25,0 97.75,5.75,0 98.25,6.75,0 97.75,7.75,0 97.75,8.25,0 97.25,9.25,0 97.25,9.75,0 97.25,10.25,0 97.25,10.75,0 96.75,11.75,0 96.75,12.75,0 96.25,13.75,0 94.25,13.25,0 93.75,12.25,0 93.75,11.75,0 93.75,11.25,0 92.75,10.25,0 93.75,8.75,0 93.75,8.25,0 93.75,7.75,0 93.75,7.25,0 93.75,6.75,0 93.25,7.75,0 92.75,8.75,0 92.75,9.25,0 92.25,10.25,0 92.25,10.75,0 92.25,11.25,0 92.25,11.75,0 92.25,12.25,0 92.25,12.75,0 92.25,13.25,0 92.75,13.75,0 93.25,14.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (73)</name>
+      <name>Range – High (0.66–1.00) (13)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3101,13 +893,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>72.75,-7.25,0 72.75,-6.25,0 72.75,-5.75,0 72.75,-5.25,0 72.75,-4.75,0 72.25,-4.75,0 71.75,-5.25,0 71.25,-6.25,0 71.25,-6.75,0 71.25,-7.25,0 71.25,-7.75,0 71.75,-7.75,0 72.75,-7.25,0</coordinates>
+            <coordinates>47.75,-9.75,0 46.75,-9.25,0 46.25,-9.25,0 46.75,-9.75,0 47.25,-11.25,0 46.75,-12.25,0 45.25,-13.25,0 44.75,-12.75,0 43.75,-12.25,0 43.25,-11.75,0 43.25,-11.25,0 43.75,-11.75,0 44.75,-12.25,0 46.75,-12.25,0 47.75,-13.25,0 47.75,-13.75,0 47.25,-14.75,0 46.25,-15.25,0 45.25,-15.75,0 44.75,-15.75,0 44.25,-16.25,0 43.25,-16.75,0 42.75,-16.75,0 42.75,-17.25,0 43.75,-18.25,0 43.75,-18.75,0 44.25,-19.75,0 44.25,-19.25,0 44.25,-18.75,0 44.25,-18.25,0 44.25,-16.75,0 45.25,-16.25,0 46.25,-15.75,0 47.25,-15.25,0 47.75,-15.25,0 49.75,-16.25,0 49.25,-17.25,0 49.25,-17.75,0 49.25,-18.25,0 49.25,-18.75,0 48.75,-19.75,0 48.75,-20.25,0 48.25,-21.25,0 48.25,-21.75,0 47.75,-22.75,0 47.75,-23.25,0 47.75,-23.75,0 48.25,-22.75,0 48.25,-22.25,0 48.75,-21.25,0 48.75,-20.75,0 49.25,-19.75,0 49.25,-19.25,0 49.75,-18.25,0 50.25,-17.25,0 50.25,-16.75,0 50.75,-15.75,0 50.75,-15.25,0 50.25,-14.25,0 50.25,-13.75,0 50.25,-13.25,0 50.25,-12.75,0 49.75,-12.25,0 50.75,-10.25,0 49.25,-11.75,0 47.75,-10.25,0 47.75,-9.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (74)</name>
+      <name>Range – High (0.66–1.00) (14)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3117,13 +909,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>52.75,-7.25,0 56.25,-7.25,0 56.75,-7.25,0 57.25,-7.25,0 57.25,-5.25,0 56.25,-3.75,0 55.75,-3.75,0 55.25,-3.75,0 54.75,-3.75,0 53.25,-4.75,0 52.75,-5.75,0 52.75,-6.25,0 52.75,-6.75,0 52.75,-7.25,0</coordinates>
+            <coordinates>143.25,6.75,0 143.75,7.25,0 144.75,8.25,0 144.75,8.75,0 145.75,8.25,0 146.75,8.25,0 147.25,8.25,0 148.25,9.25,0 150.25,9.25,0 151.25,8.75,0 151.75,8.75,0 152.25,8.75,0 154.25,8.25,0 152.75,7.25,0 152.75,6.75,0 153.25,5.75,0 153.75,5.25,0 153.75,5.75,0 152.75,6.75,0 151.75,7.25,0 151.25,7.25,0 149.25,6.75,0 147.25,7.25,0 146.25,7.25,0 145.25,5.75,0 143.25,6.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (75)</name>
+      <name>Range – High (0.66–1.00) (15)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3133,13 +925,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>157.25,23.75,0 154.25,24.25,0 160.25,19.75,0 157.25,23.75,0</coordinates>
+            <coordinates>64.75,25.25,0 65.25,25.25,0 66.25,25.75,0 66.75,25.25,0 67.25,24.75,0 68.25,23.75,0 68.75,23.25,0 69.75,22.75,0 70.25,22.75,0 72.25,22.25,0 72.75,22.25,0 72.75,21.75,0 72.75,21.25,0 72.75,20.75,0 72.75,20.25,0 72.75,19.75,0 72.75,19.25,0 73.25,18.25,0 73.25,17.75,0 73.25,17.25,0 73.75,16.25,0 74.25,15.25,0 74.75,14.25,0 74.75,13.75,0 75.25,12.75,0 75.75,11.75,0 76.25,10.75,0 76.25,10.25,0 76.75,9.25,0 78.25,9.25,0 78.75,9.75,0 79.25,10.25,0 79.75,11.25,0 79.75,11.75,0 79.75,12.25,0 80.25,13.25,0 80.25,13.75,0 80.25,14.25,0 80.25,14.75,0 80.25,15.25,0 80.25,15.75,0 81.25,16.25,0 82.25,17.25,0 83.25,17.75,0 83.75,18.25,0 84.25,18.75,0 84.75,19.25,0 85.25,19.75,0 86.25,20.25,0 86.75,20.75,0 87.75,20.75,0 88.25,20.75,0 88.75,20.75,0 89.25,20.75,0 89.75,20.75,0 90.25,20.75,0 90.75,20.75,0 91.75,20.25,0 92.25,20.25,0 92.75,20.25,0 93.75,19.75,0 94.25,19.25,0 94.75,18.25,0 94.75,17.75,0 94.75,17.25,0 94.25,16.25,0 94.25,16.75,0 94.25,17.25,0 93.75,18.25,0 93.25,18.75,0 92.75,19.25,0 92.25,19.75,0 91.25,20.25,0 90.75,20.25,0 90.25,20.25,0 89.75,20.25,0 88.75,20.25,0 88.25,20.25,0 87.75,20.25,0 86.75,19.75,0 85.75,19.25,0 85.25,18.75,0 84.25,17.75,0 83.75,17.25,0 82.75,16.75,0 82.25,16.75,0 81.25,15.75,0 80.75,15.25,0 80.75,13.75,0 80.75,13.25,0 80.75,12.75,0 80.75,12.25,0 80.25,11.25,0 80.75,10.25,0 81.25,9.25,0 81.75,8.25,0 82.25,7.25,0 82.25,6.75,0 81.75,6.25,0 81.25,5.75,0 80.75,5.75,0 80.25,5.75,0 79.75,6.25,0 77.75,7.25,0 77.25,7.25,0 76.75,7.25,0 76.75,7.75,0 76.25,8.75,0 75.75,9.25,0 73.75,10.25,0 73.25,8.25,0 72.25,10.25,0 72.25,10.75,0 71.75,11.75,0 71.75,12.25,0 73.75,13.25,0 73.25,14.25,0 73.25,14.75,0 72.75,15.75,0 72.25,16.75,0 71.75,17.25,0 70.75,17.75,0 70.25,18.75,0 69.75,19.25,0 69.25,20.25,0 68.25,21.25,0 67.75,22.25,0 67.25,22.75,0 66.75,23.25,0 66.25,23.75,0 65.75,24.25,0 64.75,24.75,0 64.25,24.75,0 63.75,24.75,0 63.25,24.75,0 62.75,24.75,0 62.25,24.75,0 61.75,24.75,0 61.25,24.75,0 61.25,25.25,0 61.75,25.25,0 62.25,25.25,0 62.75,25.25,0 63.25,25.25,0 63.75,25.25,0 64.25,25.25,0 64.75,25.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (76)</name>
+      <name>Range – High (0.66–1.00) (16)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3149,13 +941,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>142.25,26.25,0 142.25,26.75,0 142.25,27.25,0 142.25,27.75,0 140.75,27.25,0 136.25,20.25,0 141.75,23.25,0 142.25,26.25,0</coordinates>
+            <coordinates>128.75,26.75,0 129.25,27.75,0 130.25,28.25,0 130.25,29.75,0 131.25,30.25,0 131.75,31.25,0 132.25,32.25,0 133.25,32.75,0 134.25,33.25,0 135.75,33.25,0 136.25,33.75,0 137.25,34.25,0 138.75,33.75,0 139.75,32.25,0 139.75,33.25,0 139.75,33.75,0 140.25,34.75,0 141.25,35.25,0 141.25,35.75,0 141.25,36.25,0 141.25,36.75,0 141.75,37.75,0 140.75,38.25,0 140.25,39.25,0 140.25,39.75,0 140.25,40.25,0 139.75,40.75,0 139.75,40.25,0 139.75,39.75,0 138.75,38.75,0 138.25,38.75,0 137.25,38.25,0 135.25,39.25,0 136.25,37.75,0 136.25,37.25,0 135.25,36.25,0 133.75,36.25,0 133.25,36.25,0 132.75,36.25,0 131.75,37.25,0 130.75,37.75,0 129.25,37.75,0 128.75,38.25,0 128.75,37.75,0 129.25,36.75,0 129.25,36.25,0 128.75,35.25,0 127.75,34.75,0 127.25,34.75,0 126.75,34.75,0 124.75,35.25,0 124.25,35.75,0 123.75,35.75,0 123.25,35.75,0 122.75,35.75,0 122.25,35.25,0 122.25,34.75,0 122.75,33.75,0 122.75,33.25,0 122.75,32.75,0 122.75,32.25,0 122.75,31.75,0 122.75,31.25,0 122.75,30.75,0 122.75,30.25,0 122.75,29.75,0 121.75,28.75,0 121.25,28.25,0 120.75,27.75,0 120.25,27.25,0 119.75,26.75,0 119.75,26.25,0 120.25,25.75,0 121.25,25.25,0 121.75,24.25,0 122.75,24.25,0 123.25,24.25,0 123.75,24.25,0 124.25,24.25,0 124.75,24.25,0 125.75,24.75,0 126.25,25.25,0 127.25,25.75,0 128.25,26.25,0 128.75,26.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (77)</name>
+      <name>Range – High (0.66–1.00) (17)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3165,13 +957,13 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>152.75,17.25,0 145.25,20.25,0 144.75,20.75,0 145.25,19.75,0 144.75,13.75,0 144.75,13.25,0 145.75,14.75,0 152.75,17.25,0</coordinates>
+            <coordinates>12.75,44.25,0 13.25,44.75,0 13.75,44.75,0 14.25,44.75,0 14.75,44.75,0 15.25,44.25,0 17.25,43.25,0 17.75,43.25,0 18.25,42.75,0 19.25,42.25,0 19.75,41.75,0 19.25,41.75,0 18.25,42.75,0 17.25,43.25,0 15.75,42.25,0 15.75,41.75,0 15.25,40.25,0 15.75,39.25,0 15.75,38.75,0 15.25,38.25,0 14.75,36.75,0 15.25,35.75,0 14.75,35.75,0 14.25,35.75,0 13.25,34.75,0 13.25,33.25,0 13.75,32.75,0 13.25,32.75,0 12.75,32.75,0 12.25,32.75,0 11.25,33.25,0 10.75,33.75,0 10.75,34.25,0 10.75,34.75,0 10.75,35.75,0 10.25,36.75,0 8.75,36.75,0 8.25,36.75,0 7.75,36.75,0 7.25,36.75,0 6.75,36.75,0 6.25,36.75,0 5.75,36.75,0 5.25,36.75,0 6.25,37.25,0 6.75,37.25,0 7.25,37.25,0 8.25,38.75,0 8.25,39.25,0 8.25,39.75,0 8.25,40.25,0 8.25,40.75,0 8.25,41.25,0 8.75,42.25,0 9.25,41.25,0 9.75,39.75,0 9.75,39.25,0 11.75,38.25,0 12.25,38.25,0 13.25,38.75,0 13.25,40.75,0 12.25,41.25,0 11.75,41.75,0 11.25,42.25,0 10.75,43.25,0 8.75,42.25,0 9.75,44.25,0 10.25,44.25,0 10.75,43.25,0 12.75,44.25,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
     </Placemark>
     <Placemark>
-      <name>Amberjack Range – High (0.66–1.00) (78)</name>
+      <name>Range – High (0.66–1.00) (18)</name>
       <Style>
         <PolygonStyle>
           <color>800000ff</color>
@@ -3181,7 +973,7 @@
       <Polygon>
         <outerBoundaryIs>
           <LinearRing>
-            <coordinates>50.25,8.75,0 50.75,9.25,0 50.75,8.75,0 50.25,7.75,0 49.75,6.75,0 49.25,5.75,0 48.25,4.25,0 47.75,3.75,0 47.25,3.25,0 46.75,2.75,0 46.25,2.25,0 44.25,0.75,0 43.75,0.75,0 44.25,1.25,0 44.75,1.75,0 45.25,2.25,0 48.25,5.25,0 48.75,6.25,0 49.25,7.25,0 50.25,8.75,0</coordinates>
+            <coordinates>36.25,22.75,0 36.75,22.75,0 38.25,23.75,0 38.25,24.25,0 38.75,23.75,0 39.25,22.75,0 39.25,22.25,0 39.25,21.75,0 39.75,20.75,0 39.75,20.25,0 39.75,19.75,0 39.25,17.75,0 39.75,17.25,0 40.75,16.75,0 41.25,16.75,0 41.75,16.25,0 42.25,15.75,0 42.75,15.25,0 43.25,14.25,0 45.25,13.25,0 45.75,13.25,0 46.75,13.75,0 47.75,14.25,0 48.25,14.25,0 49.25,14.75,0 50.25,15.25,0 50.75,15.25,0 51.75,15.75,0 52.25,16.25,0 52.75,16.75,0 53.25,16.75,0 54.25,17.25,0 55.25,17.75,0 55.75,17.75,0 56.25,17.75,0 55.25,17.25,0 54.75,16.75,0 54.25,16.75,0 53.75,16.75,0 52.75,16.25,0 52.25,15.25,0 51.75,15.25,0 50.75,14.75,0 50.25,14.75,0 49.25,14.25,0 48.75,13.75,0 48.25,13.75,0 47.75,13.75,0 46.75,13.25,0 47.75,11.25,0 48.25,11.25,0 47.25,10.75,0 46.75,10.75,0 46.25,10.75,0 45.25,10.25,0 44.75,10.25,0 44.25,10.25,0 43.75,10.75,0 42.75,11.75,0 42.25,11.75,0 42.25,13.25,0 41.75,13.75,0 41.25,14.25,0 40.75,14.75,0 40.75,15.25,0 40.75,15.75,0 40.25,16.75,0 39.25,17.25,0 38.75,17.25,0 38.25,18.25,0 37.25,18.75,0 37.25,19.25,0 37.25,19.75,0 37.25,20.25,0 37.25,20.75,0 36.75,21.75,0 35.75,22.75,0 36.25,22.75,0</coordinates>
           </LinearRing>
         </outerBoundaryIs>
       </Polygon>
