@@ -8,6 +8,7 @@ from app.MarineData.schemas import (
     AstronomyData,
     BathymetryData,
     HourlyDataPoint,
+    HourlyWaterTempPoint,
     KelpBed,
     KelpData,
     MarineConditions,
@@ -49,24 +50,28 @@ async def get_conditions(lat: float, lon: float) -> MarineConditions:
         nearest_station_name=station["name"],
     )
 
-    # Water temp: prefer NOAA observed, fall back to Open-Meteo SST
-    if water_temp_raw and "data" in water_temp_raw and water_temp_raw["data"]:
-        try:
-            latest = water_temp_raw["data"][-1]["v"]
-            result.water_temp_f = float(latest)
-            result.water_temp_source = f"NOAA {station['name']}"
-        except (KeyError, IndexError, ValueError):
-            pass
-
-    if result.water_temp_f is None and marine_raw:
+    # Build hourly SST series first so water_temp_f is always derived from it,
+    # keeping the displayed current value consistent with the chart.
+    if marine_raw:
         try:
             times = marine_raw["hourly"]["time"]
-            idx = _current_hour_index(times)
-            sst_c = marine_raw["hourly"]["sea_surface_temperature"][idx]
-            if sst_c is not None:
-                result.water_temp_f = _C_TO_F(sst_c)
+            sst_array = marine_raw["hourly"]["sea_surface_temperature"]
+            hourly_points = []
+            for t, sst_c in zip(times, sst_array):
+                point = HourlyWaterTempPoint(time=t)
+                if sst_c is not None:
+                    point.temperature_f = _C_TO_F(sst_c)
+                hourly_points.append(point)
+            # Only keep the array if at least one value is non-null
+            if any(p.temperature_f is not None for p in hourly_points):
+                result.hourly = hourly_points
+
+            # Derive current water temp from the current hour in the same array
+            current_idx = _current_hour_index(times)
+            if 0 <= current_idx < len(result.hourly):
+                result.water_temp_f = result.hourly[current_idx].temperature_f
                 result.water_temp_source = "Open-Meteo (satellite SST)"
-        except (KeyError, IndexError, TypeError):
+        except (KeyError, TypeError):
             pass
 
     # Ocean currents from Open-Meteo

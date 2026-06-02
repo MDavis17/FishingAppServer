@@ -10,6 +10,12 @@ class MarineConditions(BaseModel):
     visibility_nm: Optional[float] = None
     nearest_station_id: Optional[str] = None
     nearest_station_name: Optional[str] = None
+    hourly: List["HourlyWaterTempPoint"] = []
+
+
+class HourlyWaterTempPoint(BaseModel):
+    time: str
+    temperature_f: Optional[float] = None
 
 
 class HourlyDataPoint(BaseModel):
