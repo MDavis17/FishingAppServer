@@ -160,7 +160,7 @@ async def fetch_open_meteo_weather(lat: float, lon: float) -> Optional[Dict]:
                     "latitude": lat,
                     "longitude": lon,
                     "hourly": "temperature_2m,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m",
-                    "daily": "sunrise,sunset",
+                    "daily": "sunrise,sunset,temperature_2m_max,temperature_2m_min",
                     "timezone": "America/Los_Angeles",
                     "forecast_days": 1,
                 },
