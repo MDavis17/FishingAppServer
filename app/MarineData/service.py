@@ -7,6 +7,7 @@ import app.MarineData.data_provider as data_provider
 from app.MarineData.schemas import (
     AstronomyData,
     BathymetryData,
+    HourlyDataPoint,
     KelpBed,
     KelpData,
     MarineConditions,
@@ -125,12 +126,55 @@ async def get_weather(lat: float, lon: float) -> WeatherConditions:
         if precip_mm is not None:
             result.precipitation_in = _MM_TO_IN(precip_mm)
 
+        hourly_points = []
+        for i, t in enumerate(times):
+            point = HourlyDataPoint(time=t)
+            try:
+                tc = hourly["temperature_2m"][i]
+                if tc is not None:
+                    point.temperature_f = _C_TO_F(tc)
+            except (IndexError, TypeError):
+                pass
+            try:
+                wms = hourly["wind_speed_10m"][i]
+                if wms is not None:
+                    point.wind_speed_mph = _MS_TO_MPH(wms)
+            except (IndexError, TypeError):
+                pass
+            try:
+                gms = hourly["wind_gusts_10m"][i]
+                if gms is not None:
+                    point.wind_gusts_mph = _MS_TO_MPH(gms)
+            except (IndexError, TypeError):
+                pass
+            try:
+                wd = hourly["wind_direction_10m"][i]
+                if wd is not None:
+                    point.wind_direction_deg = round(wd, 1)
+            except (IndexError, TypeError):
+                pass
+            try:
+                pmm = hourly["precipitation"][i]
+                if pmm is not None:
+                    point.precipitation_in = _MM_TO_IN(pmm)
+            except (IndexError, TypeError):
+                pass
+            hourly_points.append(point)
+        result.hourly = hourly_points
+
     except (KeyError, IndexError, TypeError):
         pass
 
     try:
-        result.sunrise = weather_raw["daily"]["sunrise"][0]
-        result.sunset = weather_raw["daily"]["sunset"][0]
+        daily = weather_raw["daily"]
+        result.sunrise = daily["sunrise"][0]
+        result.sunset = daily["sunset"][0]
+        temp_max_c = daily["temperature_2m_max"][0]
+        temp_min_c = daily["temperature_2m_min"][0]
+        if temp_max_c is not None:
+            result.air_temp_f_max = _C_TO_F(temp_max_c)
+        if temp_min_c is not None:
+            result.air_temp_f_min = _C_TO_F(temp_min_c)
     except (KeyError, IndexError):
         pass
 

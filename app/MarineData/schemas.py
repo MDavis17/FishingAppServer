@@ -12,14 +12,26 @@ class MarineConditions(BaseModel):
     nearest_station_name: Optional[str] = None
 
 
+class HourlyDataPoint(BaseModel):
+    time: str
+    temperature_f: Optional[float] = None
+    wind_speed_mph: Optional[float] = None
+    wind_gusts_mph: Optional[float] = None
+    wind_direction_deg: Optional[float] = None
+    precipitation_in: Optional[float] = None
+
+
 class WeatherConditions(BaseModel):
     air_temp_f: Optional[float] = None
+    air_temp_f_min: Optional[float] = None
+    air_temp_f_max: Optional[float] = None
     wind_speed_mph: Optional[float] = None
     wind_direction_deg: Optional[float] = None
     wind_gusts_mph: Optional[float] = None
     precipitation_in: Optional[float] = None
     sunrise: Optional[str] = None
     sunset: Optional[str] = None
+    hourly: List[HourlyDataPoint] = []
 
 
 class TidePrediction(BaseModel):
