@@ -1,6 +1,12 @@
+from enum import Enum
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 from typing import List, Optional
+
+
+class TripStatus(str, Enum):
+    Planned = "Planned"
+    Completed = "Completed"
 
 class LatLong(BaseModel):
     latitude: float
@@ -31,5 +37,5 @@ class Trip(BaseModel):
     id: Optional[int] = None
     date: datetime
     location: Location
-    status: str = "Planned"
+    status: Optional[TripStatus] = None
     targetSpecies: List[Species] = []

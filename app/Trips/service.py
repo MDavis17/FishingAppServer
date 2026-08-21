@@ -1,7 +1,20 @@
 from collections import Counter
-from app.models.log import Trip, Catch
+from datetime import datetime, timezone
+from app.models.log import Trip, Catch, TripStatus
 import app.Trips.data_provider as data_provider
 from typing import List
+
+
+def _ensure_utc(dt: datetime) -> datetime:
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
+
+
+def _infer_trip_status(trip_date: datetime) -> TripStatus:
+    now = datetime.now(timezone.utc)
+    trip_dt = _ensure_utc(trip_date)
+    return TripStatus.Completed if trip_dt < now else TripStatus.Planned
 
 def get_trips():
     trips = data_provider.get_trips()
@@ -51,7 +64,12 @@ def get_catch_list(trip_id: int):
     return data_provider.get_catch_list(trip_id)
 
 def create_trip(trip: Trip):
-    trip_to_create = trip if trip.status else trip.model_copy(update={"status": "Planned"})
+    if trip.status is None:
+        trip_to_create = trip.model_copy(
+            update={"status": _infer_trip_status(trip.date)}
+        )
+    else:
+        trip_to_create = trip
     new_trip = data_provider.create_trip(trip_to_create)
     return new_trip
 
@@ -66,7 +84,7 @@ def mark_trip_as_completed(trip_id: int):
     existing_trip = data_provider.get_trip_by_id(trip_id)
     if not existing_trip:
         raise ValueError("Trip not found")
-    completed_existing_trip = existing_trip.copy(update={"status": "Completed"})
+    completed_existing_trip = existing_trip.copy(update={"status": TripStatus.Completed})
     updated_trip = data_provider.update_trip(completed_existing_trip)
     if not updated_trip:
         raise ValueError("Failed to mark trip as complete")
