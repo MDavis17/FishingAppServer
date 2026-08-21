@@ -10,7 +10,7 @@ class Location(BaseModel):
     coordinates: LatLong
     name: str
 
-class TripSpecies(BaseModel):
+class Species(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     id: int
@@ -32,4 +32,4 @@ class Trip(BaseModel):
     date: datetime
     location: Location
     status: str = "Planned"
-    targetSpecies: List[TripSpecies] = []
+    targetSpecies: List[Species] = []
