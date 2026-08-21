@@ -1,6 +1,6 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 
 class LatLong(BaseModel):
     latitude: float
@@ -8,6 +8,12 @@ class LatLong(BaseModel):
 
 class Location(BaseModel):
     coordinates: LatLong
+    name: str
+
+class Species(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: int
     name: str
 
 class Catch(BaseModel):
@@ -20,8 +26,10 @@ class Catch(BaseModel):
     location: Optional[Location] = None
 
 class Trip(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
     id: Optional[int] = None
     date: datetime
-    waterType: str
     location: Location
-    status: str
+    status: str = "Planned"
+    targetSpecies: List[Species] = []

@@ -51,7 +51,8 @@ def get_catch_list(trip_id: int):
     return data_provider.get_catch_list(trip_id)
 
 def create_trip(trip: Trip):
-    new_trip = data_provider.create_trip(trip)
+    trip_to_create = trip if trip.status else trip.model_copy(update={"status": "Planned"})
+    new_trip = data_provider.create_trip(trip_to_create)
     return new_trip
 
 def delete_trip(trip_id: int):
