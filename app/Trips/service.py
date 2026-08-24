@@ -64,12 +64,13 @@ def get_catch_list(trip_id: int):
     return data_provider.get_catch_list(trip_id)
 
 def create_trip(trip: Trip):
+    now = datetime.now(timezone.utc)
+    updates: dict = {"createdAt": now}
+
     if trip.status is None:
-        trip_to_create = trip.model_copy(
-            update={"status": _infer_trip_status(trip.date)}
-        )
-    else:
-        trip_to_create = trip
+        updates["status"] = _infer_trip_status(trip.date)
+
+    trip_to_create = trip.model_copy(update=updates)
     new_trip = data_provider.create_trip(trip_to_create)
     return new_trip
 
