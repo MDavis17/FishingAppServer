@@ -36,6 +36,7 @@ class Trip(BaseModel):
 
     id: Optional[int] = None
     date: datetime
+    createdAt: Optional[datetime] = None
     location: Location
     status: Optional[TripStatus] = None
     targetSpecies: List[Species] = []
