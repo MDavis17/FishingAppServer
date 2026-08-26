@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 import app.Species.service as service
-from app.Species.schemas import RangeData
+from app.Species.schemas import RangeData, Species, SpeciesListResponse
 
 router = APIRouter()
 
-@router.get("/")
+@router.get("/", response_model=SpeciesListResponse)
 def get_species():
     all_species = service.get_species()
     favorite_species = service.get_favorite_species()
@@ -19,7 +19,7 @@ def get_species_range(species_id: int):
         raise HTTPException(status_code=404, detail=str(e))
 
 
-@router.put("/{species_id}/favorite")
+@router.put("/{species_id}/favorite", response_model=Species)
 def toggle_species_favorite(species_id: int):
     try:
         return service.toggle_species_favorite(species_id)
@@ -27,7 +27,7 @@ def toggle_species_favorite(species_id: int):
         raise HTTPException(status_code=404, detail=str(e))
 
 
-@router.get("/{species_id}")
+@router.get("/{species_id}", response_model=Species)
 def get_species_by_id(species_id: int):
     species = service.get_species_by_id(species_id)
     if species is None:
