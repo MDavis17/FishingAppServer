@@ -2,6 +2,19 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import List
 
 
+class Species(BaseModel):
+    id: int
+    name: str
+    region: List[str]
+    image: str
+    isFavorite: bool
+
+
+class SpeciesListResponse(BaseModel):
+    species: List[Species]
+    favoriteSpecies: List[Species]
+
+
 class LatLng(BaseModel):
     latitude: float
     longitude: float
