@@ -8,6 +8,7 @@ class Species(BaseModel):
     region: List[str]
     image: str
     isFavorite: bool
+    kingdom: str
 
 
 class SpeciesListResponse(BaseModel):
