@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import APIRouter, HTTPException
 import app.Species.service as service
 from app.Species.schemas import RangeData, Species, SpeciesListResponse
@@ -5,9 +7,9 @@ from app.Species.schemas import RangeData, Species, SpeciesListResponse
 router = APIRouter()
 
 @router.get("/", response_model=SpeciesListResponse)
-def get_species():
-    all_species = service.get_species()
-    favorite_species = service.get_favorite_species()
+def get_species(kingdom: Optional[str] = None):
+    all_species = service.get_species(kingdom=kingdom)
+    favorite_species = service.get_favorite_species(kingdom=kingdom)
     return {"species": all_species, "favoriteSpecies": favorite_species}
 
 
