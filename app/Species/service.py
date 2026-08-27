@@ -1,5 +1,6 @@
 import re
 from pathlib import Path
+from typing import Optional
 
 import app.Species.data_provider as data_provider
 from app.Species.range_reader import kml_to_range_data
@@ -27,14 +28,14 @@ def get_species_range(species_id: int) -> RangeData:
     return range_data
 
 
-def get_species():
-    return data_provider.get_species()
+def get_species(kingdom: Optional[str] = None):
+    return data_provider.get_species(kingdom=kingdom)
 
 def get_species_by_id(species_id: int):
     return data_provider.get_species_by_id(species_id)
 
-def get_favorite_species():
-    return data_provider.get_favorite_species()
+def get_favorite_species(kingdom: Optional[str] = None):
+    return data_provider.get_favorite_species(kingdom=kingdom)
 
 def toggle_species_favorite(species_id: int):
     updated = data_provider.toggle_species_favorite(species_id)
