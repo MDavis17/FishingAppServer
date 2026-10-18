@@ -1,15 +1,25 @@
 from typing import Optional
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+
 import app.Species.service as service
+from app.Auth.database import get_db
+from app.Auth.dependencies import get_current_user
+from app.Auth.models import User
 from app.Species.schemas import RangeData, Species, SpeciesListResponse
 
 router = APIRouter()
 
+
 @router.get("/", response_model=SpeciesListResponse)
-def get_species(kingdom: Optional[str] = None):
-    all_species = service.get_species(kingdom=kingdom)
-    favorite_species = service.get_favorite_species(kingdom=kingdom)
+def get_species(
+    kingdom: Optional[str] = None,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    all_species = service.get_species(db, current_user.id, kingdom=kingdom)
+    favorite_species = service.get_favorite_species(db, current_user.id, kingdom=kingdom)
     return {"species": all_species, "favoriteSpecies": favorite_species}
 
 
@@ -22,9 +32,13 @@ def get_species_range(species_id: int):
 
 
 @router.put("/{species_id}/favorite", response_model=Species)
-def toggle_species_favorite(species_id: int):
+def toggle_species_favorite(
+    species_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
     try:
-        return service.toggle_species_favorite(species_id)
+        return service.toggle_species_favorite(species_id, current_user.id, db)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 

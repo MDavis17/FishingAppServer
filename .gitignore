@@ -20,6 +20,9 @@ build/
 .env
 .env.*
 
+# Local auth database
+users.db
+
 # OS
 .DS_Store
 Thumbs.db
