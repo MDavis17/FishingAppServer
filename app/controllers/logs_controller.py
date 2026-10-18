@@ -13,7 +13,7 @@ def get_logs():
 @router.post("/")
 def create_log(entry: Catch):
     new_id = len(log_db) + 1
-    entry_with_id = entry.copy(update={"id": new_id})
+    entry_with_id = entry.model_copy(update={"id": new_id})
     log_db.append(entry_with_id)
     return {"message": "Log entry added", "entry": entry_with_id}
 

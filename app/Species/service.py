@@ -2,6 +2,8 @@ import re
 from pathlib import Path
 from typing import Optional
 
+from sqlalchemy.orm import Session
+
 import app.Species.data_provider as data_provider
 from app.Species.range_reader import kml_to_range_data
 from app.Species.schemas import RangeData
@@ -28,17 +30,21 @@ def get_species_range(species_id: int) -> RangeData:
     return range_data
 
 
-def get_species(kingdom: Optional[str] = None):
-    return data_provider.get_species(kingdom=kingdom)
+def get_species(db: Session, user_id: int, kingdom: Optional[str] = None):
+    return data_provider.get_species(db, user_id, kingdom=kingdom)
+
 
 def get_species_by_id(species_id: int):
     return data_provider.get_species_by_id(species_id)
 
-def get_favorite_species(kingdom: Optional[str] = None):
-    return data_provider.get_favorite_species(kingdom=kingdom)
 
-def toggle_species_favorite(species_id: int):
-    updated = data_provider.toggle_species_favorite(species_id)
-    if updated is None:
+def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
+    return data_provider.get_favorite_species(db, user_id, kingdom=kingdom)
+
+
+def toggle_species_favorite(species_id: int, user_id: int, db: Session):
+    species = data_provider.get_species_by_id(species_id)
+    if species is None:
         raise ValueError("Species not found")
-    return updated
+    is_favorite = data_provider.toggle_user_favorite(db, user_id, species_id)
+    return {**species, "isFavorite": is_favorite}

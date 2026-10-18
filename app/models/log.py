@@ -25,6 +25,7 @@ class Species(BaseModel):
 class Catch(BaseModel):
     id: Optional[int] = None
     trip_id: Optional[int] = None
+    user_id: Optional[int] = None
     dateTime: datetime
     species: str
     waterType: str
@@ -35,6 +36,7 @@ class Trip(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     id: Optional[int] = None
+    user_id: Optional[int] = None
     date: datetime
     createdAt: Optional[datetime] = None
     location: Location
