@@ -1,15 +1,19 @@
 from pydantic import BaseModel, ConfigDict, Field
-from typing import List
+from typing import List, Optional
 
 
 class Species(BaseModel):
     id: int
     name: str
+    scientificName: str
     region: List[str]
     image: str
     isFavorite: bool
     kingdom: str
-
+    avgLength: str
+    lengthUnits: Optional[str] = None
+    lifespan: str
+    depthRange: str
 
 class SpeciesListResponse(BaseModel):
     species: List[Species]
