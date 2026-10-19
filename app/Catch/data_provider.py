@@ -1,10 +1,16 @@
-from app.mock_database.mock_db import catches_db
+from sqlalchemy.orm import Session
+
+from app.models.db_models import CatchEntry as CatchRow
 
 
-def delete_catch(catch_id: int, user_id: int):
-    global catches_db
-    for i, catch in enumerate(catches_db):
-        if catch.id == catch_id and catch.user_id == user_id:
-            del catches_db[i]
-            return True
-    return False
+def delete_catch(db: Session, catch_id: int, user_id: int):
+    row = (
+        db.query(CatchRow)
+        .filter(CatchRow.id == catch_id, CatchRow.user_id == user_id)
+        .first()
+    )
+    if row is None:
+        return False
+    db.delete(row)
+    db.commit()
+    return True

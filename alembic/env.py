@@ -8,6 +8,7 @@ from alembic import context
 from app.Auth.config import DATABASE_URL
 from app.Auth.database import Base
 import app.Auth.models  # noqa: F401
+import app.models.db_models  # noqa: F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
