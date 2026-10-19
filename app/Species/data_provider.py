@@ -1,16 +1,40 @@
-from typing import Optional, Set
+from typing import Any, Dict, Optional, Set
 
-from sqlalchemy.orm import Session
+from sqlalchemy.orm import Session, joinedload
 
 from app.Auth.models import UserFavorite
-from app.mock_database.mock_db import species_db
+from app.models.db_models import Species as SpeciesRow
 
 
-def get_species_by_id(species_id: int):
-    for species in species_db:
-        if species["id"] == species_id:
-            return species
-    return None
+def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[str, Any]:
+    return {
+        "id": species.id,
+        "name": species.name,
+        "scientificName": species.scientific_name or "",
+        "avgLength": species.avg_length or "",
+        "lengthUnits": species.length_units,
+        "lifespan": species.lifespan or "",
+        "depthRange": species.depth_range or "",
+        "region": [r.name for r in species.regions],
+        "image": species.image,
+        "isFavorite": species.id in favorite_ids,
+        "kingdom": species.kingdom,
+    }
+
+
+def get_species_by_id(db: Session, species_id: int, user_id: Optional[int] = None):
+    row = (
+        db.query(SpeciesRow)
+        .options(joinedload(SpeciesRow.regions))
+        .filter(SpeciesRow.id == species_id)
+        .first()
+    )
+    if row is None:
+        return None
+    favorite_ids: Set[int] = set()
+    if user_id is not None:
+        favorite_ids = get_user_favorite_species_ids(db, user_id)
+    return _species_row_to_dict(row, favorite_ids)
 
 
 def get_user_favorite_species_ids(db: Session, user_id: int) -> Set[int]:
@@ -37,10 +61,6 @@ def toggle_user_favorite(db: Session, user_id: int, species_id: int) -> bool:
     return True
 
 
-def _species_for_user(species: dict, favorite_ids: Set[int]) -> dict:
-    return {**species, "isFavorite": species["id"] in favorite_ids}
-
-
 def _filter_kingdom(species_list: list, kingdom: Optional[str]) -> list:
     if not kingdom:
         return species_list
@@ -49,21 +69,30 @@ def _filter_kingdom(species_list: list, kingdom: Optional[str]) -> list:
 
 def get_species(db: Session, user_id: int, kingdom: Optional[str] = None):
     favorite_ids = get_user_favorite_species_ids(db, user_id)
+    rows = (
+        db.query(SpeciesRow)
+        .options(joinedload(SpeciesRow.regions))
+        .order_by(SpeciesRow.name.asc())
+        .all()
+    )
     non_favorites = [
-        _species_for_user(s, favorite_ids)
-        for s in species_db
-        if s["id"] not in favorite_ids
+        _species_row_to_dict(s, favorite_ids)
+        for s in rows
+        if s.id not in favorite_ids
     ]
-    non_favorites = _filter_kingdom(non_favorites, kingdom)
-    return sorted(non_favorites, key=lambda s: s["name"].lower())
+    return _filter_kingdom(non_favorites, kingdom)
 
 
 def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
     favorite_ids = get_user_favorite_species_ids(db, user_id)
-    favorites = [
-        _species_for_user(s, favorite_ids)
-        for s in species_db
-        if s["id"] in favorite_ids
-    ]
-    favorites = _filter_kingdom(favorites, kingdom)
-    return sorted(favorites, key=lambda s: s["name"].lower())
+    if not favorite_ids:
+        return []
+    rows = (
+        db.query(SpeciesRow)
+        .options(joinedload(SpeciesRow.regions))
+        .filter(SpeciesRow.id.in_(favorite_ids))
+        .order_by(SpeciesRow.name.asc())
+        .all()
+    )
+    favorites = [_species_row_to_dict(s, favorite_ids) for s in rows]
+    return _filter_kingdom(favorites, kingdom)

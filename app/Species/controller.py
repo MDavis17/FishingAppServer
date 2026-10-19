@@ -24,9 +24,9 @@ def get_species(
 
 
 @router.get("/{species_id}/range", response_model=RangeData)
-def get_species_range(species_id: int):
+def get_species_range(species_id: int, db: Session = Depends(get_db)):
     try:
-        return service.get_species_range(species_id)
+        return service.get_species_range(db, species_id)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
@@ -44,8 +44,8 @@ def toggle_species_favorite(
 
 
 @router.get("/{species_id}", response_model=Species)
-def get_species_by_id(species_id: int):
-    species = service.get_species_by_id(species_id)
+def get_species_by_id(species_id: int, db: Session = Depends(get_db)):
+    species = service.get_species_by_id(db, species_id)
     if species is None:
         raise HTTPException(status_code=404, detail="Species not found")
     return species

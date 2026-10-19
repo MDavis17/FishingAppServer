@@ -14,8 +14,8 @@ def _species_name_to_slug(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", name.lower()).strip("_")
 
 
-def get_species_range(species_id: int) -> RangeData:
-    species = data_provider.get_species_by_id(species_id)
+def get_species_range(db: Session, species_id: int) -> RangeData:
+    species = data_provider.get_species_by_id(db, species_id)
     if species is None:
         raise ValueError("Species not found")
     slug = _species_name_to_slug(species["name"])
@@ -34,8 +34,8 @@ def get_species(db: Session, user_id: int, kingdom: Optional[str] = None):
     return data_provider.get_species(db, user_id, kingdom=kingdom)
 
 
-def get_species_by_id(species_id: int):
-    return data_provider.get_species_by_id(species_id)
+def get_species_by_id(db: Session, species_id: int):
+    return data_provider.get_species_by_id(db, species_id)
 
 
 def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
@@ -43,8 +43,8 @@ def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = Non
 
 
 def toggle_species_favorite(species_id: int, user_id: int, db: Session):
-    species = data_provider.get_species_by_id(species_id)
+    species = data_provider.get_species_by_id(db, species_id)
     if species is None:
         raise ValueError("Species not found")
-    is_favorite = data_provider.toggle_user_favorite(db, user_id, species_id)
-    return {**species, "isFavorite": is_favorite}
+    data_provider.toggle_user_favorite(db, user_id, species_id)
+    return data_provider.get_species_by_id(db, species_id, user_id=user_id)
