@@ -3,10 +3,15 @@ from sqlalchemy.orm import declarative_base, sessionmaker
 
 from app.Auth.config import DATABASE_URL
 
+# For SQLAlchemy 2.x with psycopg2-binary, use postgresql+psycopg2:// dialect
+_database_url = DATABASE_URL
+if _database_url.startswith("postgresql://"):
+    _database_url = _database_url.replace("postgresql://", "postgresql+psycopg2://", 1)
+
 _connect_args = (
     {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 )
-engine = create_engine(DATABASE_URL, connect_args=_connect_args)
+engine = create_engine(_database_url, connect_args=_connect_args)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 

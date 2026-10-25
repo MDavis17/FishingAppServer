@@ -1,19 +1,40 @@
+import os
 from logging.config import fileConfig
+from pathlib import Path
 
+from dotenv import load_dotenv
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
 from alembic import context
+
+# Load environment variables from .env.local (Neon) or .env
+_env_local = Path(__file__).resolve().parents[1] / ".env.local"
+_env_file = Path(__file__).resolve().parents[1] / ".env"
+if _env_local.exists():
+    load_dotenv(_env_local)
+elif _env_file.exists():
+    load_dotenv(_env_file)
 
 from app.Auth.config import DATABASE_URL
 from app.Auth.database import Base
 import app.Auth.models  # noqa: F401
 import app.models.db_models  # noqa: F401
 
+# Use unpooled connection for migrations (best practice for Neon with PgBouncer)
+# Falls back to DATABASE_URL if unpooled is not set
+MIGRATION_DATABASE_URL = os.getenv("DATABASE_URL_UNPOOLED", DATABASE_URL)
+
+# For SQLAlchemy 2.x with psycopg2-binary, use postgresql+psycopg2:// dialect
+if MIGRATION_DATABASE_URL.startswith("postgresql://"):
+    MIGRATION_DATABASE_URL = MIGRATION_DATABASE_URL.replace(
+        "postgresql://", "postgresql+psycopg2://", 1
+    )
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
-config.set_main_option("sqlalchemy.url", DATABASE_URL)
+config.set_main_option("sqlalchemy.url", MIGRATION_DATABASE_URL)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
