@@ -10,11 +10,13 @@ if str(PROJECT_ROOT) not in sys.path:
 from app.Auth.database import SessionLocal
 from app.mock_database.mock_db import species_db
 from app.models.db_models import Region, Species
+from scripts.species_images import load_uploaded_url_map, resolve_species_image_url
 
 REGION_NAMES = ("North Coast", "Central Coast", "South Coast")
 
 
 def seed() -> None:
+    url_map = load_uploaded_url_map()
     db = SessionLocal()
     try:
         region_by_name: dict[str, Region] = {}
@@ -26,25 +28,25 @@ def seed() -> None:
                 db.flush()
             region_by_name[name] = region
 
-        seen_ids: set[int] = set()
+        seen_names: set[str] = set()
         for entry in species_db:
-            species_id = entry["id"]
-            if species_id in seen_ids:
+            name = entry["name"]
+            if name in seen_names:
                 continue
-            seen_ids.add(species_id)
+            seen_names.add(name)
 
-            row = db.query(Species).filter(Species.id == species_id).first()
+            row = db.query(Species).filter(Species.name == name).first()
             if row is None:
-                row = Species(id=species_id)
+                row = Species()
                 db.add(row)
 
-            row.name = entry["name"]
+            row.name = name
             row.scientific_name = entry.get("scientificName") or ""
             row.avg_length = entry.get("avgLength") or ""
             row.length_units = entry.get("lengthUnits")
             row.lifespan = entry.get("lifespan") or ""
             row.depth_range = entry.get("depthRange") or ""
-            row.image = entry.get("image") or ""
+            row.image = resolve_species_image_url(entry.get("image") or "", url_map)
             row.kingdom = entry.get("kingdom") or "animal"
 
             row.regions.clear()
