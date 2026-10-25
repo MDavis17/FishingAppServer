@@ -22,3 +22,4 @@ alembic
 psycopg2-binary
 python-multipart
 email-validator
+python-dotenv

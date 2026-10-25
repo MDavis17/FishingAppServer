@@ -1,0 +1,25 @@
+# Render Blueprint - FishingAppServer
+# Deploy with: https://render.com/deploy?repo=YOUR_GITHUB_REPO_URL
+# Or connect your repo and Render will detect this file automatically
+#
+# Database: Using Neon (external) - set DATABASE_URL in Render dashboard
+
+services:
+  - type: web
+    name: fishing-app-api
+    runtime: python
+    plan: free # Options: free, starter, standard, pro
+    rootDir: .  # Since render.yaml is inside FishingAppServer
+    buildCommand: pip install -r requirements.txt && alembic upgrade head
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: DATABASE_URL
+        sync: false  # Set manually in Render dashboard (Neon connection string)
+      - key: JWT_SECRET_KEY
+        generateValue: true  # Render auto-generates a secure random value
+      - key: JWT_EXPIRY_MINUTES
+        value: "60"
+    healthCheckPath: /docs  # FastAPI's built-in Swagger UI
+    autoDeploy: true  # Auto-deploy on git push
