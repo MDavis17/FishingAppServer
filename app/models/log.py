@@ -1,6 +1,12 @@
-from pydantic import BaseModel
+from enum import Enum
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
+
+
+class TripStatus(str, Enum):
+    Planned = "Planned"
+    Completed = "Completed"
 
 class LatLong(BaseModel):
     latitude: float
@@ -10,9 +16,16 @@ class Location(BaseModel):
     coordinates: LatLong
     name: str
 
+class Species(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: int
+    name: str
+
 class Catch(BaseModel):
     id: Optional[int] = None
     trip_id: Optional[int] = None
+    user_id: Optional[int] = None
     dateTime: datetime
     species: str
     waterType: str
@@ -20,8 +33,12 @@ class Catch(BaseModel):
     location: Optional[Location] = None
 
 class Trip(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
     id: Optional[int] = None
+    user_id: Optional[int] = None
     date: datetime
-    waterType: str
+    createdAt: Optional[datetime] = None
     location: Location
-    status: str
+    status: Optional[TripStatus] = None
+    targetSpecies: List[Species] = []

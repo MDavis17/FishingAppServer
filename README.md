@@ -3,6 +3,10 @@
 building a range map:
 download a csv with lat, long, probability
 
+# start processing env
+
+source fishmaps/bin/activate
+
 # Multiple polygons per band (default 5° clustering)
 
 python3 probability_bands_to_kml.py input.csv output.kml --name "Species" --alpha 0.8

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Range</name>
+    <Placemark>
+      <name>Range – Low (0.00–0.33) (1)</name>
+      <Style>
+        <PolygonStyle>
+          <color>80ff0000</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-123.75,45.25,0 -124.25,47.25,0 -124.75,47.75,0 -125.25,47.75,0 -124.75,46.25,0 -124.75,45.75,0 -124.75,44.75,0 -123.75,45.25,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – Low (0.00–0.33) (2)</name>
+      <Style>
+        <PolygonStyle>
+          <color>80ff0000</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-107.75,25.25,0 -108.75,25.75,0 -110.75,25.75,0 -112.25,27.25,0 -113.75,27.75,0 -115.75,27.75,0 -113.75,28.75,0 -113.75,30.25,0 -114.75,31.25,0 -113.75,31.75,0 -112.75,30.75,0 -112.25,29.75,0 -111.25,27.75,0 -110.75,25.75,0 -112.75,24.75,0 -112.25,24.25,0 -111.75,24.25,0 -111.25,24.25,0 -110.75,24.25,0 -110.25,24.25,0 -109.75,24.25,0 -107.75,25.25,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – Mid (0.34–0.65) (1)</name>
+      <Style>
+        <PolygonStyle>
+          <color>8000ffff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-124.75,44.25,0 -124.25,44.75,0 -124.75,43.75,0 -124.75,44.25,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – Mid (0.34–0.65) (2)</name>
+      <Style>
+        <PolygonStyle>
+          <color>8000ffff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-121.75,36.75,0 -122.75,37.25,0 -122.75,38.25,0 -122.25,38.25,0 -121.75,36.75,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – Mid (0.34–0.65) (3)</name>
+      <Style>
+        <PolygonStyle>
+          <color>8000ffff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-109.75,26.25,0 -109.75,27.25,0 -110.75,27.25,0 -110.25,26.75,0 -109.75,25.75,0 -109.25,25.25,0 -108.75,24.75,0 -108.25,24.25,0 -107.75,24.25,0 -107.25,24.25,0 -107.75,24.75,0 -108.25,25.25,0 -108.75,25.25,0 -109.75,26.25,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – High (0.66–1.00) (1)</name>
+      <Style>
+        <PolygonStyle>
+          <color>800000ff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-123.25,37.75,0 -123.25,38.25,0 -123.25,38.75,0 -123.75,39.75,0 -124.25,40.75,0 -124.25,41.25,0 -124.25,41.75,0 -124.25,42.25,0 -124.25,42.75,0 -124.25,43.25,0 -124.25,43.75,0 -124.25,44.25,0 -124.75,43.25,0 -124.75,42.75,0 -124.75,42.25,0 -124.75,41.25,0 -124.75,40.75,0 -124.75,40.25,0 -124.25,39.75,0 -123.75,38.75,0 -123.25,37.75,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – High (0.66–1.00) (2)</name>
+      <Style>
+        <PolygonStyle>
+          <color>800000ff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-121.75,36.25,0 -122.25,36.75,0 -121.25,36.25,0 -120.75,35.25,0 -120.25,34.75,0 -119.25,34.25,0 -118.75,34.25,0 -118.25,34.25,0 -117.75,33.75,0 -117.25,33.25,0 -116.75,32.25,0 -116.25,31.25,0 -115.75,30.75,0 -115.75,30.25,0 -116.25,30.25,0 -116.75,31.25,0 -117.25,32.25,0 -118.25,32.75,0 -119.25,32.25,0 -119.75,33.25,0 -120.25,33.75,0 -120.75,34.25,0 -121.25,35.25,0 -121.75,36.25,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+    <Placemark>
+      <name>Range – High (0.66–1.00) (3)</name>
+      <Style>
+        <PolygonStyle>
+          <color>800000ff</color>
+          <outline>0</outline>
+        </PolygonStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>-111.75,26.75,0 -109.75,26.75,0 -109.25,25.75,0 -109.25,26.25,0 -109.25,26.75,0 -110.25,27.25,0 -110.75,27.75,0 -111.25,28.25,0 -112.25,28.75,0 -113.25,28.75,0 -114.75,29.25,0 -115.25,29.75,0 -115.75,29.75,0 -115.75,29.25,0 -115.75,28.25,0 -115.25,27.75,0 -114.75,27.25,0 -114.25,26.75,0 -113.75,26.25,0 -113.25,25.75,0 -112.75,25.25,0 -112.25,24.75,0 -111.75,24.75,0 -112.25,25.75,0 -111.75,26.75,0</coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>
