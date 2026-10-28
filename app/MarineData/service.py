@@ -1,7 +1,5 @@
 import asyncio
-import logging
 from datetime import datetime
-from typing import Optional
 
 import app.MarineData.data_provider as data_provider
 from app.MarineData.schemas import (
@@ -17,8 +15,6 @@ from app.MarineData.schemas import (
     TidePrediction,
     WeatherConditions,
 )
-
-logger = logging.getLogger(__name__)
 
 _C_TO_F = lambda c: round(c * 9 / 5 + 32, 1)
 _MS_TO_MPH = lambda ms: round(ms * 2.237, 1)
@@ -39,9 +35,8 @@ async def get_conditions(lat: float, lon: float) -> MarineConditions:
     station = await data_provider.find_nearest_station(lat, lon)
     station_id = station["id"]
 
-    marine_raw, water_temp_raw, visibility_raw = await asyncio.gather(
+    marine_raw, visibility_raw = await asyncio.gather(
         data_provider.fetch_open_meteo_marine(lat, lon),
-        data_provider.fetch_noaa_water_temp(station_id),
         data_provider.fetch_noaa_visibility(station_id),
     )
 

@@ -105,7 +105,7 @@ def get_upcoming_trip(
     db: Session = Depends(get_db),
 ):
     response = service.get_upcoming_trip(db, current_user.id)
-    if response is None or response == []:
+    if response is None:
         return None
     return response
 
@@ -116,6 +116,6 @@ def get_most_recent_trip(
     db: Session = Depends(get_db),
 ):
     response = service.get_most_recent_trip(db, current_user.id)
-    if response is None or response == []:
+    if response is None:
         return None
     return response

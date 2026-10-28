@@ -8,7 +8,6 @@ from sqlalchemy import (
     Integer,
     String,
     Table,
-    UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
 

@@ -106,22 +106,6 @@ def mark_trip_as_completed(db: Session, trip_id: int, user_id: int):
     return updated_trip
 
 
-def update_trip(db: Session, trip_id: int, trip: Trip, user_id: int):
-    if trip.id != trip_id:
-        raise ValueError("Trip ID in path does not match trip ID in body")
-
-    existing_trip = data_provider.get_trip_by_id(db, trip_id, user_id)
-    if not existing_trip:
-        raise ValueError("Trip not found")
-
-    trip_with_user = trip.model_copy(update={"user_id": user_id})
-    updated_trip = data_provider.update_trip(db, trip_with_user, user_id)
-    if not updated_trip:
-        raise ValueError("Failed to update trip")
-
-    return updated_trip
-
-
 def update_catch_list(db: Session, trip_id: int, catch_list, user_id: int):
     result = data_provider.replace_catch_list(db, trip_id, user_id, catch_list)
     if result is None:
