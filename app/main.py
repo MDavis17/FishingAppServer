@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-# from app.controllers import root_controller
 import app.Auth.controller as auth_controller
 import app.Catch.controller as catch_controller
 import app.Trips.controller as trips_controller
@@ -25,8 +24,6 @@ app.add_middleware(
 # Mount static files directory for serving images
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# Include your controller routes
-# app.include_router(root_controller.router)
 app.include_router(auth_controller.router, prefix="/auth", tags=["auth"])
 app.include_router(catch_controller.router, prefix="/catch", tags=["catch"])
 app.include_router(trips_controller.router, prefix="/trips", tags=["trips"])
