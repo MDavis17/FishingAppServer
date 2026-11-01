@@ -38,6 +38,10 @@ def get_species_by_id(db: Session, species_id: int):
     return data_provider.get_species_by_id(db, species_id)
 
 
+def get_species_catch_history(db: Session, species_id: int, user_id: int):
+    return data_provider.get_species_catch_history(db, species_id, user_id)
+
+
 def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
     return data_provider.get_favorite_species(db, user_id, kingdom=kingdom)
 

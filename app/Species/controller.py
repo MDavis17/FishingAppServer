@@ -7,7 +7,12 @@ import app.Species.service as service
 from app.Auth.database import get_db
 from app.Auth.dependencies import get_current_user
 from app.Auth.models import User
-from app.Species.schemas import RangeData, Species, SpeciesListResponse
+from app.Species.schemas import (
+    RangeData,
+    Species,
+    SpeciesCatchHistory,
+    SpeciesListResponse,
+)
 
 router = APIRouter()
 
@@ -21,6 +26,18 @@ def get_species(
     all_species = service.get_species(db, current_user.id, kingdom=kingdom)
     favorite_species = service.get_favorite_species(db, current_user.id, kingdom=kingdom)
     return {"species": all_species, "favoriteSpecies": favorite_species}
+
+
+@router.get("/{species_id}/catch-history", response_model=SpeciesCatchHistory)
+def get_species_catch_history(
+    species_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    history = service.get_species_catch_history(db, species_id, current_user.id)
+    if history is None:
+        raise HTTPException(status_code=404, detail="Species not found")
+    return history
 
 
 @router.get("/{species_id}/range", response_model=RangeData)

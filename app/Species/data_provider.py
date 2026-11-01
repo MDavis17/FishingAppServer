@@ -1,8 +1,10 @@
 from typing import Any, Dict, Optional, Set
 
+from sqlalchemy import func
 from sqlalchemy.orm import Session, joinedload
 
 from app.Auth.models import UserFavorite
+from app.models.db_models import CatchEntry
 from app.models.db_models import Species as SpeciesRow
 
 
@@ -19,6 +21,45 @@ def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[st
         "image": species.image,
         "isFavorite": species.id in favorite_ids,
         "kingdom": species.kingdom,
+    }
+
+
+def get_species_catch_history(
+    db: Session, species_id: int, user_id: int
+) -> Optional[Dict[str, Any]]:
+    species = get_species_by_id(db, species_id)
+    if species is None:
+        return None
+
+    species_name = species["name"]
+    base_filter = (
+        CatchEntry.user_id == user_id,
+        CatchEntry.species == species_name,
+    )
+
+    total_catches = (
+        db.query(func.count(CatchEntry.id))
+        .filter(*base_filter)
+        .scalar()
+        or 0
+    )
+
+    largest_length = (
+        db.query(func.max(CatchEntry.length))
+        .filter(*base_filter)
+        .scalar()
+    )
+
+    most_recent = (
+        db.query(func.max(CatchEntry.date_time))
+        .filter(*base_filter)
+        .scalar()
+    )
+
+    return {
+        "totalCatches": total_catches,
+        "largestLength": largest_length,
+        "mostRecentCatchDate": most_recent,
     }
 
 

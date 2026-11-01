@@ -53,6 +53,7 @@ def _catch_row_to_schema(row: CatchRow) -> Catch:
         waterType=row.water_type,
         bait=row.bait,
         location=location,
+        length=row.length,
     )
 
 
@@ -198,6 +199,7 @@ def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
         species=catch.species,
         water_type=catch.waterType,
         bait=catch.bait,
+        length=catch.length,
     )
     if catch.location is not None:
         row.location_name = catch.location.name
