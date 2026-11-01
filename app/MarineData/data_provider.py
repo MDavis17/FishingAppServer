@@ -3,7 +3,7 @@ import math
 import time
 import asyncio
 import logging
-from datetime import date, datetime
+from datetime import date
 from typing import List, Optional, Dict, Any
 
 logger = logging.getLogger(__name__)

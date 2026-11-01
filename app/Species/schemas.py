@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel, ConfigDict, Field
 from typing import List, Optional
 
@@ -18,6 +20,12 @@ class Species(BaseModel):
 class SpeciesListResponse(BaseModel):
     species: List[Species]
     favoriteSpecies: List[Species]
+
+
+class SpeciesCatchHistory(BaseModel):
+    totalCatches: int
+    largestLength: Optional[float] = None
+    mostRecentCatchDate: Optional[datetime] = None
 
 
 class LatLng(BaseModel):

@@ -1,5 +1,3 @@
-trips_db = []
-catches_db = []
 species_db = [
     {"id": 1, "name": "Albacore Tuna", "scientificName": "Thunnus alalunga", "avgLength": "12-25", "lifespan": "10", "depthRange": "160-1,150", "region": ["North Coast", "Central Coast", "South Coast"], "image": "http://localhost.com:8000/static/images/species/albacore-tuna.png", "isFavorite": False, "kingdom": "animal"},
     {"id": 2, "name": "Barred Sand Bass", "scientificName": "Paralabrax nebulifer", "avgLength": "15", "lifespan": "20", "depthRange": "20-120", "region": ["Central Coast", "South Coast"], "image": "http://localhost.com:8000/static/images/species/barred-sand-bass.png", "isFavorite": False, "kingdom": "animal"},
