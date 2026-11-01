@@ -31,6 +31,7 @@ class Catch(BaseModel):
     waterType: str
     bait: Optional[str] = None
     location: Optional[Location] = None
+    length: Optional[float] = None
 
 class Trip(BaseModel):
     model_config = ConfigDict(extra="ignore")
