@@ -22,10 +22,18 @@ class SpeciesListResponse(BaseModel):
     favoriteSpecies: List[Species]
 
 
+class SpeciesCatchHistoryItem(BaseModel):
+    id: int
+    dateTime: datetime
+    length: Optional[float] = None
+    weight: Optional[float] = None
+
+
 class SpeciesCatchHistory(BaseModel):
     totalCatches: int
     largestLength: Optional[float] = None
     mostRecentCatchDate: Optional[datetime] = None
+    catches: List[SpeciesCatchHistoryItem] = []
 
 
 class LatLng(BaseModel):
