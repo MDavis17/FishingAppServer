@@ -56,10 +56,27 @@ def get_species_catch_history(
         .scalar()
     )
 
+    catch_rows = (
+        db.query(CatchEntry)
+        .filter(*base_filter)
+        .order_by(CatchEntry.date_time.desc())
+        .all()
+    )
+    catches = [
+        {
+            "id": row.id,
+            "dateTime": row.date_time,
+            "length": row.length,
+            "weight": row.weight,
+        }
+        for row in catch_rows
+    ]
+
     return {
         "totalCatches": total_catches,
         "largestLength": largest_length,
         "mostRecentCatchDate": most_recent,
+        "catches": catches,
     }
 
 
