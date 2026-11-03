@@ -6,6 +6,7 @@ from sqlalchemy import (
     Float,
     ForeignKey,
     Integer,
+    JSON,
     String,
     Table,
 )
@@ -56,6 +57,7 @@ class Species(Base):
     lifespan = Column(String, nullable=True, default="")
     depth_range = Column(String, nullable=True, default="")
     image = Column(String, nullable=False, default="")
+    images = Column(JSON, nullable=True)
     kingdom = Column(String, nullable=False, default="animal", index=True)
 
     regions = relationship(

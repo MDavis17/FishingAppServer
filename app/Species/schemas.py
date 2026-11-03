@@ -4,12 +4,18 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import List, Optional
 
 
+class SpeciesImage(BaseModel):
+    url: str
+    label: str
+
+
 class Species(BaseModel):
     id: int
     name: str
     scientificName: str
     region: List[str]
     image: str
+    images: Optional[List[SpeciesImage]] = None
     isFavorite: bool
     kingdom: str
     avgLength: str

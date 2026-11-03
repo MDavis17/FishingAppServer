@@ -49,6 +49,21 @@ def seed() -> None:
             row.image = resolve_species_image_url(entry.get("image") or "", url_map)
             row.kingdom = entry.get("kingdom") or "animal"
 
+            gallery = entry.get("images")
+            if gallery:
+                resolved_gallery = []
+                for item in gallery:
+                    if not isinstance(item, dict):
+                        continue
+                    label = item.get("label")
+                    source = item.get("image") or item.get("url") or ""
+                    url = resolve_species_image_url(source, url_map)
+                    if url and label:
+                        resolved_gallery.append({"url": url, "label": label})
+                row.images = resolved_gallery if resolved_gallery else None
+            else:
+                row.images = None
+
             row.regions.clear()
             for region_name in entry.get("region") or []:
                 region = region_by_name.get(region_name)

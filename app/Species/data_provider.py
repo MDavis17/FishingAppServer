@@ -1,4 +1,4 @@
-from typing import Any, Dict, Optional, Set
+from typing import Any, Dict, List, Optional, Set
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session, joinedload
@@ -6,6 +6,20 @@ from sqlalchemy.orm import Session, joinedload
 from app.Auth.models import UserFavorite
 from app.models.db_models import CatchEntry
 from app.models.db_models import Species as SpeciesRow
+
+
+def _normalize_species_images(raw: Any) -> Optional[List[Dict[str, str]]]:
+    if not raw or not isinstance(raw, list):
+        return None
+    images: List[Dict[str, str]] = []
+    for item in raw:
+        if not isinstance(item, dict):
+            continue
+        url = item.get("url")
+        label = item.get("label")
+        if url and label:
+            images.append({"url": str(url), "label": str(label)})
+    return images if images else None
 
 
 def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[str, Any]:
@@ -19,6 +33,7 @@ def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[st
         "depthRange": species.depth_range or "",
         "region": [r.name for r in species.regions],
         "image": species.image,
+        "images": _normalize_species_images(species.images),
         "isFavorite": species.id in favorite_ids,
         "kingdom": species.kingdom,
     }
