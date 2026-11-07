@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 from sqlalchemy.orm import Session, joinedload
 
@@ -108,6 +108,19 @@ def get_most_recent_trip(db: Session, user_id: int):
     if not rows:
         return None
     return _trip_row_to_schema(rows[0])
+
+
+def get_species_images_by_name(
+    db: Session, species_names: List[str]
+) -> Dict[str, str]:
+    if not species_names:
+        return {}
+    rows = (
+        db.query(SpeciesRow.name, SpeciesRow.image)
+        .filter(SpeciesRow.name.in_(species_names))
+        .all()
+    )
+    return {name: image or "" for name, image in rows}
 
 
 def get_catch_list(db: Session, trip_id: int, user_id: int):
