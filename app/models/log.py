@@ -43,3 +43,28 @@ class Trip(BaseModel):
     location: Location
     status: Optional[TripStatus] = None
     targetSpecies: List[Species] = []
+
+
+class CatchStat(BaseModel):
+    type: str
+    value: int | float | bool
+
+
+class IndividualCatch(BaseModel):
+    id: int
+    time: str
+    length: Optional[float] = None
+    bait: Optional[str] = None
+
+
+class SpeciesGroup(BaseModel):
+    species: str
+    speciesImage: Optional[str] = None
+    count: int
+    largestLength: Optional[float] = None
+    catches: List[IndividualCatch]
+
+
+class TripCatchListResponse(BaseModel):
+    stats: List[CatchStat]
+    speciesGroups: List[SpeciesGroup]
