@@ -1,11 +1,20 @@
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
-from typing import List
+from typing import List, Optional
 
 from sqlalchemy.orm import Session
 
 import app.Trips.data_provider as data_provider
-from app.models.log import Catch, Trip, TripStatus
+from app.models.log import (
+    Catch,
+    CatchStat,
+    IndividualCatch,
+    Species,
+    SpeciesGroup,
+    Trip,
+    TripCatchListResponse,
+    TripStatus,
+)
 
 
 def _ensure_utc(dt: datetime) -> datetime:
@@ -68,8 +77,82 @@ def get_catch_summary(catchList: List[Catch]) -> str:
     return ", ".join(formatted_species)
 
 
+def _format_catch_time(dt: datetime) -> str:
+    hour = dt.strftime("%I").lstrip("0") or "12"
+    return f"{hour}:{dt.strftime('%M %p')}"
+
+
+def build_trip_catch_list(
+    db: Session,
+    trip_id: int,
+    user_id: int,
+) -> Optional[TripCatchListResponse]:
+    trip = data_provider.get_trip_by_id(db, trip_id, user_id)
+    if trip is None:
+        return None
+    catch_list = data_provider.get_catch_list(db, trip_id, user_id) or []
+    return _assemble_trip_catch_list(db, catch_list, trip.targetSpecies)
+
+
+def _assemble_trip_catch_list(
+    db: Session,
+    catch_list: List[Catch],
+    target_species: List[Species],
+) -> TripCatchListResponse:
+    species_names = list({c.species for c in catch_list})
+    image_by_name = data_provider.get_species_images_by_name(db, species_names)
+
+    grouped: dict[str, list[Catch]] = defaultdict(list)
+    for catch in catch_list:
+        grouped[catch.species].append(catch)
+
+    species_groups: List[SpeciesGroup] = []
+    for species, catches in sorted(
+        grouped.items(), key=lambda item: len(item[1]), reverse=True
+    ):
+        catches_sorted = sorted(catches, key=lambda c: c.dateTime)
+        lengths = [c.length for c in catches_sorted if c.length is not None]
+        largest = max(lengths) if lengths else None
+        individual = [
+            IndividualCatch(
+                id=catch.id or 0,
+                time=_format_catch_time(catch.dateTime),
+                length=catch.length,
+                bait=catch.bait,
+            )
+            for catch in catches_sorted
+            if catch.id is not None
+        ]
+        species_groups.append(
+            SpeciesGroup(
+                species=species,
+                speciesImage=image_by_name.get(species) or None,
+                count=len(catches_sorted),
+                largestLength=largest,
+                catches=individual,
+            )
+        )
+
+    stats: List[CatchStat] = [
+        CatchStat(type="totalCaught", value=len(catch_list))
+    ]
+
+    if target_species:
+        target_names = {s.name for s in target_species}
+        caught_names = {c.species for c in catch_list}
+        achieved = target_names.issubset(caught_names)
+        stats.append(CatchStat(type="targetAchieved", value=achieved))
+
+    lengths_all = [c.length for c in catch_list if c.length is not None]
+    if lengths_all:
+        largest_overall = max(lengths_all)
+        stats.append(CatchStat(type="largestCatch", value=largest_overall))
+
+    return TripCatchListResponse(stats=stats, speciesGroups=species_groups)
+
+
 def get_catch_list(db: Session, trip_id: int, user_id: int):
-    return data_provider.get_catch_list(db, trip_id, user_id)
+    return build_trip_catch_list(db, trip_id, user_id)
 
 
 def create_trip(db: Session, trip: Trip, user_id: int):
