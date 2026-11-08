@@ -176,6 +176,24 @@ def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
     return data_provider.add_catch(db, trip_id, catch, user_id)
 
 
+TRIP_NOTES_MAX_LENGTH = 800
+
+
+def update_trip_notes(db: Session, trip_id: int, user_id: int, notes: Optional[str]):
+    if notes is not None and len(notes) > TRIP_NOTES_MAX_LENGTH:
+        raise ValueError(
+            f"Notes must be at most {TRIP_NOTES_MAX_LENGTH} characters"
+        )
+    existing_trip = data_provider.get_trip_by_id(db, trip_id, user_id)
+    if not existing_trip:
+        raise ValueError("Trip not found")
+    updated_trip_model = existing_trip.model_copy(update={"notes": notes})
+    updated_trip = data_provider.update_trip(db, updated_trip_model, user_id)
+    if not updated_trip:
+        raise ValueError("Failed to update trip notes")
+    return updated_trip
+
+
 def mark_trip_as_completed(db: Session, trip_id: int, user_id: int):
     existing_trip = data_provider.get_trip_by_id(db, trip_id, user_id)
     if not existing_trip:
