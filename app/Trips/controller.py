@@ -7,7 +7,7 @@ import app.Trips.service as service
 from app.Auth.database import get_db
 from app.Auth.dependencies import get_current_user
 from app.Auth.models import User
-from app.models.log import Catch, Trip
+from app.models.log import Catch, Trip, TripNotesUpdate
 
 router = APIRouter()
 
@@ -40,6 +40,27 @@ def delete_trip(
     if not status:
         raise HTTPException(status_code=404, detail="Trip not found")
     return {"message": f"Trip {trip_id} deleted"}
+
+
+@router.put("/{trip_id}/notes")
+def update_trip_notes(
+    trip_id: int,
+    body: TripNotesUpdate,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    try:
+        updated_trip = service.update_trip_notes(
+            db, trip_id, current_user.id, body.notes
+        )
+        return {
+            "message": "Trip notes updated",
+            "trip": updated_trip.model_dump(mode="json"),
+        }
+    except ValueError as e:
+        if "at most" in str(e):
+            raise HTTPException(status_code=400, detail=str(e))
+        raise HTTPException(status_code=404, detail=str(e))
 
 
 @router.put("/{trip_id}/markAsCompleted")

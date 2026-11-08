@@ -83,6 +83,7 @@ class Trip(Base):
     location_name = Column(String, nullable=False, default="")
     location_lat = Column(Float, nullable=False)
     location_lng = Column(Float, nullable=False)
+    notes = Column(String(800), nullable=True)
 
     catches = relationship(
         "CatchEntry",

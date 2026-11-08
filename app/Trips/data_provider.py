@@ -25,6 +25,7 @@ def _trip_row_to_schema(row: TripRow) -> Trip:
         targetSpecies=[
             Species(id=s.id, name=s.name) for s in (row.target_species or [])
         ],
+        notes=row.notes,
     )
 
 
@@ -65,6 +66,7 @@ def _apply_trip_fields(row: TripRow, trip: Trip) -> None:
     row.location_lng = trip.location.coordinates.longitude
     if trip.createdAt is not None:
         row.created_at = trip.createdAt
+    row.notes = trip.notes
 
 
 def _resolve_target_species(db: Session, trip: Trip) -> List[SpeciesRow]:
