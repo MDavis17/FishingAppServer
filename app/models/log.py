@@ -43,6 +43,11 @@ class Trip(BaseModel):
     location: Location
     status: Optional[TripStatus] = None
     targetSpecies: List[Species] = []
+    notes: Optional[str] = None
+
+
+class TripNotesUpdate(BaseModel):
+    notes: Optional[str] = None
 
 
 class CatchStat(BaseModel):
