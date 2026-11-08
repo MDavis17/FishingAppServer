@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import (
     Column,
     DateTime,
+    Enum as SAEnum,
     Float,
     ForeignKey,
     Integer,
@@ -13,6 +14,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 
 from app.Auth.database import Base
+from app.models.log import TripType
 
 species_regions = Table(
     "species_regions",
@@ -80,6 +82,15 @@ class Trip(Base):
     date = Column(DateTime, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     status = Column(String, nullable=False, default="Planned")
+    trip_type = Column(
+        SAEnum(
+            TripType,
+            name="trip_type",
+            values_callable=lambda e: [m.value for m in e],
+        ),
+        nullable=False,
+        default=TripType.Surf,
+    )
     location_name = Column(String, nullable=False, default="")
     location_lat = Column(Float, nullable=False)
     location_lng = Column(Float, nullable=False)
