@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session, joinedload
 from app.models.db_models import CatchEntry as CatchRow
 from app.models.db_models import Species as SpeciesRow
 from app.models.db_models import Trip as TripRow
-from app.models.log import Catch, LatLong, Location, Species, Trip, TripStatus
+from app.models.log import Catch, LatLong, Location, Species, Trip, TripStatus, TripType
 
 
 def _trip_row_to_schema(row: TripRow) -> Trip:
@@ -22,6 +22,7 @@ def _trip_row_to_schema(row: TripRow) -> Trip:
             ),
         ),
         status=TripStatus(row.status),
+        tripType=TripType(row.trip_type.value if hasattr(row.trip_type, "value") else row.trip_type),
         targetSpecies=[
             Species(id=s.id, name=s.name) for s in (row.target_species or [])
         ],
@@ -61,6 +62,9 @@ def _catch_row_to_schema(row: CatchRow) -> Catch:
 def _apply_trip_fields(row: TripRow, trip: Trip) -> None:
     row.date = trip.date
     row.status = trip.status.value if isinstance(trip.status, TripStatus) else trip.status
+    row.trip_type = (
+        trip.tripType.value if isinstance(trip.tripType, TripType) else trip.tripType
+    )
     row.location_name = trip.location.name
     row.location_lat = trip.location.coordinates.latitude
     row.location_lng = trip.location.coordinates.longitude
