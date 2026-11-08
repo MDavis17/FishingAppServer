@@ -1,5 +1,6 @@
 import asyncio
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import app.MarineData.data_provider as data_provider
 from app.MarineData.schemas import (
@@ -13,6 +14,7 @@ from app.MarineData.schemas import (
     MoonPhase,
     TideData,
     TidePrediction,
+    TripForecast,
     WeatherConditions,
 )
 
@@ -20,6 +22,70 @@ _C_TO_F = lambda c: round(c * 9 / 5 + 32, 1)
 _MS_TO_MPH = lambda ms: round(ms * 2.237, 1)
 _MS_TO_KNOTS = lambda ms: round(ms * 1.944, 2)
 _MM_TO_IN = lambda mm: round(mm / 25.4, 3)
+_HPA_TO_INHG = lambda hpa: round(hpa * 0.02953, 2)
+_M_TO_FT = lambda m: round(m * 3.28084, 1)
+
+_LA = ZoneInfo("America/Los_Angeles")
+_FORECAST_MAX_DAYS = 7
+
+_WMO_DESCRIPTIONS: dict[int, str] = {
+    0: "Clear",
+    1: "Mainly clear",
+    2: "Partly cloudy",
+    3: "Overcast",
+    45: "Fog",
+    48: "Depositing rime fog",
+    51: "Light drizzle",
+    53: "Moderate drizzle",
+    55: "Dense drizzle",
+    56: "Light freezing drizzle",
+    57: "Dense freezing drizzle",
+    61: "Slight rain",
+    63: "Moderate rain",
+    65: "Heavy rain",
+    66: "Light freezing rain",
+    67: "Heavy freezing rain",
+    71: "Slight snow",
+    73: "Moderate snow",
+    75: "Heavy snow",
+    77: "Snow grains",
+    80: "Slight rain showers",
+    81: "Moderate rain showers",
+    82: "Violent rain showers",
+    85: "Slight snow showers",
+    86: "Heavy snow showers",
+    95: "Thunderstorm",
+    96: "Thunderstorm with slight hail",
+    99: "Thunderstorm with heavy hail",
+}
+
+
+def _weather_code_description(code: int | None) -> str | None:
+    if code is None:
+        return None
+    return _WMO_DESCRIPTIONS.get(code, "Unknown")
+
+
+def floor_trip_hour_local(dt: datetime) -> str:
+    """Floor an instant to the hour in America/Los_Angeles for Open-Meteo."""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone(_LA)
+    floored = local.replace(minute=0, second=0, microsecond=0)
+    return floored.strftime("%Y-%m-%dT%H:00")
+
+
+def validate_forecast_datetime(dt: datetime) -> None:
+    """Raise ValueError if datetime is outside the allowed forecast window."""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    if dt < now:
+        raise ValueError("Trip time is in the past")
+    if dt > now + timedelta(days=_FORECAST_MAX_DAYS):
+        raise ValueError(
+            f"Forecast is only available within {_FORECAST_MAX_DAYS} days"
+        )
 
 
 def _current_hour_index(hourly_times: list) -> int:
@@ -177,6 +243,76 @@ async def get_weather(lat: float, lon: float) -> WeatherConditions:
             result.air_temp_f_min = _C_TO_F(temp_min_c)
     except (KeyError, IndexError):
         pass
+
+    return result
+
+
+async def get_trip_forecast(
+    lat: float, lon: float, trip_datetime: datetime
+) -> TripForecast:
+    validate_forecast_datetime(trip_datetime)
+    hour_iso = floor_trip_hour_local(trip_datetime)
+
+    weather_raw, marine_raw = await asyncio.gather(
+        data_provider.fetch_open_meteo_weather_for_hour(lat, lon, hour_iso),
+        data_provider.fetch_open_meteo_marine_for_hour(lat, lon, hour_iso),
+    )
+
+    if not weather_raw:
+        raise RuntimeError("Weather forecast unavailable")
+
+    result = TripForecast()
+
+    try:
+        hourly = weather_raw["hourly"]
+        times = hourly["time"]
+        idx = 0
+        if hour_iso in times:
+            idx = times.index(hour_iso)
+
+        temp_c = hourly["temperature_2m"][idx]
+        if temp_c is not None:
+            result.air_temp_f = _C_TO_F(temp_c)
+
+        codes = hourly.get("weather_code")
+        if codes and idx < len(codes):
+            result.weather_description = _weather_code_description(codes[idx])
+
+        wind_ms = hourly["wind_speed_10m"][idx]
+        if wind_ms is not None:
+            result.wind_speed_mph = _MS_TO_MPH(wind_ms)
+
+        gusts_ms = hourly.get("wind_gusts_10m")
+        if gusts_ms and idx < len(gusts_ms) and gusts_ms[idx] is not None:
+            result.wind_gusts_mph = _MS_TO_MPH(gusts_ms[idx])
+
+        wind_dir = hourly["wind_direction_10m"][idx]
+        if wind_dir is not None:
+            result.wind_direction_deg = round(wind_dir, 1)
+
+        pressure = hourly.get("pressure_msl")
+        if pressure and idx < len(pressure) and pressure[idx] is not None:
+            result.pressure_inhg = _HPA_TO_INHG(pressure[idx])
+    except (KeyError, IndexError, TypeError):
+        pass
+
+    if marine_raw:
+        try:
+            hourly = marine_raw["hourly"]
+            times = hourly["time"]
+            idx = 0
+            if hour_iso in times:
+                idx = times.index(hour_iso)
+
+            sst_c = hourly.get("sea_surface_temperature")
+            if sst_c and idx < len(sst_c) and sst_c[idx] is not None:
+                result.water_temp_f = _C_TO_F(sst_c[idx])
+
+            wave_m = hourly.get("wave_height")
+            if wave_m and idx < len(wave_m) and wave_m[idx] is not None:
+                result.surf_height_ft = _M_TO_FT(wave_m[idx])
+        except (KeyError, IndexError, TypeError):
+            pass
 
     return result
 

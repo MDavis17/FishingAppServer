@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from fastapi import APIRouter, HTTPException, Query
 import app.MarineData.service as service
 from app.MarineData.schemas import (
@@ -6,6 +8,7 @@ from app.MarineData.schemas import (
     KelpData,
     MarineConditions,
     TideData,
+    TripForecast,
     WeatherConditions,
 )
 
@@ -46,6 +49,30 @@ async def get_weather(
         return await service.get_weather(latitude, longitude)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Failed to fetch weather: {exc}")
+
+
+@router.get("/forecast", response_model=TripForecast)
+async def get_forecast(
+    latitude: float = Query(..., description="Latitude"),
+    longitude: float = Query(..., description="Longitude"),
+    datetime: datetime = Query(
+        ..., description="Trip date/time (ISO 8601, e.g. 2026-03-15T14:30:00Z)"
+    ),
+):
+    """Hourly weather and marine forecast for a specific trip time (up to 7 days ahead)."""
+    _validate_ca_coords(latitude, longitude)
+    try:
+        service.validate_forecast_datetime(datetime)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    try:
+        return await service.get_trip_forecast(latitude, longitude, datetime)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except RuntimeError as exc:
+        raise HTTPException(status_code=502, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f"Failed to fetch forecast: {exc}")
 
 
 @router.get("/tides", response_model=TideData)
