@@ -8,6 +8,19 @@ class TripStatus(str, Enum):
     Planned = "Planned"
     Completed = "Completed"
 
+
+class TripType(str, Enum):
+    Surf = "Surf"
+    Kayak = "Kayak"
+    Boat = "Boat"
+    Spearfishing = "Spearfishing"
+    Pier = "Pier"
+    FreeDiving = "Free Diving"
+    Crabbing = "Crabbing"
+    RockJetty = "Rock/Jetty"
+    FlyFishing = "Fly Fishing"
+
+
 class LatLong(BaseModel):
     latitude: float
     longitude: float
@@ -42,6 +55,7 @@ class Trip(BaseModel):
     createdAt: Optional[datetime] = None
     location: Location
     status: Optional[TripStatus] = None
+    tripType: TripType
     targetSpecies: List[Species] = []
     notes: Optional[str] = None
 
