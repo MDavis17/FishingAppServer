@@ -79,3 +79,14 @@ class KelpBed(BaseModel):
 class KelpData(BaseModel):
     kelp_beds: List[KelpBed]
     search_radius_deg: float = 0.05
+
+
+class TripForecast(BaseModel):
+    air_temp_f: Optional[float] = None
+    weather_description: Optional[str] = None
+    water_temp_f: Optional[float] = None
+    wind_speed_mph: Optional[float] = None
+    wind_direction_deg: Optional[float] = None
+    wind_gusts_mph: Optional[float] = None
+    pressure_inhg: Optional[float] = None
+    surf_height_ft: Optional[float] = None
