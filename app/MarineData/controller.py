@@ -1,13 +1,17 @@
 from datetime import datetime
 
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query
+from sqlalchemy.orm import Session
+
 import app.MarineData.service as service
+from app.Auth.database import get_db
 from app.MarineData.schemas import (
     AstronomyData,
     BathymetryData,
     KelpData,
     MarineConditions,
     TideData,
+    TripConditions,
     TripForecast,
     WeatherConditions,
 )
@@ -49,6 +53,31 @@ async def get_weather(
         return await service.get_weather(latitude, longitude)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Failed to fetch weather: {exc}")
+
+
+@router.get("/trip-conditions", response_model=TripConditions)
+async def get_trip_conditions(
+    latitude: float = Query(..., description="Latitude"),
+    longitude: float = Query(..., description="Longitude"),
+    datetime: datetime = Query(
+        ..., description="Trip date/time (ISO 8601, e.g. 2026-03-15T14:30:00Z)"
+    ),
+    db: Session = Depends(get_db),
+):
+    """Forecast or observed trip conditions for a specific time."""
+    _validate_ca_coords(latitude, longitude)
+    try:
+        return await service.get_trip_conditions(
+            latitude, longitude, datetime, db
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+    except RuntimeError as exc:
+        raise HTTPException(status_code=502, detail=str(exc))
+    except Exception as exc:
+        raise HTTPException(
+            status_code=502, detail=f"Failed to fetch trip conditions: {exc}"
+        )
 
 
 @router.get("/forecast", response_model=TripForecast)

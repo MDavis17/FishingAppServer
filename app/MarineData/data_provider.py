@@ -94,6 +94,7 @@ _RESPONSE_TTL: Dict[str, int] = {
     "marine": 1800,      # 30 min
     "weather": 1800,
     "forecast_hour": 1800,
+    "archive_day": 86400,
     "tides": 3600,       # 1 hour
     "water_temp": 1800,
     "visibility": 1800,
@@ -178,29 +179,33 @@ async def fetch_open_meteo_weather(lat: float, lon: float) -> Optional[Dict]:
 
 
 async def fetch_open_meteo_weather_for_hour(
-    lat: float, lon: float, hour_iso: str
+    lat: float, lon: float, hour_iso: str, *, past_days: int = 0
 ) -> Optional[Dict]:
     """Fetch a single hour of weather forecast (start_hour == end_hour)."""
-    cache_key = f"weather_hour:{lat:.3f}:{lon:.3f}:{hour_iso}"
+    cache_key = f"weather_hour:{lat:.3f}:{lon:.3f}:{hour_iso}:p{past_days}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
+
+    params: Dict[str, Any] = {
+        "latitude": lat,
+        "longitude": lon,
+        "hourly": (
+            "temperature_2m,weather_code,wind_speed_10m,"
+            "wind_direction_10m,wind_gusts_10m,pressure_msl"
+        ),
+        "timezone": LA_TIMEZONE,
+        "start_hour": hour_iso,
+        "end_hour": hour_iso,
+    }
+    if past_days > 0:
+        params["past_days"] = past_days
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             resp = await client.get(
                 "https://api.open-meteo.com/v1/forecast",
-                params={
-                    "latitude": lat,
-                    "longitude": lon,
-                    "hourly": (
-                        "temperature_2m,weather_code,wind_speed_10m,"
-                        "wind_direction_10m,wind_gusts_10m,pressure_msl"
-                    ),
-                    "timezone": LA_TIMEZONE,
-                    "start_hour": hour_iso,
-                    "end_hour": hour_iso,
-                },
+                params=params,
             )
             resp.raise_for_status()
             data = resp.json()
@@ -214,27 +219,31 @@ async def fetch_open_meteo_weather_for_hour(
 
 
 async def fetch_open_meteo_marine_for_hour(
-    lat: float, lon: float, hour_iso: str
+    lat: float, lon: float, hour_iso: str, *, past_days: int = 0
 ) -> Optional[Dict]:
     """Fetch a single hour of marine forecast (SST + wave height)."""
-    cache_key = f"marine_hour:{lat:.3f}:{lon:.3f}:{hour_iso}"
+    cache_key = f"marine_hour:{lat:.3f}:{lon:.3f}:{hour_iso}:p{past_days}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
+
+    params: Dict[str, Any] = {
+        "latitude": lat,
+        "longitude": lon,
+        "hourly": "sea_surface_temperature,wave_height",
+        "timezone": LA_TIMEZONE,
+        "start_hour": hour_iso,
+        "end_hour": hour_iso,
+        "cell_selection": "sea",
+    }
+    if past_days > 0:
+        params["past_days"] = past_days
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             resp = await client.get(
                 "https://marine-api.open-meteo.com/v1/marine",
-                params={
-                    "latitude": lat,
-                    "longitude": lon,
-                    "hourly": "sea_surface_temperature,wave_height",
-                    "timezone": LA_TIMEZONE,
-                    "start_hour": hour_iso,
-                    "end_hour": hour_iso,
-                    "cell_selection": "sea",
-                },
+                params=params,
             )
             resp.raise_for_status()
             data = resp.json()
@@ -243,6 +252,77 @@ async def fetch_open_meteo_marine_for_hour(
     except Exception as exc:
         logger.warning(
             "Open-Meteo marine hour fetch failed for %s: %s", hour_iso, exc
+        )
+        return None
+
+
+async def fetch_open_meteo_weather_archive_day(
+    lat: float, lon: float, day_iso: str
+) -> Optional[Dict]:
+    """Fetch hourly weather for one calendar day from the historical archive."""
+    cache_key = f"weather_archive:{lat:.3f}:{lon:.3f}:{day_iso}"
+    cached = _cache_get(cache_key)
+    if cached:
+        return cached
+
+    try:
+        async with httpx.AsyncClient(timeout=15.0) as client:
+            resp = await client.get(
+                "https://archive-api.open-meteo.com/v1/archive",
+                params={
+                    "latitude": lat,
+                    "longitude": lon,
+                    "start_date": day_iso,
+                    "end_date": day_iso,
+                    "hourly": (
+                        "temperature_2m,weather_code,wind_speed_10m,"
+                        "wind_direction_10m,wind_gusts_10m,pressure_msl"
+                    ),
+                    "timezone": LA_TIMEZONE,
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            _cache_set(cache_key, data, _RESPONSE_TTL["archive_day"])
+            return data
+    except Exception as exc:
+        logger.warning(
+            "Open-Meteo weather archive fetch failed for %s: %s", day_iso, exc
+        )
+        return None
+
+
+async def fetch_open_meteo_marine_archive_day(
+    lat: float, lon: float, day_iso: str
+) -> Optional[Dict]:
+    """Fetch hourly marine (ERA5 ocean) for one calendar day."""
+    cache_key = f"marine_archive:{lat:.3f}:{lon:.3f}:{day_iso}"
+    cached = _cache_get(cache_key)
+    if cached:
+        return cached
+
+    try:
+        async with httpx.AsyncClient(timeout=15.0) as client:
+            resp = await client.get(
+                "https://marine-api.open-meteo.com/v1/marine",
+                params={
+                    "latitude": lat,
+                    "longitude": lon,
+                    "start_date": day_iso,
+                    "end_date": day_iso,
+                    "hourly": "sea_surface_temperature,wave_height",
+                    "models": "era5_ocean",
+                    "timezone": LA_TIMEZONE,
+                    "cell_selection": "sea",
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            _cache_set(cache_key, data, _RESPONSE_TTL["archive_day"])
+            return data
+    except Exception as exc:
+        logger.warning(
+            "Open-Meteo marine archive fetch failed for %s: %s", day_iso, exc
         )
         return None
 
