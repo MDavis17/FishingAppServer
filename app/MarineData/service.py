@@ -1,8 +1,17 @@
 import asyncio
+import math
 from datetime import datetime, timedelta, timezone
+from typing import Literal
 from zoneinfo import ZoneInfo
 
+from sqlalchemy.orm import Session
+
 import app.MarineData.data_provider as data_provider
+from app.MarineData.observed_store import (
+    get_observed_row,
+    row_to_trip_forecast,
+    save_observed,
+)
 from app.MarineData.schemas import (
     AstronomyData,
     BathymetryData,
@@ -14,6 +23,7 @@ from app.MarineData.schemas import (
     MoonPhase,
     TideData,
     TidePrediction,
+    TripConditions,
     TripForecast,
     WeatherConditions,
 )
@@ -27,6 +37,7 @@ _M_TO_FT = lambda m: round(m * 3.28084, 1)
 
 _LA = ZoneInfo("America/Los_Angeles")
 _FORECAST_MAX_DAYS = 7
+_OBSERVED_RECENT_MAX_DAYS = 92
 
 _WMO_DESCRIPTIONS: dict[int, str] = {
     0: "Clear",
@@ -73,6 +84,46 @@ def floor_trip_hour_local(dt: datetime) -> str:
     local = dt.astimezone(_LA)
     floored = local.replace(minute=0, second=0, microsecond=0)
     return floored.strftime("%Y-%m-%dT%H:00")
+
+
+def floor_trip_hour_utc(dt: datetime) -> datetime:
+    """Floor to the Pacific hour, stored as naive UTC for the database."""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    local = dt.astimezone(_LA)
+    floored = local.replace(minute=0, second=0, microsecond=0)
+    return floored.astimezone(timezone.utc).replace(tzinfo=None)
+
+
+def classify_trip_conditions_mode(
+    dt: datetime,
+) -> Literal["forecast", "observed", "too_far"]:
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    if dt < now:
+        return "observed"
+    if dt > now + timedelta(days=_FORECAST_MAX_DAYS):
+        return "too_far"
+    return "forecast"
+
+
+def _past_days_for_trip(trip_dt: datetime) -> int:
+    if trip_dt.tzinfo is None:
+        trip_dt = trip_dt.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    delta = now - trip_dt
+    if delta.total_seconds() <= 0:
+        return 1
+    days = math.ceil(delta.total_seconds() / 86400)
+    return min(max(days, 1), _OBSERVED_RECENT_MAX_DAYS)
+
+
+def _trip_is_recent_observed(trip_dt: datetime) -> bool:
+    if trip_dt.tzinfo is None:
+        trip_dt = trip_dt.replace(tzinfo=timezone.utc)
+    now = datetime.now(timezone.utc)
+    return (now - trip_dt) <= timedelta(days=_OBSERVED_RECENT_MAX_DAYS)
 
 
 def validate_forecast_datetime(dt: datetime) -> None:
@@ -247,20 +298,11 @@ async def get_weather(lat: float, lon: float) -> WeatherConditions:
     return result
 
 
-async def get_trip_forecast(
-    lat: float, lon: float, trip_datetime: datetime
+def _parse_trip_hour_from_raws(
+    weather_raw: dict,
+    marine_raw: dict | None,
+    hour_iso: str,
 ) -> TripForecast:
-    validate_forecast_datetime(trip_datetime)
-    hour_iso = floor_trip_hour_local(trip_datetime)
-
-    weather_raw, marine_raw = await asyncio.gather(
-        data_provider.fetch_open_meteo_weather_for_hour(lat, lon, hour_iso),
-        data_provider.fetch_open_meteo_marine_for_hour(lat, lon, hour_iso),
-    )
-
-    if not weather_raw:
-        raise RuntimeError("Weather forecast unavailable")
-
     result = TripForecast()
 
     try:
@@ -315,6 +357,78 @@ async def get_trip_forecast(
             pass
 
     return result
+
+
+async def _fetch_trip_hour(
+    lat: float,
+    lon: float,
+    trip_datetime: datetime,
+    *,
+    observed: bool,
+) -> TripForecast:
+    hour_iso = floor_trip_hour_local(trip_datetime)
+
+    if observed and _trip_is_recent_observed(trip_datetime):
+        past_days = _past_days_for_trip(trip_datetime)
+        weather_raw, marine_raw = await asyncio.gather(
+            data_provider.fetch_open_meteo_weather_for_hour(
+                lat, lon, hour_iso, past_days=past_days
+            ),
+            data_provider.fetch_open_meteo_marine_for_hour(
+                lat, lon, hour_iso, past_days=past_days
+            ),
+        )
+    elif observed:
+        day_iso = hour_iso[:10]
+        weather_raw, marine_raw = await asyncio.gather(
+            data_provider.fetch_open_meteo_weather_archive_day(lat, lon, day_iso),
+            data_provider.fetch_open_meteo_marine_archive_day(lat, lon, day_iso),
+        )
+    else:
+        weather_raw, marine_raw = await asyncio.gather(
+            data_provider.fetch_open_meteo_weather_for_hour(lat, lon, hour_iso),
+            data_provider.fetch_open_meteo_marine_for_hour(lat, lon, hour_iso),
+        )
+
+    if not weather_raw:
+        raise RuntimeError("Weather forecast unavailable")
+
+    return _parse_trip_hour_from_raws(weather_raw, marine_raw, hour_iso)
+
+
+async def get_trip_forecast(
+    lat: float, lon: float, trip_datetime: datetime
+) -> TripForecast:
+    validate_forecast_datetime(trip_datetime)
+    return await _fetch_trip_hour(lat, lon, trip_datetime, observed=False)
+
+
+async def get_trip_conditions(
+    lat: float,
+    lon: float,
+    trip_datetime: datetime,
+    db: Session,
+) -> TripConditions:
+    mode = classify_trip_conditions_mode(trip_datetime)
+    if mode == "too_far":
+        raise ValueError(
+            f"Forecast is only available within {_FORECAST_MAX_DAYS} days"
+        )
+
+    if mode == "forecast":
+        validate_forecast_datetime(trip_datetime)
+        forecast = await _fetch_trip_hour(lat, lon, trip_datetime, observed=False)
+        return TripConditions(**forecast.model_dump(), source="forecast")
+
+    hour_utc = floor_trip_hour_utc(trip_datetime)
+    cached = get_observed_row(db, lat, lon, hour_utc)
+    if cached:
+        payload = row_to_trip_forecast(cached)
+        return TripConditions(**payload.model_dump(), source="observed")
+
+    forecast = await _fetch_trip_hour(lat, lon, trip_datetime, observed=True)
+    save_observed(db, lat, lon, hour_utc, forecast)
+    return TripConditions(**forecast.model_dump(), source="observed")
 
 
 async def get_tides(lat: float, lon: float) -> TideData:
