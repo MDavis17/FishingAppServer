@@ -1,5 +1,4 @@
 import asyncio
-import math
 from datetime import datetime, timedelta, timezone
 from typing import Literal
 from zoneinfo import ZoneInfo
@@ -106,17 +105,6 @@ def classify_trip_conditions_mode(
     if dt > now + timedelta(days=_FORECAST_MAX_DAYS):
         return "too_far"
     return "forecast"
-
-
-def _past_days_for_trip(trip_dt: datetime) -> int:
-    if trip_dt.tzinfo is None:
-        trip_dt = trip_dt.replace(tzinfo=timezone.utc)
-    now = datetime.now(timezone.utc)
-    delta = now - trip_dt
-    if delta.total_seconds() <= 0:
-        return 1
-    days = math.ceil(delta.total_seconds() / 86400)
-    return min(max(days, 1), _OBSERVED_RECENT_MAX_DAYS)
 
 
 def _trip_is_recent_observed(trip_dt: datetime) -> bool:
@@ -368,17 +356,7 @@ async def _fetch_trip_hour(
 ) -> TripForecast:
     hour_iso = floor_trip_hour_local(trip_datetime)
 
-    if observed and _trip_is_recent_observed(trip_datetime):
-        past_days = _past_days_for_trip(trip_datetime)
-        weather_raw, marine_raw = await asyncio.gather(
-            data_provider.fetch_open_meteo_weather_for_hour(
-                lat, lon, hour_iso, past_days=past_days
-            ),
-            data_provider.fetch_open_meteo_marine_for_hour(
-                lat, lon, hour_iso, past_days=past_days
-            ),
-        )
-    elif observed:
+    if observed and not _trip_is_recent_observed(trip_datetime):
         day_iso = hour_iso[:10]
         weather_raw, marine_raw = await asyncio.gather(
             data_provider.fetch_open_meteo_weather_archive_day(lat, lon, day_iso),
