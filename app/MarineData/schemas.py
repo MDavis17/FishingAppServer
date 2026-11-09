@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Literal, Optional
 
 
 class MarineConditions(BaseModel):
@@ -90,3 +90,7 @@ class TripForecast(BaseModel):
     wind_gusts_mph: Optional[float] = None
     pressure_inhg: Optional[float] = None
     surf_height_ft: Optional[float] = None
+
+
+class TripConditions(TripForecast):
+    source: Literal["forecast", "observed"]

@@ -108,6 +108,24 @@ class Trip(Base):
     )
 
 
+class ObservedConditions(Base):
+    __tablename__ = "observed_conditions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
+    observed_hour = Column(DateTime, nullable=False)
+    air_temp_f = Column(Float, nullable=True)
+    weather_description = Column(String, nullable=True)
+    water_temp_f = Column(Float, nullable=True)
+    wind_speed_mph = Column(Float, nullable=True)
+    wind_direction_deg = Column(Float, nullable=True)
+    wind_gusts_mph = Column(Float, nullable=True)
+    pressure_inhg = Column(Float, nullable=True)
+    surf_height_ft = Column(Float, nullable=True)
+    captured_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
 class CatchEntry(Base):
     __tablename__ = "catches"
 
