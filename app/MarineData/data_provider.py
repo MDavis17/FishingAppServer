@@ -179,33 +179,29 @@ async def fetch_open_meteo_weather(lat: float, lon: float) -> Optional[Dict]:
 
 
 async def fetch_open_meteo_weather_for_hour(
-    lat: float, lon: float, hour_iso: str, *, past_days: int = 0
+    lat: float, lon: float, hour_iso: str
 ) -> Optional[Dict]:
-    """Fetch a single hour of weather forecast (start_hour == end_hour)."""
-    cache_key = f"weather_hour:{lat:.3f}:{lon:.3f}:{hour_iso}:p{past_days}"
+    """Fetch a single hour of weather (start_hour == end_hour)."""
+    cache_key = f"weather_hour:{lat:.3f}:{lon:.3f}:{hour_iso}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
-
-    params: Dict[str, Any] = {
-        "latitude": lat,
-        "longitude": lon,
-        "hourly": (
-            "temperature_2m,weather_code,wind_speed_10m,"
-            "wind_direction_10m,wind_gusts_10m,pressure_msl"
-        ),
-        "timezone": LA_TIMEZONE,
-        "start_hour": hour_iso,
-        "end_hour": hour_iso,
-    }
-    if past_days > 0:
-        params["past_days"] = past_days
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             resp = await client.get(
                 "https://api.open-meteo.com/v1/forecast",
-                params=params,
+                params={
+                    "latitude": lat,
+                    "longitude": lon,
+                    "hourly": (
+                        "temperature_2m,weather_code,wind_speed_10m,"
+                        "wind_direction_10m,wind_gusts_10m,pressure_msl"
+                    ),
+                    "timezone": LA_TIMEZONE,
+                    "start_hour": hour_iso,
+                    "end_hour": hour_iso,
+                },
             )
             resp.raise_for_status()
             data = resp.json()
@@ -219,31 +215,27 @@ async def fetch_open_meteo_weather_for_hour(
 
 
 async def fetch_open_meteo_marine_for_hour(
-    lat: float, lon: float, hour_iso: str, *, past_days: int = 0
+    lat: float, lon: float, hour_iso: str
 ) -> Optional[Dict]:
-    """Fetch a single hour of marine forecast (SST + wave height)."""
-    cache_key = f"marine_hour:{lat:.3f}:{lon:.3f}:{hour_iso}:p{past_days}"
+    """Fetch a single hour of marine data (SST + wave height)."""
+    cache_key = f"marine_hour:{lat:.3f}:{lon:.3f}:{hour_iso}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
-
-    params: Dict[str, Any] = {
-        "latitude": lat,
-        "longitude": lon,
-        "hourly": "sea_surface_temperature,wave_height",
-        "timezone": LA_TIMEZONE,
-        "start_hour": hour_iso,
-        "end_hour": hour_iso,
-        "cell_selection": "sea",
-    }
-    if past_days > 0:
-        params["past_days"] = past_days
 
     try:
         async with httpx.AsyncClient(timeout=10.0) as client:
             resp = await client.get(
                 "https://marine-api.open-meteo.com/v1/marine",
-                params=params,
+                params={
+                    "latitude": lat,
+                    "longitude": lon,
+                    "hourly": "sea_surface_temperature,wave_height",
+                    "timezone": LA_TIMEZONE,
+                    "start_hour": hour_iso,
+                    "end_hour": hour_iso,
+                    "cell_selection": "sea",
+                },
             )
             resp.raise_for_status()
             data = resp.json()
