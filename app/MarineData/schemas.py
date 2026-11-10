@@ -68,6 +68,18 @@ class AstronomyData(BaseModel):
     moon: Optional[MoonPhase] = None
 
 
+class SolunarPeriod(BaseModel):
+    kind: Literal["major", "minor"]
+    start: str
+    end: str
+
+
+class SolunarData(BaseModel):
+    sunrise: Optional[str] = None
+    sunset: Optional[str] = None
+    periods: List[SolunarPeriod] = []
+
+
 class BathymetryData(BaseModel):
     latitude: float
     longitude: float

@@ -10,6 +10,7 @@ from app.MarineData.schemas import (
     BathymetryData,
     KelpData,
     MarineConditions,
+    SolunarData,
     TideData,
     TripConditions,
     TripForecast,
@@ -118,6 +119,22 @@ async def get_tides(
         return await service.get_tides(latitude, longitude, datetime)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Failed to fetch tide data: {exc}")
+
+
+@router.get("/solunar", response_model=SolunarData)
+async def get_solunar(
+    latitude: float = Query(..., description="Latitude"),
+    longitude: float = Query(..., description="Longitude"),
+    datetime: datetime = Query(
+        ..., description="Trip date/time (ISO 8601, e.g. 2026-03-15T14:30:00Z)"
+    ),
+):
+    """Sunrise, sunset, and major/minor solunar activity windows for the trip day."""
+    _validate_ca_coords(latitude, longitude)
+    try:
+        return await service.get_solunar(latitude, longitude, datetime)
+    except Exception as exc:
+        raise HTTPException(status_code=502, detail=f"Failed to fetch solunar data: {exc}")
 
 
 @router.get("/astronomy", response_model=AstronomyData)

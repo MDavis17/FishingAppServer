@@ -3,10 +3,12 @@ import math
 import time
 import asyncio
 import logging
-from datetime import date
+from datetime import date, datetime
 from typing import List, Optional, Dict, Any
+from zoneinfo import ZoneInfo
 
 LA_TIMEZONE = "America/Los_Angeles"
+_LA = ZoneInfo(LA_TIMEZONE)
 
 logger = logging.getLogger(__name__)
 
@@ -478,9 +480,16 @@ async def fetch_noaa_visibility(station_id: str) -> Optional[Dict]:
 # USNO: Moon phase + sunrise/sunset
 # ---------------------------------------------------------------------------
 
+def pacific_utc_offset_hours(date_yyyy_mm_dd: str) -> float:
+    y, m, d = (int(part) for part in date_yyyy_mm_dd.split("-"))
+    noon = datetime(y, m, d, 12, 0, 0, tzinfo=_LA)
+    return noon.utcoffset().total_seconds() / 3600  # type: ignore[union-attr]
+
+
 async def fetch_usno_astronomy(lat: float, lon: float, query_date: Optional[str] = None) -> Optional[Dict]:
     today = query_date or date.today().strftime("%Y-%m-%d")
-    cache_key = f"astronomy:{lat:.3f}:{lon:.3f}:{today}"
+    tz = pacific_utc_offset_hours(today)
+    cache_key = f"astronomy:v2:{lat:.3f}:{lon:.3f}:{today}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
@@ -492,7 +501,7 @@ async def fetch_usno_astronomy(lat: float, lon: float, query_date: Optional[str]
                 params={
                     "date": today,
                     "coords": f"{lat},{lon}",
-                    "tz": -8,
+                    "tz": tz,
                 },
             )
             resp.raise_for_status()
