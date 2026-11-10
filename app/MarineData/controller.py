@@ -108,11 +108,14 @@ async def get_forecast(
 async def get_tides(
     latitude: float = Query(..., description="Latitude"),
     longitude: float = Query(..., description="Longitude"),
+    datetime: datetime = Query(
+        ..., description="Trip date/time (ISO 8601, e.g. 2026-03-15T14:30:00Z)"
+    ),
 ):
-    """Tide predictions (high/low) for the nearest NOAA station over the next 48 hours."""
+    """Major/minor high and low tides for the trip day at the nearest NOAA station."""
     _validate_ca_coords(latitude, longitude)
     try:
-        return await service.get_tides(latitude, longitude)
+        return await service.get_tides(latitude, longitude, datetime)
     except Exception as exc:
         raise HTTPException(status_code=502, detail=f"Failed to fetch tide data: {exc}")
 

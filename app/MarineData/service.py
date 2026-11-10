@@ -21,7 +21,7 @@ from app.MarineData.schemas import (
     MarineConditions,
     MoonPhase,
     TideData,
-    TidePrediction,
+    TideEvent,
     TripConditions,
     TripForecast,
     WeatherConditions,
@@ -409,28 +409,104 @@ async def get_trip_conditions(
     return TripConditions(**forecast.model_dump(), source="observed")
 
 
-async def get_tides(lat: float, lon: float) -> TideData:
-    station = await data_provider.find_nearest_station(lat, lon)
-    raw = await data_provider.fetch_noaa_tides(station["id"])
+def _trip_day_yyyymmdd(trip_datetime: datetime) -> str:
+    if trip_datetime.tzinfo is None:
+        trip_datetime = trip_datetime.replace(tzinfo=timezone.utc)
+    local = trip_datetime.astimezone(_LA)
+    return local.strftime("%Y%m%d")
 
-    predictions = []
-    if raw and "predictions" in raw:
-        for p in raw["predictions"]:
-            try:
-                predictions.append(
-                    TidePrediction(
-                        time=p["t"],
-                        height_ft=round(float(p["v"]), 2),
-                        type=p["type"],
-                    )
-                )
-            except (KeyError, ValueError):
+
+def _pacific_day_fully_past(day_yyyymmdd: str) -> bool:
+    y, m, d = int(day_yyyymmdd[:4]), int(day_yyyymmdd[4:6]), int(day_yyyymmdd[6:8])
+    day_end = datetime(y, m, d, 23, 59, 59, tzinfo=_LA)
+    return datetime.now(_LA) > day_end
+
+
+def _parse_prediction_rows(raw: dict) -> list[tuple[str, float, str]]:
+    rows: list[tuple[str, float, str]] = []
+    for p in raw.get("predictions") or []:
+        try:
+            hl = p["type"]
+            rows.append((p["t"], round(float(p["v"]), 2), hl))
+        except (KeyError, ValueError, TypeError):
+            continue
+    return rows
+
+
+def _parse_high_low_rows(raw: dict) -> list[tuple[str, float, str]]:
+    rows: list[tuple[str, float, str]] = []
+    for p in raw.get("data") or []:
+        try:
+            hl = p.get("ty") or p.get("type")
+            if hl not in ("H", "L"):
                 continue
+            rows.append((p["t"], round(float(p["v"]), 2), hl))
+        except (KeyError, ValueError, TypeError):
+            continue
+    return rows
+
+
+def _label_tide_extremes(rows: list[tuple[str, float, str]]) -> list[TideEvent]:
+    if not rows:
+        return []
+
+    highs = [(t, h) for t, h, ty in rows if ty == "H"]
+    lows = [(t, h) for t, h, ty in rows if ty == "L"]
+    major_high = max((h for _, h in highs), default=None)
+    major_low = min((h for _, h in lows), default=None)
+
+    events: list[TideEvent] = []
+    for t, height_ft, ty in rows:
+        if ty == "H":
+            extreme: Literal["major", "minor"] = (
+                "major" if major_high is not None and height_ft == major_high else "minor"
+            )
+            kind: Literal["high", "low"] = "high"
+        else:
+            extreme = (
+                "major" if major_low is not None and height_ft == major_low else "minor"
+            )
+            kind = "low"
+        events.append(
+            TideEvent(time=t, height_ft=height_ft, kind=kind, extreme=extreme)
+        )
+    return events
+
+
+async def get_tides(lat: float, lon: float, trip_datetime: datetime) -> TideData:
+    station = await data_provider.find_nearest_station(lat, lon)
+    dist_km = data_provider.haversine_km(lat, lon, station["lat"], station["lng"])
+    dist_mi = round(dist_km * 0.621371, 1)
+
+    day_yyyymmdd = _trip_day_yyyymmdd(trip_datetime)
+    station_id = station["id"]
+    source: Literal["forecast", "observed"] = "forecast"
+    rows: list[tuple[str, float, str]] = []
+
+    if _pacific_day_fully_past(day_yyyymmdd):
+        hl_raw = await data_provider.fetch_noaa_tide_high_low_day(
+            station_id, day_yyyymmdd
+        )
+        if hl_raw:
+            rows = _parse_high_low_rows(hl_raw)
+            if rows:
+                source = "observed"
+
+    if not rows:
+        pred_raw = await data_provider.fetch_noaa_tide_predictions_day(
+            station_id, day_yyyymmdd
+        )
+        if pred_raw:
+            rows = _parse_prediction_rows(pred_raw)
+
+    events = _label_tide_extremes(rows)
 
     return TideData(
-        station_id=station["id"],
+        station_id=station_id,
         station_name=station["name"],
-        predictions=predictions,
+        station_distance_mi=dist_mi,
+        source=source,
+        events=events,
     )
 
 

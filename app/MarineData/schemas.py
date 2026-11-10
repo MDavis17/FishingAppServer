@@ -40,16 +40,19 @@ class WeatherConditions(BaseModel):
     hourly: List[HourlyDataPoint] = []
 
 
-class TidePrediction(BaseModel):
+class TideEvent(BaseModel):
     time: str
     height_ft: float
-    type: str  # "H" or "L"
+    kind: Literal["high", "low"]
+    extreme: Literal["major", "minor"]
 
 
 class TideData(BaseModel):
     station_id: str
     station_name: str
-    predictions: List[TidePrediction]
+    station_distance_mi: float
+    source: Literal["forecast", "observed"]
+    events: List[TideEvent]
 
 
 class MoonPhase(BaseModel):
