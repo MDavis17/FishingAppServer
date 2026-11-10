@@ -71,7 +71,7 @@ async def _get_stations() -> List[Dict[str, Any]]:
     return _station_cache
 
 
-def _haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+def haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     R = 6371.0
     dlat = math.radians(lat2 - lat1)
     dlon = math.radians(lon2 - lon1)
@@ -81,7 +81,7 @@ def _haversine_km(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
 
 async def find_nearest_station(lat: float, lon: float) -> Dict[str, Any]:
     stations = await _get_stations()
-    nearest = min(stations, key=lambda s: _haversine_km(lat, lon, s["lat"], s["lng"]))
+    nearest = min(stations, key=lambda s: haversine_km(lat, lon, s["lat"], s["lng"]))
     return nearest
 
 
@@ -323,9 +323,10 @@ async def fetch_open_meteo_marine_archive_day(
 # NOAA CO-OPS: Tide predictions
 # ---------------------------------------------------------------------------
 
-async def fetch_noaa_tides(station_id: str, start_date: Optional[str] = None) -> Optional[Dict]:
-    today = start_date or date.today().strftime("%Y%m%d")
-    cache_key = f"tides:{station_id}:{today}"
+async def fetch_noaa_tide_predictions_day(
+    station_id: str, day_yyyymmdd: str
+) -> Optional[Dict]:
+    cache_key = f"tides_pred:{station_id}:{day_yyyymmdd}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
@@ -335,8 +336,8 @@ async def fetch_noaa_tides(station_id: str, start_date: Optional[str] = None) ->
             resp = await client.get(
                 "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
                 params={
-                    "begin_date": today,
-                    "range": 48,
+                    "begin_date": day_yyyymmdd,
+                    "end_date": day_yyyymmdd,
                     "station": station_id,
                     "product": "predictions",
                     "datum": "MLLW",
@@ -349,10 +350,57 @@ async def fetch_noaa_tides(station_id: str, start_date: Optional[str] = None) ->
             )
             resp.raise_for_status()
             data = resp.json()
+            if "error" in data:
+                return None
             _cache_set(cache_key, data, _RESPONSE_TTL["tides"])
             return data
     except Exception as exc:
-        logger.warning("NOAA tides fetch failed for station %s: %s", station_id, exc)
+        logger.warning(
+            "NOAA tide predictions failed for station %s day %s: %s",
+            station_id,
+            day_yyyymmdd,
+            exc,
+        )
+        return None
+
+
+async def fetch_noaa_tide_high_low_day(
+    station_id: str, day_yyyymmdd: str
+) -> Optional[Dict]:
+    cache_key = f"tides_hl:{station_id}:{day_yyyymmdd}"
+    cached = _cache_get(cache_key)
+    if cached:
+        return cached
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(
+                "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+                params={
+                    "begin_date": day_yyyymmdd,
+                    "end_date": day_yyyymmdd,
+                    "station": station_id,
+                    "product": "high_low",
+                    "datum": "MLLW",
+                    "time_zone": "lst_ldt",
+                    "units": "english",
+                    "format": "json",
+                    "application": "CAFishingApp",
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if "error" in data:
+                return None
+            _cache_set(cache_key, data, _RESPONSE_TTL["tides"])
+            return data
+    except Exception as exc:
+        logger.warning(
+            "NOAA tide high_low failed for station %s day %s: %s",
+            station_id,
+            day_yyyymmdd,
+            exc,
+        )
         return None
 
 
