@@ -1,5 +1,5 @@
 import asyncio
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from typing import Literal
 from zoneinfo import ZoneInfo
 
@@ -20,6 +20,8 @@ from app.MarineData.schemas import (
     KelpData,
     MarineConditions,
     MoonPhase,
+    SolunarData,
+    SolunarPeriod,
     TideData,
     TideEvent,
     TripConditions,
@@ -416,6 +418,80 @@ def _trip_day_yyyymmdd(trip_datetime: datetime) -> str:
     return local.strftime("%Y%m%d")
 
 
+def _trip_day_iso(trip_datetime: datetime) -> str:
+    if trip_datetime.tzinfo is None:
+        trip_datetime = trip_datetime.replace(tzinfo=timezone.utc)
+    local = trip_datetime.astimezone(_LA)
+    return local.strftime("%Y-%m-%d")
+
+
+_MEAN_LUNAR_HALF_DAY = timedelta(hours=12, minutes=25)
+
+
+def _parse_usno_local_time(day_iso: str, clock: str | None) -> datetime | None:
+    if not clock or clock.lower() == "null":
+        return None
+    try:
+        return datetime.strptime(f"{day_iso} {clock}", "%Y-%m-%d %H:%M").replace(
+            tzinfo=_LA
+        )
+    except ValueError:
+        return None
+
+
+def _format_local_timestamp(dt: datetime) -> str:
+    return dt.astimezone(_LA).strftime("%Y-%m-%d %H:%M")
+
+
+def _window_centered(
+    center: datetime, half_duration: timedelta
+) -> tuple[str, str]:
+    start = center - half_duration
+    end = center + half_duration
+    return _format_local_timestamp(start), _format_local_timestamp(end)
+
+
+def _underfoot_on_day(upper_transit: datetime, trip_day: date) -> datetime | None:
+    forward = upper_transit + _MEAN_LUNAR_HALF_DAY
+    backward = upper_transit - _MEAN_LUNAR_HALF_DAY
+    candidates = [
+        dt for dt in (forward, backward) if dt.astimezone(_LA).date() == trip_day
+    ]
+    return candidates[0] if candidates else None
+
+
+def _build_solunar_periods(
+    day_iso: str,
+    trip_day: date,
+    moonrise: str | None,
+    moonset: str | None,
+    moon_transit: str | None,
+) -> list[SolunarPeriod]:
+    periods: list[SolunarPeriod] = []
+    minor_half = timedelta(minutes=30)
+    major_half = timedelta(hours=1)
+
+    for clock in (moonrise, moonset):
+        center = _parse_usno_local_time(day_iso, clock)
+        if center is None:
+            continue
+        start, end = _window_centered(center, minor_half)
+        periods.append(SolunarPeriod(kind="minor", start=start, end=end))
+
+    transit_center = _parse_usno_local_time(day_iso, moon_transit)
+    if transit_center is not None:
+        start, end = _window_centered(transit_center, major_half)
+        periods.append(SolunarPeriod(kind="major", start=start, end=end))
+
+        underfoot = _underfoot_on_day(transit_center, trip_day)
+        if underfoot is not None:
+            start, end = _window_centered(underfoot, major_half)
+            periods.append(SolunarPeriod(kind="major", start=start, end=end))
+
+    periods.sort(key=lambda p: p.start)
+    return periods
+
+
 def _pacific_day_fully_past(day_yyyymmdd: str) -> bool:
     y, m, d = int(day_yyyymmdd[:4]), int(day_yyyymmdd[4:6]), int(day_yyyymmdd[6:8])
     day_end = datetime(y, m, d, 23, 59, 59, tzinfo=_LA)
@@ -508,6 +584,62 @@ async def get_tides(lat: float, lon: float, trip_datetime: datetime) -> TideData
         source=source,
         events=events,
     )
+
+
+async def get_solunar(
+    lat: float, lon: float, trip_datetime: datetime
+) -> SolunarData:
+    day_iso = _trip_day_iso(trip_datetime)
+    if trip_datetime.tzinfo is None:
+        trip_datetime = trip_datetime.replace(tzinfo=timezone.utc)
+    trip_day = trip_datetime.astimezone(_LA).date()
+
+    raw = await data_provider.fetch_usno_astronomy(lat, lon, query_date=day_iso)
+    result = SolunarData()
+    if not raw:
+        return result
+
+    try:
+        sun_data = raw.get("properties", {}).get("data", {})
+        sunrise_clock = None
+        sunset_clock = None
+        for item in sun_data.get("sundata", []):
+            phen = item.get("phen", "")
+            t = item.get("time")
+            if phen == "Rise":
+                sunrise_clock = t
+            elif phen == "Set":
+                sunset_clock = t
+
+        moonrise = None
+        moonset = None
+        moon_transit = None
+        for item in sun_data.get("moondata", []):
+            phen = item.get("phen", "")
+            t = item.get("time")
+            if t is None or str(t).lower() == "null":
+                continue
+            if phen == "Rise":
+                moonrise = t
+            elif phen == "Set":
+                moonset = t
+            elif phen == "Upper Transit":
+                moon_transit = t
+
+        rise_dt = _parse_usno_local_time(day_iso, sunrise_clock)
+        if rise_dt is not None:
+            result.sunrise = _format_local_timestamp(rise_dt)
+        set_dt = _parse_usno_local_time(day_iso, sunset_clock)
+        if set_dt is not None:
+            result.sunset = _format_local_timestamp(set_dt)
+
+        result.periods = _build_solunar_periods(
+            day_iso, trip_day, moonrise, moonset, moon_transit
+        )
+    except (KeyError, TypeError, AttributeError):
+        pass
+
+    return result
 
 
 async def get_astronomy(lat: float, lon: float) -> AstronomyData:
