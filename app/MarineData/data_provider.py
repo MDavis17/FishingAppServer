@@ -366,6 +366,89 @@ async def fetch_noaa_tide_predictions_day(
         return None
 
 
+async def fetch_noaa_tide_predictions_hourly(
+    station_id: str, begin_yyyymmdd: str, end_yyyymmdd: str
+) -> Optional[Dict]:
+    cache_key = f"tides_hourly:{station_id}:{begin_yyyymmdd}:{end_yyyymmdd}"
+    cached = _cache_get(cache_key)
+    if cached:
+        return cached
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(
+                "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+                params={
+                    "begin_date": begin_yyyymmdd,
+                    "end_date": end_yyyymmdd,
+                    "station": station_id,
+                    "product": "predictions",
+                    "datum": "MLLW",
+                    "time_zone": "lst_ldt",
+                    "interval": "h",
+                    "units": "english",
+                    "format": "json",
+                    "application": "CAFishingApp",
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if "error" in data:
+                return None
+            _cache_set(cache_key, data, _RESPONSE_TTL["tides"])
+            return data
+    except Exception as exc:
+        logger.warning(
+            "NOAA tide hourly predictions failed for station %s %s–%s: %s",
+            station_id,
+            begin_yyyymmdd,
+            end_yyyymmdd,
+            exc,
+        )
+        return None
+
+
+async def fetch_noaa_tide_hourly_height(
+    station_id: str, begin_yyyymmdd: str, end_yyyymmdd: str
+) -> Optional[Dict]:
+    cache_key = f"tides_hourly_obs:{station_id}:{begin_yyyymmdd}:{end_yyyymmdd}"
+    cached = _cache_get(cache_key)
+    if cached:
+        return cached
+
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            resp = await client.get(
+                "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter",
+                params={
+                    "begin_date": begin_yyyymmdd,
+                    "end_date": end_yyyymmdd,
+                    "station": station_id,
+                    "product": "hourly_height",
+                    "datum": "MLLW",
+                    "time_zone": "lst_ldt",
+                    "units": "english",
+                    "format": "json",
+                    "application": "CAFishingApp",
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            if "error" in data:
+                return None
+            _cache_set(cache_key, data, _RESPONSE_TTL["tides"])
+            return data
+    except Exception as exc:
+        logger.warning(
+            "NOAA tide hourly_height failed for station %s %s–%s: %s",
+            station_id,
+            begin_yyyymmdd,
+            end_yyyymmdd,
+            exc,
+        )
+        return None
+
+
 async def fetch_noaa_tide_high_low_day(
     station_id: str, day_yyyymmdd: str
 ) -> Optional[Dict]:

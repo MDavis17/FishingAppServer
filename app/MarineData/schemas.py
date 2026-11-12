@@ -47,12 +47,18 @@ class TideEvent(BaseModel):
     extreme: Literal["major", "minor"]
 
 
+class TideHeightPoint(BaseModel):
+    time: str
+    height_ft: float
+
+
 class TideData(BaseModel):
     station_id: str
     station_name: str
     station_distance_mi: float
     source: Literal["forecast", "observed"]
     events: List[TideEvent]
+    heights: List[TideHeightPoint] = []
 
 
 class MoonPhase(BaseModel):
