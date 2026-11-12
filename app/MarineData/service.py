@@ -24,6 +24,7 @@ from app.MarineData.schemas import (
     SolunarPeriod,
     TideData,
     TideEvent,
+    TideHeightPoint,
     TripConditions,
     TripForecast,
     WeatherConditions,
@@ -549,6 +550,38 @@ def _label_tide_extremes(rows: list[tuple[str, float, str]]) -> list[TideEvent]:
     return events
 
 
+def _next_day_yyyymmdd(day_yyyymmdd: str) -> str:
+    y, m, d = int(day_yyyymmdd[:4]), int(day_yyyymmdd[4:6]), int(day_yyyymmdd[6:8])
+    nxt = date(y, m, d) + timedelta(days=1)
+    return nxt.strftime("%Y%m%d")
+
+
+def _yyyymmdd_to_day_iso(day_yyyymmdd: str) -> str:
+    return f"{day_yyyymmdd[:4]}-{day_yyyymmdd[4:6]}-{day_yyyymmdd[6:8]}"
+
+
+def _parse_tide_hourly_rows(raw: dict) -> list[tuple[str, float]]:
+    rows: list[tuple[str, float]] = []
+    for source_key in ("predictions", "data"):
+        for p in raw.get(source_key) or []:
+            try:
+                rows.append((p["t"], round(float(p["v"]), 2)))
+            except (KeyError, ValueError, TypeError):
+                continue
+    rows.sort(key=lambda r: r[0])
+    return rows
+
+
+def _filter_heights_midnight_window(
+    rows: list[tuple[str, float]], day_yyyymmdd: str
+) -> list[tuple[str, float]]:
+    day_iso = _yyyymmdd_to_day_iso(day_yyyymmdd)
+    next_iso = _yyyymmdd_to_day_iso(_next_day_yyyymmdd(day_yyyymmdd))
+    start = f"{day_iso} 00:00"
+    end = f"{next_iso} 00:00"
+    return [(t, h) for t, h in rows if start <= t <= end]
+
+
 async def get_tides(lat: float, lon: float, trip_datetime: datetime) -> TideData:
     station = await data_provider.find_nearest_station(lat, lon)
     dist_km = data_provider.haversine_km(lat, lon, station["lat"], station["lng"])
@@ -577,12 +610,35 @@ async def get_tides(lat: float, lon: float, trip_datetime: datetime) -> TideData
 
     events = _label_tide_extremes(rows)
 
+    next_day_yyyymmdd = _next_day_yyyymmdd(day_yyyymmdd)
+    height_rows: list[tuple[str, float]] = []
+
+    if _pacific_day_fully_past(day_yyyymmdd) and source == "observed":
+        obs_hourly = await data_provider.fetch_noaa_tide_hourly_height(
+            station_id, day_yyyymmdd, next_day_yyyymmdd
+        )
+        if obs_hourly:
+            height_rows = _parse_tide_hourly_rows(obs_hourly)
+
+    if not height_rows:
+        pred_hourly = await data_provider.fetch_noaa_tide_predictions_hourly(
+            station_id, day_yyyymmdd, next_day_yyyymmdd
+        )
+        if pred_hourly:
+            height_rows = _parse_tide_hourly_rows(pred_hourly)
+
+    height_rows = _filter_heights_midnight_window(height_rows, day_yyyymmdd)
+    heights = [
+        TideHeightPoint(time=t, height_ft=h) for t, h in height_rows
+    ]
+
     return TideData(
         station_id=station_id,
         station_name=station["name"],
         station_distance_mi=dist_mi,
         source=source,
         events=events,
+        heights=heights,
     )
 
 
