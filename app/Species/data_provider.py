@@ -1,4 +1,3 @@
-from collections import defaultdict
 from typing import Any, Dict, List, Optional, Set
 
 from sqlalchemy import func
@@ -88,36 +87,12 @@ def get_species_catch_history(
         for row in catch_rows
     ]
 
-    best_month = _best_catch_month(catch_rows)
-
     return {
         "totalCatches": total_catches,
         "largestLength": largest_length,
         "mostRecentCatchDate": most_recent,
-        "bestMonth": best_month,
         "catches": catches,
     }
-
-
-def _best_catch_month(catch_rows: List[CatchEntry]) -> Optional[int]:
-    if not catch_rows:
-        return None
-
-    month_counts: Dict[int, int] = defaultdict(int)
-    month_latest: Dict[int, Any] = {}
-
-    for row in catch_rows:
-        month = row.date_time.month
-        month_counts[month] += 1
-        latest = month_latest.get(month)
-        if latest is None or row.date_time > latest:
-            month_latest[month] = row.date_time
-
-    max_count = max(month_counts.values())
-    candidates = [m for m, count in month_counts.items() if count == max_count]
-    if len(candidates) == 1:
-        return candidates[0]
-    return max(candidates, key=lambda m: month_latest[m])
 
 
 def get_species_by_id(db: Session, species_id: int, user_id: Optional[int] = None):
