@@ -35,11 +35,18 @@ class SpeciesCatchHistoryItem(BaseModel):
     weight: Optional[float] = None
 
 
+class MonthlyCatchCount(BaseModel):
+    month: int
+    label: str
+    count: int
+
+
 class SpeciesCatchHistory(BaseModel):
     totalCatches: int
     personalBest: Optional[SpeciesCatchHistoryItem] = None
     mostRecentCatch: Optional[SpeciesCatchHistoryItem] = None
     catches: List[SpeciesCatchHistoryItem] = []
+    monthlyCounts: List[MonthlyCatchCount] = []
 
 
 class LatLng(BaseModel):
