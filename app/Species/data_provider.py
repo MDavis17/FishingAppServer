@@ -1,6 +1,5 @@
 from typing import Any, Dict, List, Optional, Set
 
-from sqlalchemy import func
 from sqlalchemy.orm import Session, joinedload
 
 from app.Auth.models import UserFavorite
@@ -52,45 +51,42 @@ def get_species_catch_history(
         CatchEntry.species == species_name,
     )
 
-    total_catches = (
-        db.query(func.count(CatchEntry.id))
-        .filter(*base_filter)
-        .scalar()
-        or 0
-    )
-
-    largest_length = (
-        db.query(func.max(CatchEntry.length))
-        .filter(*base_filter)
-        .scalar()
-    )
-
-    most_recent = (
-        db.query(func.max(CatchEntry.date_time))
-        .filter(*base_filter)
-        .scalar()
-    )
-
     catch_rows = (
         db.query(CatchEntry)
         .filter(*base_filter)
         .order_by(CatchEntry.date_time.desc())
         .all()
     )
-    catches = [
-        {
+
+    total_catches = len(catch_rows)
+
+    def _catch_item(row: CatchEntry) -> Dict[str, Any]:
+        return {
             "id": row.id,
             "dateTime": row.date_time,
             "length": row.length,
             "weight": row.weight,
         }
-        for row in catch_rows
-    ]
+
+    catches = [_catch_item(row) for row in catch_rows]
+
+    personal_best: Optional[Dict[str, Any]] = None
+    with_length = [row for row in catch_rows if row.length is not None]
+    if with_length:
+        best_row = with_length[0]
+        for row in with_length[1:]:
+            if row.length > best_row.length:
+                best_row = row
+            elif row.length == best_row.length and row.date_time > best_row.date_time:
+                best_row = row
+        personal_best = _catch_item(best_row)
+
+    most_recent_catch = _catch_item(catch_rows[0]) if catch_rows else None
 
     return {
         "totalCatches": total_catches,
-        "largestLength": largest_length,
-        "mostRecentCatchDate": most_recent,
+        "personalBest": personal_best,
+        "mostRecentCatch": most_recent_catch,
         "catches": catches,
     }
 

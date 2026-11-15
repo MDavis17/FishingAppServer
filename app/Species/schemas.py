@@ -37,8 +37,8 @@ class SpeciesCatchHistoryItem(BaseModel):
 
 class SpeciesCatchHistory(BaseModel):
     totalCatches: int
-    largestLength: Optional[float] = None
-    mostRecentCatchDate: Optional[datetime] = None
+    personalBest: Optional[SpeciesCatchHistoryItem] = None
+    mostRecentCatch: Optional[SpeciesCatchHistoryItem] = None
     catches: List[SpeciesCatchHistoryItem] = []
 
 
