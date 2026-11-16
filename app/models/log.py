@@ -74,6 +74,7 @@ class IndividualCatch(BaseModel):
     time: str
     length: Optional[float] = None
     bait: Optional[str] = None
+    isPersonalBest: bool = False
 
 
 class SpeciesGroup(BaseModel):
@@ -81,6 +82,7 @@ class SpeciesGroup(BaseModel):
     speciesImage: Optional[str] = None
     count: int
     largestLength: Optional[float] = None
+    includesPersonalBest: bool = False
     catches: List[IndividualCatch]
 
 

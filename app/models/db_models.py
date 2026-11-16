@@ -10,6 +10,7 @@ from sqlalchemy import (
     JSON,
     String,
     Table,
+    UniqueConstraint,
 )
 from sqlalchemy.orm import relationship
 
@@ -143,3 +144,37 @@ class CatchEntry(Base):
     length = Column(Float, nullable=True)
 
     trip = relationship("Trip", back_populates="catches")
+
+
+class PersonalBest(Base):
+    __tablename__ = "personal_bests"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    species_id = Column(
+        Integer,
+        ForeignKey("species.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    catch_id = Column(
+        Integer,
+        ForeignKey("catches.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+    )
+    location_lat = Column(Float, nullable=True)
+    location_lng = Column(Float, nullable=True)
+    length = Column(Float, nullable=False)
+    weight = Column(Float, nullable=True)
+    bait = Column(String, nullable=True)
+    caught_at = Column(DateTime, nullable=False)
+
+    __table_args__ = (
+        UniqueConstraint("user_id", "species_id", name="uq_personal_bests_user_species"),
+    )

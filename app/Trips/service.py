@@ -4,6 +4,7 @@ from typing import List, Optional
 
 from sqlalchemy.orm import Session
 
+import app.PersonalBests.data_provider as personal_best_data
 import app.Trips.data_provider as data_provider
 from app.models.log import (
     Catch,
@@ -91,16 +92,20 @@ def build_trip_catch_list(
     if trip is None:
         return None
     catch_list = data_provider.get_catch_list(db, trip_id, user_id) or []
-    return _assemble_trip_catch_list(db, catch_list, trip.targetSpecies)
+    return _assemble_trip_catch_list(db, user_id, catch_list, trip.targetSpecies)
 
 
 def _assemble_trip_catch_list(
     db: Session,
+    user_id: int,
     catch_list: List[Catch],
     target_species: List[Species],
 ) -> TripCatchListResponse:
     species_names = list({c.species for c in catch_list})
     image_by_name = data_provider.get_species_images_by_name(db, species_names)
+    pb_catch_by_species = personal_best_data.pb_catch_ids_for_species_names(
+        db, user_id, species_names
+    )
 
     grouped: dict[str, list[Catch]] = defaultdict(list)
     for catch in catch_list:
@@ -113,22 +118,28 @@ def _assemble_trip_catch_list(
         catches_sorted = sorted(catches, key=lambda c: c.dateTime)
         lengths = [c.length for c in catches_sorted if c.length is not None]
         largest = max(lengths) if lengths else None
+        pb_catch_id = pb_catch_by_species.get(species)
         individual = [
             IndividualCatch(
                 id=catch.id or 0,
                 time=_format_catch_time(catch.dateTime),
                 length=catch.length,
                 bait=catch.bait,
+                isPersonalBest=pb_catch_id is not None and catch.id == pb_catch_id,
             )
             for catch in catches_sorted
             if catch.id is not None
         ]
+        includes_pb = pb_catch_id is not None and any(
+            c.isPersonalBest for c in individual
+        )
         species_groups.append(
             SpeciesGroup(
                 species=species,
                 speciesImage=image_by_name.get(species) or None,
                 count=len(catches_sorted),
                 largestLength=largest,
+                includesPersonalBest=includes_pb,
                 catches=individual,
             )
         )
