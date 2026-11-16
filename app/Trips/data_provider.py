@@ -21,6 +21,7 @@ def _trip_row_to_schema(row: TripRow) -> Trip:
                 latitude=row.location_lat,
                 longitude=row.location_lng,
             ),
+            generalLocationName=row.general_location_name,
         ),
         status=TripStatus(row.status),
         tripType=TripType(row.trip_type.value if hasattr(row.trip_type, "value") else row.trip_type),
@@ -40,11 +41,13 @@ def _catch_row_to_schema(row: CatchRow) -> Catch:
                 latitude=row.location_lat,
                 longitude=row.location_lng,
             ),
+            generalLocationName=row.general_location_name,
         )
     elif row.location_name:
         location = Location(
             name=row.location_name,
             coordinates=LatLong(latitude=0.0, longitude=0.0),
+            generalLocationName=row.general_location_name,
         )
 
     return Catch(
@@ -69,6 +72,7 @@ def _apply_trip_fields(row: TripRow, trip: Trip) -> None:
     row.location_name = trip.location.name
     row.location_lat = trip.location.coordinates.latitude
     row.location_lng = trip.location.coordinates.longitude
+    row.general_location_name = trip.location.generalLocationName
     if trip.createdAt is not None:
         row.created_at = trip.createdAt
     row.notes = trip.notes
@@ -237,6 +241,7 @@ def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
         row.location_name = catch.location.name
         row.location_lat = catch.location.coordinates.latitude
         row.location_lng = catch.location.coordinates.longitude
+        row.general_location_name = catch.location.generalLocationName
 
     db.add(row)
     db.commit()

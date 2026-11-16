@@ -28,6 +28,7 @@ class LatLong(BaseModel):
 class Location(BaseModel):
     coordinates: LatLong
     name: str
+    generalLocationName: Optional[str] = None
 
 class Species(BaseModel):
     model_config = ConfigDict(extra="ignore")
