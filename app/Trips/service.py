@@ -6,6 +6,7 @@ from sqlalchemy.orm import Session
 
 import app.PersonalBests.data_provider as personal_best_data
 import app.Trips.data_provider as data_provider
+from app.Trips.general_location import ensure_general_location_name
 from app.models.log import (
     Catch,
     CatchStat,
@@ -174,6 +175,11 @@ def create_trip(db: Session, trip: Trip, user_id: int):
         updates["status"] = _infer_trip_status(trip.date)
 
     trip_to_create = trip.model_copy(update=updates)
+    trip_to_create = trip_to_create.model_copy(
+        update={
+            "location": ensure_general_location_name(trip_to_create.location),
+        }
+    )
     new_trip = data_provider.create_trip(db, trip_to_create, user_id)
     return new_trip
 
@@ -184,6 +190,12 @@ def delete_trip(db: Session, trip_id: int, user_id: int):
 
 
 def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
+    if catch.location is not None:
+        catch = catch.model_copy(
+            update={
+                "location": ensure_general_location_name(catch.location),
+            }
+        )
     return data_provider.add_catch(db, trip_id, catch, user_id)
 
 
