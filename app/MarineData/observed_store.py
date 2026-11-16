@@ -38,7 +38,9 @@ def row_to_trip_forecast(row: ObservedConditions) -> TripForecast:
         wind_direction_deg=row.wind_direction_deg,
         wind_gusts_mph=row.wind_gusts_mph,
         pressure_inhg=row.pressure_inhg,
-        surf_height_ft=row.surf_height_ft,
+        swell_height_ft=row.swell_height_ft,
+        swell_period_s=row.swell_period_s,
+        swell_direction_deg=row.swell_direction_deg,
     )
 
 
@@ -48,6 +50,8 @@ def save_observed(
     lon: float,
     observed_hour_utc: datetime,
     forecast: TripForecast,
+    *,
+    swell_captured: bool = True,
 ) -> ObservedConditions:
     rounded_lat, rounded_lon = round_coords(lat, lon)
     row = ObservedConditions(
@@ -61,7 +65,10 @@ def save_observed(
         wind_direction_deg=forecast.wind_direction_deg,
         wind_gusts_mph=forecast.wind_gusts_mph,
         pressure_inhg=forecast.pressure_inhg,
-        surf_height_ft=forecast.surf_height_ft,
+        swell_height_ft=forecast.swell_height_ft,
+        swell_period_s=forecast.swell_period_s,
+        swell_direction_deg=forecast.swell_direction_deg,
+        swell_captured=swell_captured,
         captured_at=datetime.utcnow(),
     )
     db.add(row)
@@ -75,3 +82,16 @@ def save_observed(
         if existing is None:
             raise
         return existing
+
+
+def update_observed_swell(
+    db: Session,
+    row: ObservedConditions,
+    forecast: TripForecast,
+) -> None:
+    row.swell_height_ft = forecast.swell_height_ft
+    row.swell_period_s = forecast.swell_period_s
+    row.swell_direction_deg = forecast.swell_direction_deg
+    row.swell_captured = True
+    db.commit()
+    db.refresh(row)

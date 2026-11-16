@@ -110,7 +110,9 @@ class TripForecast(BaseModel):
     wind_direction_deg: Optional[float] = None
     wind_gusts_mph: Optional[float] = None
     pressure_inhg: Optional[float] = None
-    surf_height_ft: Optional[float] = None
+    swell_height_ft: Optional[float] = None
+    swell_period_s: Optional[float] = None
+    swell_direction_deg: Optional[float] = None
 
 
 class TripConditions(TripForecast):

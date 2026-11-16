@@ -216,11 +216,17 @@ async def fetch_open_meteo_weather_for_hour(
         return None
 
 
+_MARINE_HOURLY_SWELL = (
+    "sea_surface_temperature,"
+    "swell_wave_height,swell_wave_period,swell_wave_direction"
+)
+
+
 async def fetch_open_meteo_marine_for_hour(
     lat: float, lon: float, hour_iso: str
 ) -> Optional[Dict]:
-    """Fetch a single hour of marine data (SST + wave height)."""
-    cache_key = f"marine_hour:{lat:.3f}:{lon:.3f}:{hour_iso}"
+    """Fetch a single hour of marine data (SST + swell)."""
+    cache_key = f"marine_hour_v2:{lat:.3f}:{lon:.3f}:{hour_iso}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
@@ -232,7 +238,7 @@ async def fetch_open_meteo_marine_for_hour(
                 params={
                     "latitude": lat,
                     "longitude": lon,
-                    "hourly": "sea_surface_temperature,wave_height",
+                    "hourly": _MARINE_HOURLY_SWELL,
                     "timezone": LA_TIMEZONE,
                     "start_hour": hour_iso,
                     "end_hour": hour_iso,
@@ -290,7 +296,7 @@ async def fetch_open_meteo_marine_archive_day(
     lat: float, lon: float, day_iso: str
 ) -> Optional[Dict]:
     """Fetch hourly marine (ERA5 ocean) for one calendar day."""
-    cache_key = f"marine_archive:{lat:.3f}:{lon:.3f}:{day_iso}"
+    cache_key = f"marine_archive_v2:{lat:.3f}:{lon:.3f}:{day_iso}"
     cached = _cache_get(cache_key)
     if cached:
         return cached
@@ -304,7 +310,7 @@ async def fetch_open_meteo_marine_archive_day(
                     "longitude": lon,
                     "start_date": day_iso,
                     "end_date": day_iso,
-                    "hourly": "sea_surface_temperature,wave_height",
+                    "hourly": _MARINE_HOURLY_SWELL,
                     "models": "era5_ocean",
                     "timezone": LA_TIMEZONE,
                     "cell_selection": "sea",
