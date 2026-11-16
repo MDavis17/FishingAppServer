@@ -1,3 +1,4 @@
+from calendar import month_abbr
 from typing import Any, Dict, List, Optional, Set
 
 from sqlalchemy.orm import Session, joinedload
@@ -107,6 +108,20 @@ def get_species_catch_history(
         }
 
     most_recent_catch = _catch_item(catch_rows[0]) if catch_rows else None
+
+    counts_by_month = [0] * 12
+    for row in catch_rows:
+        if row.date_time is not None:
+            counts_by_month[row.date_time.month - 1] += 1
+
+    monthly_counts = [
+        {
+            "month": m,
+            "label": month_abbr[m],
+            "count": counts_by_month[m - 1],
+        }
+        for m in range(1, 13)
+    ]
 
     return {
         "totalCatches": total_catches,
