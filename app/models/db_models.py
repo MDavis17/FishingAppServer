@@ -1,6 +1,7 @@
 from datetime import datetime
 
 from sqlalchemy import (
+    Boolean,
     Column,
     DateTime,
     Enum as SAEnum,
@@ -123,7 +124,10 @@ class ObservedConditions(Base):
     wind_direction_deg = Column(Float, nullable=True)
     wind_gusts_mph = Column(Float, nullable=True)
     pressure_inhg = Column(Float, nullable=True)
-    surf_height_ft = Column(Float, nullable=True)
+    swell_height_ft = Column(Float, nullable=True)
+    swell_period_s = Column(Float, nullable=True)
+    swell_direction_deg = Column(Float, nullable=True)
+    swell_captured = Column(Boolean, default=False, nullable=False)
     captured_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 

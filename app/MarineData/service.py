@@ -10,6 +10,7 @@ from app.MarineData.observed_store import (
     get_observed_row,
     row_to_trip_forecast,
     save_observed,
+    update_observed_swell,
 )
 from app.MarineData.schemas import (
     AstronomyData,
@@ -341,9 +342,21 @@ def _parse_trip_hour_from_raws(
             if sst_c and idx < len(sst_c) and sst_c[idx] is not None:
                 result.water_temp_f = _C_TO_F(sst_c[idx])
 
-            wave_m = hourly.get("wave_height")
-            if wave_m and idx < len(wave_m) and wave_m[idx] is not None:
-                result.surf_height_ft = _M_TO_FT(wave_m[idx])
+            swell_h = hourly.get("swell_wave_height")
+            if swell_h and idx < len(swell_h) and swell_h[idx] is not None:
+                result.swell_height_ft = _M_TO_FT(swell_h[idx])
+
+            swell_period = hourly.get("swell_wave_period")
+            if (
+                swell_period
+                and idx < len(swell_period)
+                and swell_period[idx] is not None
+            ):
+                result.swell_period_s = round(float(swell_period[idx]), 1)
+
+            swell_dir = hourly.get("swell_wave_direction")
+            if swell_dir and idx < len(swell_dir) and swell_dir[idx] is not None:
+                result.swell_direction_deg = round(float(swell_dir[idx]), 1)
         except (KeyError, IndexError, TypeError):
             pass
 
@@ -404,6 +417,11 @@ async def get_trip_conditions(
     hour_utc = floor_trip_hour_utc(trip_datetime)
     cached = get_observed_row(db, lat, lon, hour_utc)
     if cached:
+        if not cached.swell_captured and _trip_is_recent_observed(trip_datetime):
+            forecast = await _fetch_trip_hour(
+                lat, lon, trip_datetime, observed=True
+            )
+            update_observed_swell(db, cached, forecast)
         payload = row_to_trip_forecast(cached)
         return TripConditions(**payload.model_dump(), source="observed")
 
