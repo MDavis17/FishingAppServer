@@ -3,9 +3,35 @@ from typing import Any, Dict, List, Optional, Set
 
 from sqlalchemy.orm import Session, joinedload
 
+import app.PersonalBests.data_provider as personal_best_data
 from app.Auth.models import UserFavorite
 from app.models.db_models import CatchEntry
 from app.models.db_models import Species as SpeciesRow
+
+_MONTH_LABELS = (
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+)
+
+
+def _monthly_catch_counts(catch_rows: List[CatchEntry]) -> List[Dict[str, Any]]:
+    totals = [0] * 12
+    for row in catch_rows:
+        totals[row.date_time.month - 1] += 1
+    return [
+        {"month": index + 1, "label": _MONTH_LABELS[index], "count": totals[index]}
+        for index in range(12)
+    ]
 
 
 def _normalize_species_images(raw: Any) -> Optional[List[Dict[str, str]]]:
@@ -72,15 +98,14 @@ def get_species_catch_history(
     catches = [_catch_item(row) for row in catch_rows]
 
     personal_best: Optional[Dict[str, Any]] = None
-    with_length = [row for row in catch_rows if row.length is not None]
-    if with_length:
-        best_row = with_length[0]
-        for row in with_length[1:]:
-            if row.length > best_row.length:
-                best_row = row
-            elif row.length == best_row.length and row.date_time > best_row.date_time:
-                best_row = row
-        personal_best = _catch_item(best_row)
+    pb_row = personal_best_data.get_personal_best_row(db, user_id, species_id)
+    if pb_row is not None:
+        personal_best = {
+            "id": pb_row.catch_id,
+            "dateTime": pb_row.caught_at,
+            "length": pb_row.length,
+            "weight": pb_row.weight,
+        }
 
     most_recent_catch = _catch_item(catch_rows[0]) if catch_rows else None
 
@@ -103,7 +128,7 @@ def get_species_catch_history(
         "personalBest": personal_best,
         "mostRecentCatch": most_recent_catch,
         "catches": catches,
-        "monthlyCounts": monthly_counts,
+        "monthlyCounts": _monthly_catch_counts(catch_rows),
     }
 
 

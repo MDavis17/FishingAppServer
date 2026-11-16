@@ -2,6 +2,7 @@ from typing import Dict, List, Optional
 
 from sqlalchemy.orm import Session, joinedload
 
+import app.PersonalBests.service as personal_best_service
 from app.models.db_models import CatchEntry as CatchRow
 from app.models.db_models import Species as SpeciesRow
 from app.models.db_models import Trip as TripRow
@@ -167,11 +168,23 @@ def delete_trip(db: Session, trip_id: int, user_id: int):
 
 
 def delete_catches_for_trip(db: Session, trip_id: int, user_id: int):
+    catch_ids = [
+        row[0]
+        for row in db.query(CatchRow.id)
+        .filter(CatchRow.trip_id == trip_id, CatchRow.user_id == user_id)
+        .all()
+    ]
+    species_pairs = personal_best_service.species_pairs_for_deleted_pb_catches(
+        db, user_id, catch_ids
+    )
     db.query(CatchRow).filter(
         CatchRow.trip_id == trip_id,
         CatchRow.user_id == user_id,
     ).delete(synchronize_session=False)
     db.commit()
+    personal_best_service.recompute_after_catch_deletes(
+        db, user_id, catch_ids, species_pairs
+    )
     return True
 
 
@@ -228,6 +241,7 @@ def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
     db.add(row)
     db.commit()
     db.refresh(row)
+    personal_best_service.record_catch_for_personal_best(db, row)
     return _catch_row_to_schema(row)
 
 
