@@ -1,9 +1,9 @@
 import logging
-import os
 from typing import Any, List, Optional
 
 import httpx
 
+from app.Auth.config import GOOGLE_MAPS_API_KEY
 from app.models.log import Location
 
 logger = logging.getLogger(__name__)
@@ -50,29 +50,66 @@ def general_location_from_address_components(
     return place_name
 
 
-def _reverse_geocode(latitude: float, longitude: float) -> Optional[str]:
-    api_key = os.getenv("GOOGLE_MAPS_API_KEY")
-    if not api_key:
-        logger.debug("GOOGLE_MAPS_API_KEY not set; skipping reverse geocode")
-        return None
+def _places_get(client: httpx.Client, path: str, params: dict[str, Any]) -> dict[str, Any]:
+    response = client.get(
+        f"https://maps.googleapis.com/maps/api/place/{path}",
+        params={**params, "key": GOOGLE_MAPS_API_KEY, "language": "en"},
+    )
+    response.raise_for_status()
+    return response.json()
 
-    url = "https://maps.googleapis.com/maps/api/geocode/json"
-    params = {"latlng": f"{latitude},{longitude}", "language": "en", "key": api_key}
+
+def _reverse_geocode(latitude: float, longitude: float) -> Optional[str]:
+    if not GOOGLE_MAPS_API_KEY:
+        logger.warning(
+            "GOOGLE_MAPS_API_KEY is not set; map pins will not get a city name"
+        )
+        return None
 
     try:
         with httpx.Client(timeout=10.0) as client:
-            response = client.get(url, params=params)
-            response.raise_for_status()
-            data = response.json()
+            nearby = _places_get(
+                client,
+                "nearbysearch/json",
+                {
+                    "location": f"{latitude},{longitude}",
+                    "rankby": "distance",
+                    "type": "locality",
+                },
+            )
+            if nearby.get("status") != "OK" or not nearby.get("results"):
+                logger.warning(
+                    "City lookup failed: %s %s",
+                    nearby.get("status"),
+                    nearby.get("error_message"),
+                )
+                return None
+
+            nearest = nearby["results"][0]
+            fallback_name = nearest.get("name")
+            place_id = nearest.get("place_id")
+            if not place_id:
+                return fallback_name
+
+            details = _places_get(
+                client,
+                "details/json",
+                {"place_id": place_id, "fields": "address_components,name"},
+            )
     except (httpx.HTTPError, ValueError) as err:
-        logger.warning("Reverse geocode failed: %s", err)
+        logger.warning("City lookup failed: %s", err)
         return None
 
-    if data.get("status") != "OK" or not data.get("results"):
-        return None
+    if details.get("status") != "OK":
+        logger.warning(
+            "Place details for city lookup failed: %s %s",
+            details.get("status"),
+            details.get("error_message"),
+        )
+        return fallback_name
 
-    components = data["results"][0].get("address_components") or []
-    return general_location_from_address_components(components)
+    components = (details.get("result") or {}).get("address_components") or []
+    return general_location_from_address_components(components) or fallback_name
 
 
 def ensure_general_location_name(location: Location) -> Location:
