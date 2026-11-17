@@ -33,6 +33,7 @@ class SpeciesCatchHistoryItem(BaseModel):
     dateTime: datetime
     length: Optional[float] = None
     weight: Optional[float] = None
+    generalLocationName: Optional[str] = None
 
 
 class MonthlyCatchCount(BaseModel):
