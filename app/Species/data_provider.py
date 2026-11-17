@@ -48,6 +48,29 @@ def _normalize_species_images(raw: Any) -> Optional[List[Dict[str, str]]]:
     return images if images else None
 
 
+def _coordinates_match_trip(catch: CatchEntry) -> bool:
+    trip = catch.trip
+    if trip is None:
+        return False
+    if catch.location_lat is None or catch.location_lng is None:
+        return True
+    return (
+        catch.location_lat == trip.location_lat
+        and catch.location_lng == trip.location_lng
+    )
+
+
+def _resolve_general_location_name(catch: CatchEntry) -> Optional[str]:
+    if catch.general_location_name:
+        return catch.general_location_name
+    trip = catch.trip
+    if trip is None:
+        return None
+    if _coordinates_match_trip(catch) and trip.general_location_name:
+        return trip.general_location_name
+    return None
+
+
 def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[str, Any]:
     return {
         "id": species.id,
@@ -80,6 +103,7 @@ def get_species_catch_history(
 
     catch_rows = (
         db.query(CatchEntry)
+        .options(joinedload(CatchEntry.trip))
         .filter(*base_filter)
         .order_by(CatchEntry.date_time.desc())
         .all()
@@ -88,24 +112,34 @@ def get_species_catch_history(
     total_catches = len(catch_rows)
 
     def _catch_item(row: CatchEntry) -> Dict[str, Any]:
-        return {
+        item: Dict[str, Any] = {
             "id": row.id,
             "dateTime": row.date_time,
             "length": row.length,
             "weight": row.weight,
         }
+        general_name = _resolve_general_location_name(row)
+        if general_name:
+            item["generalLocationName"] = general_name
+        return item
 
     catches = [_catch_item(row) for row in catch_rows]
+
+    catch_by_id = {row.id: row for row in catch_rows}
 
     personal_best: Optional[Dict[str, Any]] = None
     pb_row = personal_best_data.get_personal_best_row(db, user_id, species_id)
     if pb_row is not None:
-        personal_best = {
-            "id": pb_row.catch_id,
-            "dateTime": pb_row.caught_at,
-            "length": pb_row.length,
-            "weight": pb_row.weight,
-        }
+        pb_catch = catch_by_id.get(pb_row.catch_id)
+        if pb_catch is not None:
+            personal_best = _catch_item(pb_catch)
+        else:
+            personal_best = {
+                "id": pb_row.catch_id,
+                "dateTime": pb_row.caught_at,
+                "length": pb_row.length,
+                "weight": pb_row.weight,
+            }
 
     most_recent_catch = _catch_item(catch_rows[0]) if catch_rows else None
 
