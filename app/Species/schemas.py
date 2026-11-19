@@ -18,6 +18,7 @@ class Species(BaseModel):
     images: Optional[List[SpeciesImage]] = None
     isFavorite: bool
     kingdom: str
+    group: Optional[str] = None
     avgLength: str
     lengthUnits: Optional[str] = None
     lifespan: str

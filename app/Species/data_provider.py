@@ -85,6 +85,7 @@ def _species_row_to_dict(species: SpeciesRow, favorite_ids: Set[int]) -> Dict[st
         "images": _normalize_species_images(species.images),
         "isFavorite": species.id in favorite_ids,
         "kingdom": species.kingdom,
+        "group": species.group.name if species.group else None,
     }
 
 
@@ -169,7 +170,7 @@ def get_species_catch_history(
 def get_species_by_id(db: Session, species_id: int, user_id: Optional[int] = None):
     row = (
         db.query(SpeciesRow)
-        .options(joinedload(SpeciesRow.regions))
+        .options(joinedload(SpeciesRow.regions), joinedload(SpeciesRow.group))
         .filter(SpeciesRow.id == species_id)
         .first()
     )
@@ -233,7 +234,10 @@ def get_species(
     if favorites_only and not favorite_ids:
         return []
 
-    query = db.query(SpeciesRow).options(joinedload(SpeciesRow.regions))
+    query = db.query(SpeciesRow).options(
+        joinedload(SpeciesRow.regions),
+        joinedload(SpeciesRow.group),
+    )
 
     if kingdom:
         query = query.filter(SpeciesRow.kingdom == kingdom)

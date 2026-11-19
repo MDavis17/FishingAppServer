@@ -9,7 +9,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from app.Auth.database import SessionLocal
 from app.mock_database.mock_db import species_db
-from app.models.db_models import Region, Species
+from app.models.db_models import Region, Species, SpeciesGroup
 from scripts.species_images import load_uploaded_url_map, resolve_species_image_url
 
 REGION_NAMES = ("North Coast", "Central Coast", "South Coast")
@@ -27,6 +27,20 @@ def seed() -> None:
                 db.add(region)
                 db.flush()
             region_by_name[name] = region
+
+        group_by_name: dict[str, SpeciesGroup] = {}
+        for entry in species_db:
+            group_name = entry.get("group")
+            if not group_name or group_name in group_by_name:
+                continue
+            group_row = (
+                db.query(SpeciesGroup).filter(SpeciesGroup.name == group_name).first()
+            )
+            if group_row is None:
+                group_row = SpeciesGroup(name=group_name)
+                db.add(group_row)
+                db.flush()
+            group_by_name[group_name] = group_row
 
         seen_names: set[str] = set()
         for entry in species_db:
@@ -48,6 +62,19 @@ def seed() -> None:
             row.depth_range = entry.get("depthRange") or ""
             row.image = resolve_species_image_url(entry.get("image") or "", url_map)
             row.kingdom = entry.get("kingdom") or "animal"
+
+            group_name = entry.get("group")
+            if group_name:
+                group_row = group_by_name.get(group_name)
+                if group_row is None:
+                    group_row = (
+                        db.query(SpeciesGroup)
+                        .filter(SpeciesGroup.name == group_name)
+                        .first()
+                    )
+                row.group_id = group_row.id if group_row else None
+            else:
+                row.group_id = None
 
             gallery = entry.get("images")
             if gallery:
@@ -71,8 +98,12 @@ def seed() -> None:
                     row.regions.append(region)
 
         db.commit()
-        count = db.query(Species).count()
-        print(f"Seeded {count} species and {len(REGION_NAMES)} regions.")
+        species_count = db.query(Species).count()
+        group_count = db.query(SpeciesGroup).count()
+        print(
+            f"Seeded {species_count} species, {group_count} groups, "
+            f"and {len(REGION_NAMES)} regions."
+        )
     finally:
         db.close()
 
