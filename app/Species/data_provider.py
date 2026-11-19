@@ -205,38 +205,60 @@ def toggle_user_favorite(db: Session, user_id: int, species_id: int) -> bool:
     return True
 
 
-def _filter_kingdom(species_list: list, kingdom: Optional[str]) -> list:
-    if not kingdom:
-        return species_list
-    return [s for s in species_list if s.get("kingdom") == kingdom]
+def _escape_ilike_pattern(value: str) -> str:
+    return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
-def get_species(db: Session, user_id: int, kingdom: Optional[str] = None):
-    favorite_ids = get_user_favorite_species_ids(db, user_id)
+def get_user_caught_species_names(db: Session, user_id: int) -> Set[str]:
     rows = (
-        db.query(SpeciesRow)
-        .options(joinedload(SpeciesRow.regions))
-        .order_by(SpeciesRow.name.asc())
+        db.query(CatchEntry.species)
+        .filter(CatchEntry.user_id == user_id)
+        .distinct()
         .all()
     )
-    non_favorites = [
-        _species_row_to_dict(s, favorite_ids)
-        for s in rows
-        if s.id not in favorite_ids
-    ]
-    return _filter_kingdom(non_favorites, kingdom)
+    return {row[0] for row in rows}
 
 
-def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
+def get_species(
+    db: Session,
+    user_id: int,
+    kingdom: Optional[str] = None,
+    search: Optional[str] = None,
+    caught: Optional[str] = None,
+    favorites_only: bool = False,
+    sort: str = "name_asc",
+):
     favorite_ids = get_user_favorite_species_ids(db, user_id)
-    if not favorite_ids:
+
+    if favorites_only and not favorite_ids:
         return []
-    rows = (
-        db.query(SpeciesRow)
-        .options(joinedload(SpeciesRow.regions))
-        .filter(SpeciesRow.id.in_(favorite_ids))
-        .order_by(SpeciesRow.name.asc())
-        .all()
-    )
-    favorites = [_species_row_to_dict(s, favorite_ids) for s in rows]
-    return _filter_kingdom(favorites, kingdom)
+
+    query = db.query(SpeciesRow).options(joinedload(SpeciesRow.regions))
+
+    if kingdom:
+        query = query.filter(SpeciesRow.kingdom == kingdom)
+
+    if search and search.strip():
+        pattern = f"%{_escape_ilike_pattern(search.strip())}%"
+        query = query.filter(SpeciesRow.name.ilike(pattern, escape="\\"))
+
+    if favorites_only:
+        query = query.filter(SpeciesRow.id.in_(favorite_ids))
+
+    if caught == "caught":
+        caught_names = get_user_caught_species_names(db, user_id)
+        if not caught_names:
+            return []
+        query = query.filter(SpeciesRow.name.in_(caught_names))
+    elif caught == "uncaught":
+        caught_names = get_user_caught_species_names(db, user_id)
+        if caught_names:
+            query = query.filter(~SpeciesRow.name.in_(caught_names))
+
+    if sort == "name_desc":
+        query = query.order_by(SpeciesRow.name.desc())
+    else:
+        query = query.order_by(SpeciesRow.name.asc())
+
+    rows = query.all()
+    return [_species_row_to_dict(s, favorite_ids) for s in rows]
