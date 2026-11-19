@@ -25,7 +25,6 @@ class Species(BaseModel):
 
 class SpeciesListResponse(BaseModel):
     species: List[Species]
-    favoriteSpecies: List[Species]
 
 
 class SpeciesCatchHistoryItem(BaseModel):

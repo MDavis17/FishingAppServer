@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 import app.Species.service as service
@@ -20,12 +20,27 @@ router = APIRouter()
 @router.get("/", response_model=SpeciesListResponse)
 def get_species(
     kingdom: Optional[str] = None,
+    search: Optional[str] = None,
+    caught: Optional[str] = None,
+    favorites_only: bool = Query(False, alias="favoritesOnly"),
+    sort: str = "name_asc",
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    all_species = service.get_species(db, current_user.id, kingdom=kingdom)
-    favorite_species = service.get_favorite_species(db, current_user.id, kingdom=kingdom)
-    return {"species": all_species, "favoriteSpecies": favorite_species}
+    if caught is not None and caught not in ("caught", "uncaught"):
+        raise HTTPException(status_code=422, detail="caught must be 'caught' or 'uncaught'")
+    if sort not in ("name_asc", "name_desc"):
+        raise HTTPException(status_code=422, detail="sort must be 'name_asc' or 'name_desc'")
+    species = service.get_species(
+        db,
+        current_user.id,
+        kingdom=kingdom,
+        search=search,
+        caught=caught,
+        favorites_only=favorites_only,
+        sort=sort,
+    )
+    return {"species": species}
 
 
 @router.get("/{species_id}/catch-history", response_model=SpeciesCatchHistory)
