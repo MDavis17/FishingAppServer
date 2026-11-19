@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
@@ -17,11 +17,19 @@ from app.Species.schemas import (
 router = APIRouter()
 
 
+def _parse_groups_param(groups: Optional[str]) -> Optional[List[str]]:
+    if groups is None:
+        return None
+    names = [part.strip().lower() for part in groups.split(",") if part.strip()]
+    return names
+
+
 @router.get("/", response_model=SpeciesListResponse)
 def get_species(
     kingdom: Optional[str] = None,
     search: Optional[str] = None,
     caught: Optional[str] = None,
+    groups: Optional[str] = None,
     favorites_only: bool = Query(False, alias="favoritesOnly"),
     sort: str = "name_asc",
     current_user: User = Depends(get_current_user),
@@ -37,6 +45,7 @@ def get_species(
         kingdom=kingdom,
         search=search,
         caught=caught,
+        groups=_parse_groups_param(groups),
         favorites_only=favorites_only,
         sort=sort,
     )
