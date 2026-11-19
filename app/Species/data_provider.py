@@ -7,6 +7,7 @@ import app.PersonalBests.data_provider as personal_best_data
 from app.Auth.models import UserFavorite
 from app.models.db_models import CatchEntry
 from app.models.db_models import Species as SpeciesRow
+from app.models.db_models import SpeciesGroup
 
 _MONTH_LABELS = (
     "Jan",
@@ -228,6 +229,7 @@ def get_species(
     caught: Optional[str] = None,
     favorites_only: bool = False,
     sort: str = "name_asc",
+    groups: Optional[List[str]] = None,
 ):
     favorite_ids = get_user_favorite_species_ids(db, user_id)
 
@@ -258,6 +260,13 @@ def get_species(
         caught_names = get_user_caught_species_names(db, user_id)
         if caught_names:
             query = query.filter(~SpeciesRow.name.in_(caught_names))
+
+    if groups is not None:
+        if not groups:
+            return []
+        query = query.join(SpeciesGroup, SpeciesRow.group_id == SpeciesGroup.id).filter(
+            SpeciesGroup.name.in_(groups)
+        )
 
     if sort == "name_desc":
         query = query.order_by(SpeciesRow.name.desc())
