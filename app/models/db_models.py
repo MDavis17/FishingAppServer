@@ -50,6 +50,15 @@ class Region(Base):
     )
 
 
+class SpeciesGroup(Base):
+    __tablename__ = "species_groups"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, unique=True, nullable=False, index=True)
+
+    species = relationship("Species", back_populates="group")
+
+
 class Species(Base):
     __tablename__ = "species"
 
@@ -63,7 +72,9 @@ class Species(Base):
     image = Column(String, nullable=False, default="")
     images = Column(JSON, nullable=True)
     kingdom = Column(String, nullable=False, default="animal", index=True)
+    group_id = Column(Integer, ForeignKey("species_groups.id"), nullable=True, index=True)
 
+    group = relationship("SpeciesGroup", back_populates="species")
     regions = relationship(
         "Region",
         secondary=species_regions,
