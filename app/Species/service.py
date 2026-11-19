@@ -1,6 +1,6 @@
 import re
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 from sqlalchemy.orm import Session
 
@@ -38,6 +38,7 @@ def get_species(
     caught: Optional[str] = None,
     favorites_only: bool = False,
     sort: str = "name_asc",
+    groups: Optional[List[str]] = None,
 ):
     return data_provider.get_species(
         db,
@@ -47,6 +48,7 @@ def get_species(
         caught=caught,
         favorites_only=favorites_only,
         sort=sort,
+        groups=groups,
     )
 
 
