@@ -30,8 +30,24 @@ def get_species_range(db: Session, species_id: int) -> RangeData:
     return range_data
 
 
-def get_species(db: Session, user_id: int, kingdom: Optional[str] = None):
-    return data_provider.get_species(db, user_id, kingdom=kingdom)
+def get_species(
+    db: Session,
+    user_id: int,
+    kingdom: Optional[str] = None,
+    search: Optional[str] = None,
+    caught: Optional[str] = None,
+    favorites_only: bool = False,
+    sort: str = "name_asc",
+):
+    return data_provider.get_species(
+        db,
+        user_id,
+        kingdom=kingdom,
+        search=search,
+        caught=caught,
+        favorites_only=favorites_only,
+        sort=sort,
+    )
 
 
 def get_species_by_id(db: Session, species_id: int):
@@ -40,10 +56,6 @@ def get_species_by_id(db: Session, species_id: int):
 
 def get_species_catch_history(db: Session, species_id: int, user_id: int):
     return data_provider.get_species_catch_history(db, species_id, user_id)
-
-
-def get_favorite_species(db: Session, user_id: int, kingdom: Optional[str] = None):
-    return data_provider.get_favorite_species(db, user_id, kingdom=kingdom)
 
 
 def toggle_species_favorite(species_id: int, user_id: int, db: Session):
