@@ -87,6 +87,41 @@ class Species(Base):
     )
 
 
+_trip_type_column = SAEnum(
+    TripType,
+    name="trip_type",
+    values_callable=lambda e: [m.value for m in e],
+)
+
+
+class SavedLocation(Base):
+    __tablename__ = "saved_locations"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    location_lat = Column(Float, nullable=False)
+    location_lng = Column(Float, nullable=False)
+    location_name = Column(String, nullable=False)
+    general_location_name = Column(String, nullable=True)
+    did_catch_fish_here = Column(Boolean, nullable=False, default=False)
+    notes = Column(String(800), nullable=True)
+    trip_type = Column(_trip_type_column, nullable=True)
+    last_fished_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    trips = relationship(
+        "Trip",
+        back_populates="saved_location",
+        passive_deletes=True,
+    )
+
+
 class Trip(Base):
     __tablename__ = "trips"
 
@@ -96,13 +131,15 @@ class Trip(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     status = Column(String, nullable=False, default="Planned")
     trip_type = Column(
-        SAEnum(
-            TripType,
-            name="trip_type",
-            values_callable=lambda e: [m.value for m in e],
-        ),
+        _trip_type_column,
         nullable=False,
         default=TripType.Surf,
+    )
+    location_id = Column(
+        Integer,
+        ForeignKey("saved_locations.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
     )
     location_name = Column(String, nullable=False, default="")
     location_lat = Column(Float, nullable=False)
@@ -119,6 +156,11 @@ class Trip(Base):
         "Species",
         secondary=trip_target_species,
         back_populates="targeted_trips",
+    )
+    saved_location = relationship(
+        "SavedLocation",
+        back_populates="trips",
+        passive_deletes=True,
     )
 
 
