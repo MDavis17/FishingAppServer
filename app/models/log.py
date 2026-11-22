@@ -73,6 +73,7 @@ class SavedLocationCreate(BaseModel):
     didCatchFishHere: bool = False
     notes: Optional[str] = None
     tripType: Optional[TripType] = None
+    tripId: Optional[int] = None
 
 
 class SavedLocation(BaseModel):
