@@ -59,6 +59,7 @@ class Trip(BaseModel):
     tripType: TripType
     targetSpecies: List[Species] = []
     notes: Optional[str] = None
+    savedLocationId: Optional[int] = None
 
 
 class TripNotesUpdate(BaseModel):
