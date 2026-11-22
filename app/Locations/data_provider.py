@@ -3,7 +3,19 @@ from typing import Optional
 from sqlalchemy.orm import Session
 
 from app.models.db_models import SavedLocation as SavedLocationRow
+from app.models.db_models import Trip as TripRow
 from app.models.log import LatLong, Location, SavedLocation, SavedLocationCreate, TripType
+
+COORD_MATCH_EPSILON = 0.00001
+
+
+def _coordinates_match(
+    lat_a: float, lng_a: float, lat_b: float, lng_b: float
+) -> bool:
+    return (
+        abs(lat_a - lat_b) < COORD_MATCH_EPSILON
+        and abs(lng_a - lng_b) < COORD_MATCH_EPSILON
+    )
 
 
 def _trip_type_value(trip_type) -> Optional[TripType]:
@@ -44,6 +56,47 @@ def _apply_create_fields(row: SavedLocationRow, payload: SavedLocationCreate) ->
         row.trip_type = payload.tripType.value
 
 
+def _link_trips(
+    db: Session,
+    user_id: int,
+    saved_location_id: int,
+    saved_lat: float,
+    saved_lng: float,
+    trip_id: Optional[int],
+) -> None:
+    trips = db.query(TripRow).filter(TripRow.user_id == user_id).all()
+    for trip in trips:
+        if trip.id == trip_id or _coordinates_match(
+            trip.location_lat, trip.location_lng, saved_lat, saved_lng
+        ):
+            trip.location_id = saved_location_id
+    db.flush()
+
+
+def _unlink_trips(
+    db: Session,
+    user_id: int,
+    saved_ids: set[int],
+    targets: list[tuple[float, float]],
+    trip_id: Optional[int],
+) -> None:
+    trips = db.query(TripRow).filter(TripRow.user_id == user_id).all()
+    for trip in trips:
+        should_unlink = False
+        if trip_id is not None and trip.id == trip_id:
+            should_unlink = True
+        elif trip.location_id is not None and trip.location_id in saved_ids:
+            should_unlink = True
+        elif any(
+            _coordinates_match(trip.location_lat, trip.location_lng, lat, lng)
+            for lat, lng in targets
+        ):
+            should_unlink = True
+        if should_unlink:
+            trip.location_id = None
+    db.flush()
+
+
 def get_saved_locations(db: Session, user_id: int) -> list[SavedLocation]:
     rows = (
         db.query(SavedLocationRow)
@@ -60,22 +113,56 @@ def create_saved_location(
     row = SavedLocationRow(user_id=user_id)
     _apply_create_fields(row, payload)
     db.add(row)
+    db.flush()
+    _link_trips(
+        db,
+        user_id,
+        row.id,
+        row.location_lat,
+        row.location_lng,
+        payload.tripId,
+    )
     db.commit()
     db.refresh(row)
     return _row_to_schema(row)
 
 
-def delete_saved_location(db: Session, location_id: int, user_id: int) -> bool:
-    row = (
+def delete_saved_location(
+    db: Session,
+    location_id: int,
+    user_id: int,
+    latitude: Optional[float] = None,
+    longitude: Optional[float] = None,
+    trip_id: Optional[int] = None,
+) -> bool:
+    rows = (
         db.query(SavedLocationRow)
-        .filter(
-            SavedLocationRow.id == location_id,
-            SavedLocationRow.user_id == user_id,
-        )
-        .first()
+        .filter(SavedLocationRow.user_id == user_id)
+        .all()
     )
-    if row is None:
+    targets: list[tuple[float, float]] = []
+    if latitude is not None and longitude is not None:
+        targets.append((latitude, longitude))
+
+    anchor = next((row for row in rows if row.id == location_id), None)
+    if anchor is not None:
+        targets.append((anchor.location_lat, anchor.location_lng))
+
+    to_delete = [
+        row
+        for row in rows
+        if row.id == location_id
+        or any(
+            _coordinates_match(row.location_lat, row.location_lng, lat, lng)
+            for lat, lng in targets
+        )
+    ]
+    if not to_delete and trip_id is None:
         return False
-    db.delete(row)
+
+    saved_ids = {row.id for row in to_delete}
+    _unlink_trips(db, user_id, saved_ids, targets, trip_id)
+    for row in to_delete:
+        db.delete(row)
     db.commit()
     return True
