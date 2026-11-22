@@ -42,3 +42,15 @@ def save_location(
         "message": "Location saved",
         "location": saved.model_dump(mode="json"),
     }
+
+
+@router.delete("/{location_id}")
+def delete_saved_location(
+    location_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    status = service.delete_saved_location(db, location_id, current_user.id)
+    if not status:
+        raise HTTPException(status_code=404, detail="Location not found")
+    return {"message": "Location deleted"}
