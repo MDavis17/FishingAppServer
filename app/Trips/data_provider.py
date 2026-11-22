@@ -4,13 +4,57 @@ from sqlalchemy.orm import Session, joinedload
 
 import app.PersonalBests.service as personal_best_service
 from app.models.db_models import CatchEntry as CatchRow
+from app.models.db_models import SavedLocation as SavedLocationRow
 from app.models.db_models import Species as SpeciesRow
 from app.models.db_models import Trip as TripRow
 from app.models.log import Catch, LatLong, Location, Species, Trip, TripStatus, TripType
 
+COORD_MATCH_EPSILON = 0.00001
 
-def _trip_row_to_schema(row: TripRow) -> Trip:
-    return Trip(
+
+def _coordinates_match(
+    lat_a: float, lng_a: float, lat_b: float, lng_b: float
+) -> bool:
+    return (
+        abs(lat_a - lat_b) < COORD_MATCH_EPSILON
+        and abs(lng_a - lng_b) < COORD_MATCH_EPSILON
+    )
+
+
+def _user_saved_location_coords(
+    db: Session, user_id: int
+) -> List[tuple[int, float, float]]:
+    rows = (
+        db.query(
+            SavedLocationRow.id,
+            SavedLocationRow.location_lat,
+            SavedLocationRow.location_lng,
+        )
+        .filter(SavedLocationRow.user_id == user_id)
+        .all()
+    )
+    return [(row.id, row.location_lat, row.location_lng) for row in rows]
+
+
+def _resolve_saved_location_id(
+    row: TripRow, saved: List[tuple[int, float, float]]
+) -> Optional[int]:
+    if not saved:
+        return None
+    saved_ids = {item[0] for item in saved}
+    if row.location_id is not None and row.location_id in saved_ids:
+        return row.location_id
+    for saved_id, lat, lng in saved:
+        if _coordinates_match(row.location_lat, row.location_lng, lat, lng):
+            return saved_id
+    return None
+
+
+def _trip_row_to_schema(
+    row: TripRow,
+    saved_locations: Optional[List[tuple[int, float, float]]] = None,
+) -> Trip:
+    trip = Trip(
         id=row.id,
         user_id=row.user_id,
         date=row.date,
@@ -30,6 +74,13 @@ def _trip_row_to_schema(row: TripRow) -> Trip:
         ],
         notes=row.notes,
     )
+    if saved_locations is not None:
+        return trip.model_copy(
+            update={
+                "savedLocationId": _resolve_saved_location_id(row, saved_locations),
+            }
+        )
+    return trip
 
 
 def _catch_row_to_schema(row: CatchRow) -> Catch:
@@ -86,16 +137,18 @@ def _resolve_target_species(db: Session, trip: Trip) -> List[SpeciesRow]:
 
 
 def get_trips(db: Session, user_id: int):
+    saved = _user_saved_location_coords(db, user_id)
     rows = (
         db.query(TripRow)
         .options(joinedload(TripRow.target_species))
         .filter(TripRow.user_id == user_id)
         .all()
     )
-    return [_trip_row_to_schema(row) for row in rows]
+    return [_trip_row_to_schema(row, saved) for row in rows]
 
 
 def get_upcoming_trip(db: Session, user_id: int):
+    saved = _user_saved_location_coords(db, user_id)
     rows = (
         db.query(TripRow)
         .options(joinedload(TripRow.target_species))
@@ -105,10 +158,11 @@ def get_upcoming_trip(db: Session, user_id: int):
     )
     if not rows:
         return None
-    return _trip_row_to_schema(rows[0])
+    return _trip_row_to_schema(rows[0], saved)
 
 
 def get_most_recent_trip(db: Session, user_id: int):
+    saved = _user_saved_location_coords(db, user_id)
     rows = (
         db.query(TripRow)
         .options(joinedload(TripRow.target_species))
@@ -118,7 +172,7 @@ def get_most_recent_trip(db: Session, user_id: int):
     )
     if not rows:
         return None
-    return _trip_row_to_schema(rows[0])
+    return _trip_row_to_schema(rows[0], saved)
 
 
 def get_species_images_by_name(
