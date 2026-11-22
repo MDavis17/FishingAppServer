@@ -63,3 +63,19 @@ def create_saved_location(
     db.commit()
     db.refresh(row)
     return _row_to_schema(row)
+
+
+def delete_saved_location(db: Session, location_id: int, user_id: int) -> bool:
+    row = (
+        db.query(SavedLocationRow)
+        .filter(
+            SavedLocationRow.id == location_id,
+            SavedLocationRow.user_id == user_id,
+        )
+        .first()
+    )
+    if row is None:
+        return False
+    db.delete(row)
+    db.commit()
+    return True

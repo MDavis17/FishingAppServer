@@ -19,3 +19,7 @@ def create_saved_location(
         update={"location": location},
     )
     return data_provider.create_saved_location(db, payload, user_id)
+
+
+def delete_saved_location(db: Session, location_id: int, user_id: int) -> bool:
+    return data_provider.delete_saved_location(db, location_id, user_id)
