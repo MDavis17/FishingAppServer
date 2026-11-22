@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 import app.Locations.service as service
@@ -47,10 +47,20 @@ def save_location(
 @router.delete("/{location_id}")
 def delete_saved_location(
     location_id: int,
+    latitude: float | None = None,
+    longitude: float | None = None,
+    trip_id: int | None = Query(None, alias="tripId"),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    status = service.delete_saved_location(db, location_id, current_user.id)
+    status = service.delete_saved_location(
+        db,
+        location_id,
+        current_user.id,
+        latitude,
+        longitude,
+        trip_id,
+    )
     if not status:
         raise HTTPException(status_code=404, detail="Location not found")
     return {"message": "Location deleted"}

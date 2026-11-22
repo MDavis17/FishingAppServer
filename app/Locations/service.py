@@ -21,5 +21,14 @@ def create_saved_location(
     return data_provider.create_saved_location(db, payload, user_id)
 
 
-def delete_saved_location(db: Session, location_id: int, user_id: int) -> bool:
-    return data_provider.delete_saved_location(db, location_id, user_id)
+def delete_saved_location(
+    db: Session,
+    location_id: int,
+    user_id: int,
+    latitude: float | None = None,
+    longitude: float | None = None,
+    trip_id: int | None = None,
+) -> bool:
+    return data_provider.delete_saved_location(
+        db, location_id, user_id, latitude, longitude, trip_id
+    )
