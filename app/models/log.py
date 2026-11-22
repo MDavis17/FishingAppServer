@@ -65,6 +65,28 @@ class TripNotesUpdate(BaseModel):
     notes: Optional[str] = None
 
 
+class SavedLocationCreate(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    location: Location
+    didCatchFishHere: bool = False
+    notes: Optional[str] = None
+    tripType: Optional[TripType] = None
+
+
+class SavedLocation(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: int
+    location: Location
+    didCatchFishHere: bool
+    notes: Optional[str] = None
+    tripType: Optional[TripType] = None
+    lastFishedAt: Optional[datetime] = None
+    createdAt: datetime
+    updatedAt: datetime
+
+
 class CatchStat(BaseModel):
     type: str
     value: int | float | bool
