@@ -111,6 +111,15 @@ def classify_trip_conditions_mode(
     return "forecast"
 
 
+def days_until_forecast_window(dt: datetime) -> int:
+    """Calendar days until a trip time enters the forecast window. At least 1."""
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    opens = (dt.astimezone(_LA) - timedelta(days=_FORECAST_MAX_DAYS)).date()
+    today = datetime.now(_LA).date()
+    return max((opens - today).days, 1)
+
+
 def _trip_is_recent_observed(trip_dt: datetime) -> bool:
     if trip_dt.tzinfo is None:
         trip_dt = trip_dt.replace(tzinfo=timezone.utc)
