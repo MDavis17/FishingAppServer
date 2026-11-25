@@ -151,6 +151,36 @@ def recompute_personal_best_for_user_species(
     db.commit()
 
 
+def recompute_historical_catch_pb_flags_for_user_species(
+    db: Session, user_id: int, species_name: str
+) -> None:
+    known_species = species_id_for_name(db, species_name) is not None
+
+    rows = (
+        db.query(CatchEntry)
+        .filter(
+            CatchEntry.user_id == user_id,
+            CatchEntry.species == species_name,
+        )
+        .order_by(CatchEntry.date_time.asc(), CatchEntry.id.asc())
+        .all()
+    )
+
+    for row in rows:
+        row.is_catch_pb = False
+
+    if known_species:
+        max_length_so_far: Optional[float] = None
+        for row in rows:
+            if row.length is None:
+                continue
+            if max_length_so_far is None or row.length > max_length_so_far:
+                row.is_catch_pb = True
+                max_length_so_far = row.length
+
+    db.commit()
+
+
 def species_pairs_for_deleted_pb_catches(
     db: Session, user_id: int, catch_ids: List[int]
 ) -> List[Tuple[int, str]]:
