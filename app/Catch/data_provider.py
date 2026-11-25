@@ -12,6 +12,7 @@ def delete_catch(db: Session, catch_id: int, user_id: int):
     )
     if row is None:
         return False
+    species_name = row.species
     species_pairs = personal_best_service.species_pairs_for_deleted_pb_catches(
         db, user_id, [catch_id]
     )
@@ -19,5 +20,8 @@ def delete_catch(db: Session, catch_id: int, user_id: int):
     db.commit()
     personal_best_service.recompute_after_catch_deletes(
         db, user_id, [catch_id], species_pairs
+    )
+    personal_best_service.recompute_historical_pb_flags_for_species(
+        db, user_id, species_name
     )
     return True

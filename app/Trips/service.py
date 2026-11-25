@@ -4,7 +4,6 @@ from typing import List, Optional
 
 from sqlalchemy.orm import Session
 
-import app.PersonalBests.data_provider as personal_best_data
 import app.Trips.data_provider as data_provider
 from app.Trips.general_location import ensure_general_location_name
 from app.models.log import (
@@ -31,16 +30,26 @@ def _infer_trip_status(trip_date: datetime) -> TripStatus:
     return TripStatus.Completed if trip_dt < now else TripStatus.Planned
 
 
+def _personal_best_count(catch_list: List[Catch]) -> int:
+    return sum(1 for catch in catch_list if catch.isCatchPB)
+
+
+def _trip_with_catch_fields(
+    trip: Trip, catch_list: List[Catch]
+) -> dict:
+    trip_with_catches = trip.model_dump()
+    trip_with_catches["catchList"] = catch_list
+    trip_with_catches["catchSummary"] = get_catch_summary(catch_list)
+    trip_with_catches["personalBestCount"] = _personal_best_count(catch_list)
+    return trip_with_catches
+
+
 def get_trips(db: Session, user_id: int):
     trips = data_provider.get_trips(db, user_id)
     trips_with_catches = []
     for trip in trips:
         catch_list = data_provider.get_catch_list(db, trip.id, user_id) or []
-        catch_summary = get_catch_summary(catch_list)
-        trip_with_catches = trip.model_dump()
-        trip_with_catches["catchList"] = catch_list
-        trip_with_catches["catchSummary"] = catch_summary
-        trips_with_catches.append(trip_with_catches)
+        trips_with_catches.append(_trip_with_catch_fields(trip, catch_list))
     return trips_with_catches
 
 
@@ -50,11 +59,7 @@ def get_upcoming_trip(db: Session, user_id: int):
         return None
 
     catch_list = data_provider.get_catch_list(db, upcoming_trip.id, user_id) or []
-    catch_summary = get_catch_summary(catch_list)
-    upcoming_trip_with_catches = upcoming_trip.model_dump()
-    upcoming_trip_with_catches["catchList"] = catch_list
-    upcoming_trip_with_catches["catchSummary"] = catch_summary
-    return upcoming_trip_with_catches
+    return _trip_with_catch_fields(upcoming_trip, catch_list)
 
 
 def get_most_recent_trip(db: Session, user_id: int):
@@ -63,11 +68,7 @@ def get_most_recent_trip(db: Session, user_id: int):
         return None
 
     catch_list = data_provider.get_catch_list(db, most_recent_trip.id, user_id) or []
-    catch_summary = get_catch_summary(catch_list)
-    most_recent_trip_with_catches = most_recent_trip.model_dump()
-    most_recent_trip_with_catches["catchList"] = catch_list
-    most_recent_trip_with_catches["catchSummary"] = catch_summary
-    return most_recent_trip_with_catches
+    return _trip_with_catch_fields(most_recent_trip, catch_list)
 
 
 def get_catch_summary(catchList: List[Catch]) -> str:
@@ -104,9 +105,6 @@ def _assemble_trip_catch_list(
 ) -> TripCatchListResponse:
     species_names = list({c.species for c in catch_list})
     image_by_name = data_provider.get_species_images_by_name(db, species_names)
-    pb_catch_by_species = personal_best_data.pb_catch_ids_for_species_names(
-        db, user_id, species_names
-    )
 
     grouped: dict[str, list[Catch]] = defaultdict(list)
     for catch in catch_list:
@@ -119,21 +117,18 @@ def _assemble_trip_catch_list(
         catches_sorted = sorted(catches, key=lambda c: c.dateTime)
         lengths = [c.length for c in catches_sorted if c.length is not None]
         largest = max(lengths) if lengths else None
-        pb_catch_id = pb_catch_by_species.get(species)
         individual = [
             IndividualCatch(
                 id=catch.id or 0,
                 time=_format_catch_time(catch.dateTime),
                 length=catch.length,
                 bait=catch.bait,
-                isPersonalBest=pb_catch_id is not None and catch.id == pb_catch_id,
+                isPersonalBest=catch.isCatchPB,
             )
             for catch in catches_sorted
             if catch.id is not None
         ]
-        includes_pb = pb_catch_id is not None and any(
-            c.isPersonalBest for c in individual
-        )
+        includes_pb = any(c.isPersonalBest for c in individual)
         species_groups.append(
             SpeciesGroup(
                 species=species,

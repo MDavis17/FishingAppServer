@@ -201,6 +201,7 @@ class CatchEntry(Base):
     general_location_name = Column(String, nullable=True)
     weight = Column(Float, nullable=True)
     length = Column(Float, nullable=True)
+    is_catch_pb = Column(Boolean, default=False, nullable=False)
 
     trip = relationship("Trip", back_populates="catches")
 
