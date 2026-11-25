@@ -13,11 +13,11 @@ router = APIRouter()
 
 
 @router.get("/")
-def get_trips(
+async def get_trips(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    return service.get_trips(db, current_user.id)
+    return await service.get_trips(db, current_user.id)
 
 
 @router.post("/")
