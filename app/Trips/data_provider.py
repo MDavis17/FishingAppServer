@@ -111,6 +111,7 @@ def _catch_row_to_schema(row: CatchRow) -> Catch:
         bait=row.bait,
         location=location,
         length=row.length,
+        isCatchPB=bool(row.is_catch_pb),
     )
 
 
@@ -226,12 +227,13 @@ def delete_trip(db: Session, trip_id: int, user_id: int):
 
 
 def delete_catches_for_trip(db: Session, trip_id: int, user_id: int):
-    catch_ids = [
-        row[0]
-        for row in db.query(CatchRow.id)
+    catch_rows = (
+        db.query(CatchRow.id, CatchRow.species)
         .filter(CatchRow.trip_id == trip_id, CatchRow.user_id == user_id)
         .all()
-    ]
+    )
+    catch_ids = [row[0] for row in catch_rows]
+    species_names = [row[1] for row in catch_rows]
     species_pairs = personal_best_service.species_pairs_for_deleted_pb_catches(
         db, user_id, catch_ids
     )
@@ -242,6 +244,9 @@ def delete_catches_for_trip(db: Session, trip_id: int, user_id: int):
     db.commit()
     personal_best_service.recompute_after_catch_deletes(
         db, user_id, catch_ids, species_pairs
+    )
+    personal_best_service.recompute_historical_pb_flags_for_species_list(
+        db, user_id, species_names
     )
     return True
 
@@ -301,6 +306,10 @@ def add_catch(db: Session, trip_id: int, catch: Catch, user_id: int):
     db.commit()
     db.refresh(row)
     personal_best_service.record_catch_for_personal_best(db, row)
+    personal_best_service.recompute_historical_pb_flags_for_species(
+        db, user_id, row.species
+    )
+    db.refresh(row)
     return _catch_row_to_schema(row)
 
 

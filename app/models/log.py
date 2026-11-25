@@ -46,6 +46,7 @@ class Catch(BaseModel):
     bait: Optional[str] = None
     location: Optional[Location] = None
     length: Optional[float] = None
+    isCatchPB: bool = False
 
 class Trip(BaseModel):
     model_config = ConfigDict(extra="ignore")

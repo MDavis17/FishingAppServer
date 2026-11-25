@@ -55,3 +55,33 @@ def species_pairs_for_deleted_pb_catches(
     return data_provider.species_pairs_for_deleted_pb_catches(
         db, user_id, catch_ids
     )
+
+
+def recompute_historical_pb_flags_for_species(
+    db: Session, user_id: int, species_name: str
+) -> None:
+    try:
+        data_provider.recompute_historical_catch_pb_flags_for_user_species(
+            db, user_id, species_name
+        )
+    except Exception:
+        logger.exception(
+            "Failed to recompute historical PB flags for user=%s species=%s",
+            user_id,
+            species_name,
+        )
+        try:
+            db.rollback()
+        except Exception:
+            pass
+
+
+def recompute_historical_pb_flags_for_species_list(
+    db: Session, user_id: int, species_names: List[str]
+) -> None:
+    seen: set[str] = set()
+    for name in species_names:
+        if not name or name in seen:
+            continue
+        seen.add(name)
+        recompute_historical_pb_flags_for_species(db, user_id, name)
