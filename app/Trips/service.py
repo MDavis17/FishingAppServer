@@ -1,3 +1,5 @@
+import asyncio
+import logging
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from typing import List, Optional
@@ -5,6 +7,7 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 
 import app.Trips.data_provider as data_provider
+from app.MarineData.service import classify_trip_conditions_mode, get_trip_conditions
 from app.Trips.general_location import ensure_general_location_name
 from app.models.log import (
     Catch,
@@ -16,6 +19,8 @@ from app.models.log import (
     TripCatchListResponse,
     TripStatus,
 )
+
+logger = logging.getLogger(__name__)
 
 
 def _ensure_utc(dt: datetime) -> datetime:
@@ -44,12 +49,86 @@ def _trip_with_catch_fields(
     return trip_with_catches
 
 
-def get_trips(db: Session, user_id: int):
+def _weather_preview_outside_window() -> dict:
+    return {
+        "status": "outside_window",
+        "airTempF": None,
+        "weatherDescription": None,
+    }
+
+
+def _weather_preview_unavailable() -> dict:
+    return {
+        "status": "unavailable",
+        "airTempF": None,
+        "weatherDescription": None,
+    }
+
+
+def _weather_preview_ready(
+    air_temp_f: Optional[float], weather_description: Optional[str]
+) -> dict:
+    return {
+        "status": "ready",
+        "airTempF": air_temp_f,
+        "weatherDescription": weather_description,
+    }
+
+
+async def _fetch_weather_preview(db: Session, trip: Trip) -> dict:
+    lat = trip.location.coordinates.latitude
+    lon = trip.location.coordinates.longitude
+    try:
+        conditions = await get_trip_conditions(lat, lon, trip.date, db)
+        return _weather_preview_ready(
+            conditions.air_temp_f,
+            conditions.weather_description,
+        )
+    except Exception:
+        logger.exception("Failed to fetch weather preview for trip %s", trip.id)
+        return _weather_preview_unavailable()
+
+
+async def get_trips(db: Session, user_id: int):
     trips = data_provider.get_trips(db, user_id)
-    trips_with_catches = []
+    trips_with_catches: List[dict] = []
+    forecast_coros: List = []
+    forecast_indices: List[int] = []
+    observed_pending: List[tuple[int, Trip]] = []
+
     for trip in trips:
         catch_list = data_provider.get_catch_list(db, trip.id, user_id) or []
-        trips_with_catches.append(_trip_with_catch_fields(trip, catch_list))
+        trip_dict = _trip_with_catch_fields(trip, catch_list)
+
+        if trip.status != TripStatus.Planned:
+            trip_dict["weatherPreview"] = None
+            trips_with_catches.append(trip_dict)
+            continue
+
+        mode = classify_trip_conditions_mode(trip.date)
+        if mode == "too_far":
+            trip_dict["weatherPreview"] = _weather_preview_outside_window()
+            trips_with_catches.append(trip_dict)
+            continue
+
+        index = len(trips_with_catches)
+        trips_with_catches.append(trip_dict)
+        if mode == "forecast":
+            forecast_indices.append(index)
+            forecast_coros.append(_fetch_weather_preview(db, trip))
+        else:
+            observed_pending.append((index, trip))
+
+    if forecast_coros:
+        previews = await asyncio.gather(*forecast_coros)
+        for index, preview in zip(forecast_indices, previews):
+            trips_with_catches[index]["weatherPreview"] = preview
+
+    for index, trip in observed_pending:
+        trips_with_catches[index]["weatherPreview"] = await _fetch_weather_preview(
+            db, trip
+        )
+
     return trips_with_catches
 
 
