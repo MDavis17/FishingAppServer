@@ -7,7 +7,11 @@ from typing import List, Optional
 from sqlalchemy.orm import Session
 
 import app.Trips.data_provider as data_provider
-from app.MarineData.service import classify_trip_conditions_mode, get_trip_conditions
+from app.MarineData.service import (
+    classify_trip_conditions_mode,
+    days_until_forecast_window,
+    get_trip_conditions,
+)
 from app.Trips.general_location import ensure_general_location_name
 from app.models.log import (
     Catch,
@@ -49,11 +53,12 @@ def _trip_with_catch_fields(
     return trip_with_catches
 
 
-def _weather_preview_outside_window() -> dict:
+def _weather_preview_outside_window(days_until_forecast: int) -> dict:
     return {
         "status": "outside_window",
         "airTempF": None,
         "weatherDescription": None,
+        "daysUntilForecast": days_until_forecast,
     }
 
 
@@ -107,7 +112,9 @@ async def get_trips(db: Session, user_id: int):
 
         mode = classify_trip_conditions_mode(trip.date)
         if mode == "too_far":
-            trip_dict["weatherPreview"] = _weather_preview_outside_window()
+            trip_dict["weatherPreview"] = _weather_preview_outside_window(
+                days_until_forecast_window(trip.date)
+            )
             trips_with_catches.append(trip_dict)
             continue
 
